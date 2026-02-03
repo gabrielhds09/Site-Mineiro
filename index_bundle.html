@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280">
     <title>Auto Escola Mineiro | Leveza e Liberdade para Dirigir em Embu</title>
 
     <!-- Fonts -->
@@ -888,77 +888,7 @@ img {
     }
 }
 
-@media (max-width: 768px) {
-    /* --- Desktop Parity Mobile (Minimal Overrides) --- */
 
-    /* Container: Slightly more padding for touch */
-    .container {
-        width: 92%;
-    }
-
-    /* Navigation: Mobile toggle */
-    .nav-desktop {
-        display: none;
-    }
-
-    .mobile-toggle {
-        display: block;
-    }
-
-    /* Hero: Flexible 2-column that adapts naturally */
-    .hero-section .grid-2 {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-    }
-
-    /* Buttons: Stack for touch targets */
-    .hero-btns {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .hero-btns .btn {
-        width: 100%;
-    }
-
-    /* Grid-2: Flexible layout maintains 2-col when possible */
-    .grid-2 {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    /* Stats: Flexible grid */
-    .stats-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 15px;
-    }
-
-    /* Features: Flexible 2+ columns */
-    .features-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    }
-
-    /* Services & Gallery: Natural wrapping */
-    .services-grid,
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    /* Timeline: Compact */
-    .timeline-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-    }
-
-    .timeline-line {
-        left: 19px;
-    }
-
-    /* Sobre: Flexible grid */
-    #sobre .grid-2 {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-}
 
 /* --- Laptop Optimization (992px - 1440px) --- */
 @media (min-width: 992px) and (max-width: 1440px) {
