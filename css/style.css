@@ -867,125 +867,61 @@ img {
 }
 
 @media (max-width: 768px) {
-    /* --- Mini-Desktop Experience (Dense & Crisp) --- */
+    /* --- Desktop Parity Mobile (Minimal Overrides) --- */
 
-    /* Global Mobile Align: Left (Desktop Parity) */
-    .text-center {
-        text-align: left !important;
+    /* Container: Slightly more padding for touch */
+    .container {
+        width: 92%;
     }
 
-    /* Exceptions for centering */
-    .hero-image-wrapper,
-    .image-wrapper {
-        text-align: center !important;
+    /* Navigation: Mobile toggle */
+    .nav-desktop {
+        display: none;
     }
 
-    /* Grids: 1 Column but dense */
-    .services-grid,
-    .gallery-grid,
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .mobile-toggle {
+        display: block;
     }
 
-    /* Stats: 2x2 Grid (Compact Block) */
-    .stats-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        margin: 0;
-        padding: 0;
+    /* Hero: Flexible 2-column that adapts naturally */
+    .hero-section .grid-2 {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
     }
 
-    /* Stat Item Compact */
-    .stat-item {
-        background: var(--bg-light);
-        padding: 15px;
-        /* Reduced Padd */
-        border-radius: var(--radius-md);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    /* Features 2 Col */
-    .features-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-
-    .feature-box {
-        padding: 15px 10px;
-    }
-
-    .feature-box i {
-        font-size: 2rem;
-        margin-bottom: 10px;
-    }
-
-    /* Typography Reductions (No more Jumbo) */
-    .hero-title {
-        font-size: 2rem;
-        /* Was 2.8rem */
-        line-height: 1.2;
-    }
-
-    .hero-section p {
-        font-size: 1rem;
-        max-width: 100%;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-        /* Standard Mobile H2 */
-    }
-
-    /* Section Spacing Compacted */
-    .section-padding {
-        padding: 40px 0;
-        /* Was 60px */
-    }
-
-    /* Hero Layout: Text Top, Left Aligned */
-    .hero-section {
-        padding-top: 90px;
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .hero-content {
-        align-items: flex-start;
-        text-align: left;
-        width: 100%;
-    }
-
+    /* Buttons: Stack for touch targets */
     .hero-btns {
-        justify-content: flex-start;
         flex-direction: column;
         gap: 15px;
-        width: 100%;
     }
 
     .hero-btns .btn {
         width: 100%;
-        text-align: center !important;
     }
 
-    .hero-image-wrapper {
-        transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) scale(0.9);
-        margin: 20px auto 30px auto;
-        /* Keep centered image but control width */
-        width: 90%;
+    /* Grid-2: Flexible layout maintains 2-col when possible */
+    .grid-2 {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
-    .hero-visual {
-        min-height: auto;
-        margin-bottom: 20px;
+    /* Stats: Flexible grid */
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
     }
 
-    .timeline-line {
-        left: 20px;
+    /* Features: Flexible 2+ columns */
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     }
 
+    /* Services & Gallery: Natural wrapping */
+    .services-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* Timeline: Compact */
     .timeline-icon {
         width: 40px;
         height: 40px;
@@ -996,33 +932,9 @@ img {
         left: 19px;
     }
 
-    .badge-floating {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        margin: -40px auto 30px auto;
-        display: inline-block;
-    }
-
-    .image-wrapper {
-        text-align: center;
-    }
-
-    /* Sobre / Founders Mobile Order & Align */
+    /* Sobre: Flexible grid */
     #sobre .grid-2 {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #sobre .image-wrapper {
-        order: 2;
-        margin-top: 20px;
-    }
-
-    #sobre .content {
-        order: 1;
-        text-align: left;
-        /* Enforce Left */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 }
 
