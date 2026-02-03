@@ -889,37 +889,46 @@ img {
 }
 
 @media (max-width: 768px) {
-    /* --- Desktop Experience on Mobile (Vertical Flow) --- */
+    /* --- Mini-Desktop Experience (Dense & Crisp) --- */
 
-    /* 1 Column Wrapper for most grids */
+    /* Global Mobile Align: Left (Desktop Parity) */
+    .text-center {
+        text-align: left !important;
+    }
+
+    /* Exceptions for centering */
+    .hero-image-wrapper,
+    .image-wrapper {
+        text-align: center !important;
+    }
+
+    /* Grids: 1 Column but dense */
     .services-grid,
     .gallery-grid,
     .footer-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     /* Stats: 2x2 Grid (Compact Block) */
     .stats-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-left: 0;
-        margin-right: 0;
-        padding-bottom: 0;
-        overflow-x: visible;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
     }
 
+    /* Stat Item Compact */
     .stat-item {
         background: var(--bg-light);
-        padding: 20px;
+        padding: 15px;
+        /* Reduced Padd */
         border-radius: var(--radius-md);
         border: 1px solid rgba(0, 0, 0, 0.05);
-        /* Remove Flex/Scroll props */
-        flex: auto;
-        min-width: 0;
     }
 
-    /* Features: Keep 2 Columns */
+    /* Features 2 Col */
     .features-grid {
         grid-template-columns: 1fr 1fr;
         gap: 10px;
@@ -934,32 +943,65 @@ img {
         margin-bottom: 10px;
     }
 
-    /* Typography & Layout */
+    /* Typography Reductions (No more Jumbo) */
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 2rem;
+        /* Was 2.8rem */
+        line-height: 1.2;
     }
 
+    .hero-section p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        /* Standard Mobile H2 */
+    }
+
+    /* Section Spacing Compacted */
+    .section-padding {
+        padding: 40px 0;
+        /* Was 60px */
+    }
+
+    /* Hero Layout: Text Top, Left Aligned */
     .hero-section {
-        padding-top: 100px;
+        padding-top: 90px;
         flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hero-content {
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+    }
+
+    .hero-btns {
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        text-align: center !important;
     }
 
     .hero-image-wrapper {
         transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) scale(0.9);
-        margin-top: -20px;
-        margin-bottom: 30px;
-        animation: none;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 20px auto 30px auto;
+        /* Keep centered image but control width */
+        width: 90%;
     }
 
     .hero-visual {
         min-height: auto;
         margin-bottom: 20px;
-    }
-
-    .section-padding {
-        padding: 60px 0;
     }
 
     .timeline-line {
@@ -988,7 +1030,7 @@ img {
         text-align: center;
     }
 
-    /* --- Sobre / Founders Mobile Order --- */
+    /* Sobre / Founders Mobile Order & Align */
     #sobre .grid-2 {
         display: flex;
         flex-direction: column;
@@ -996,14 +1038,13 @@ img {
 
     #sobre .image-wrapper {
         order: 2;
-        /* Image goes below */
         margin-top: 20px;
     }
 
     #sobre .content {
         order: 1;
-        /* Title/Text goes on top */
-        text-align: center;
+        text-align: left;
+        /* Enforce Left */
     }
 }
 
@@ -1498,13 +1539,7 @@ img {
                 </div>
             </div>
 
-            <div style="margin-top:60px;">
-                <p class="founder-signature">
-                    Mineiro & Valquires
-                </p>
-                <p style="font-size:0.9rem; text-transform:uppercase; letter-spacing:2px; color:var(--secondary);">
-                    Fundadores</p>
-            </div>
+
         </div>
     </section>
 
