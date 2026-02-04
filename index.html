@@ -1154,7 +1154,15 @@
             .section-padding {
                 padding: calc(var(--spacing-unit) * 12) 0;
             }
-        }
+
+            /* MOBILE MENU FIX */
+            .mobile-toggle {
+                position: relative;
+                z-index: 1001;
+                padding: 10px;
+                margin-right: -10px;
+                /* Increase hit area */
+            }
     </style>
 </head>
 
@@ -1201,19 +1209,38 @@
         </ul>
     </div>
 
-    <!-- 1. HERO - INTEGRATED IMAGE LAYOUT -->
+    <!-- 1. HERO - V3 PREMIUM OVERLAY LAYOUT -->
     <section id="inicio" class="hero-section">
         <div class="container">
-            <!-- Hero Image First -->
+            <!-- Hero Image with Overlay Tags -->
             <div class="hero-visual">
-                <div class="hero-image-wrapper">
+                <div class="hero-image-wrapper" style="position:relative;">
                     <img src="img/hero-real.jpg" alt="Entrada Auto Escola Mineiro" class="hero-img-effect">
+
+                    <!-- Integrated Location Tag (Top Left) -->
+                    <div
+                        style="position:absolute; top:12px; left:12px; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); padding:6px 12px; border-radius:30px; display:flex; align-items:center; gap:6px; border:1px solid rgba(255,255,255,0.2);">
+                        <i class="ri-map-pin-user-fill" style="color:var(--secondary); font-size:14px;"></i>
+                        <span
+                            style="color:white; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Embu
+                            das Artes</span>
+                    </div>
+
+                    <!-- 20 Years Badge (Bottom Right) -->
+                    <div
+                        style="position:absolute; bottom:-15px; right:15px; background:var(--secondary); padding:10px 20px; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,0.2); transform:rotate(-2deg);">
+                        <span
+                            style="display:block; font-size:20px; font-weight:900; color:var(--primary-dark); line-height:1;">20+</span>
+                        <span
+                            style="display:block; font-size:10px; font-weight:700; color:var(--primary-dark); text-transform:uppercase;">Anos
+                            de História</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Hero Content -->
             <div class="hero-content">
-                <span class="hero-tag">Embu das Artes • Jd. Vista Alegre</span>
+                <!-- Tag removed (integrated in image) -->
 
                 <h1 class="hero-title">
                     Tire sua <span class="hero-title-highlight">CNH</span> na<br>
@@ -1223,24 +1250,25 @@
 
                 <p class="hero-subtitle">
                     Quer conquistar sua CNH com segurança, qualidade e ainda economizar?
-                    Então vem pra <strong>melhor</strong> autoescola da região! ⭐💚
+                    Vem pra <strong>melhor de Embu!</strong> ⭐⭐⭐⭐⭐
                 </p>
 
-                <div class="hero-actions">
-                    <a href="https://wa.me/5511940345096" class="hero-cta-primary">
-                        <i class="ri-whatsapp-line" style="font-size:20px;"></i>
-                        Faça sua Matrícula Já
+                <div class="hero-actions" style="margin-top:30px;">
+                    <a href="https://wa.me/5511940345096" class="hero-cta-primary"
+                        style="width:100%; justify-content:center; height:56px; font-size:16px; box-shadow: 0 10px 30px rgba(203, 154, 43, 0.4);">
+                        <i class="ri-whatsapp-fill" style="font-size:24px;"></i>
+                        MATRICULE-SE ESTA SEMANA
                     </a>
 
-                    <a href="#sobre" class="hero-cta-secondary">
-                        Conhecer a Mineiro
-                    </a>
+                    <p style="font-size:12px; color:rgba(255,255,255,0.6); margin-top:15px;">
+                        <i class="ri-shield-check-line"></i> Site 100% Seguro • Atendimento Imediato
+                    </p>
                 </div>
 
                 <!-- Social Proof Badge -->
-                <div class="hero-proof-badge">
-                    <i class="ri-check-double-line hero-proof-icon"></i>
-                    <span><strong>+5 Mil CNHs</strong> emitidas!</span>
+                <div class="hero-proof-badge" style="margin-top:20px;">
+                    <i class="ri-group-fill hero-proof-icon"></i>
+                    <span>Junte-se a <strong>+5 Mil Alunos</strong></span>
                 </div>
             </div>
         </div>
@@ -1507,94 +1535,121 @@
         </div>
     </section>
 
-    <!-- 8. FAQ -->
+    <!-- 8. FAQ - POPULATED -->
     <section class="section-padding" style="background:var(--bg-light);">
         <div class="container" style="max-width:800px;">
-            <h2 class="text-center text-primary" style="margin-bottom:40px;">Dúvidas Frequentes</h2>
+            <div class="section-header">
+                <h2 class="text-primary">Dúvidas Frequentes</h2>
+                <p>Tire suas dúvidas antes de começar.</p>
+            </div>
 
             <div class="accordion">
                 <div class="accordion-item">
-                    <button class="accordion-header">Quanto tempo demora para tirar a CNH? <i
+                    <button class="accordion-header">Quais documentos preciso para começar? <i
                             class="ri-add-line"></i></button>
                     <div class="accordion-body">
-                        Em média, o processo leva de 45 a 90 dias, dependendo da sua disponibilidade para as aulas. Nós
-                        fazemos de tudo para agilizar sua parte burocrática!
+                        Para iniciar sua primeira habilitação, você precisa apenas de RG, CPF e comprovante de endereço
+                        atualizado (últimos 3 meses). Todo o resto nós te orientamos!
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-header">Tenho muito medo de dirigir, vocês ajudam? <i
+                    <button class="accordion-header">Qual a idade mínima para tirar CNH? <i
                             class="ri-add-line"></i></button>
                     <div class="accordion-body">
-                        Com certeza! Somos especialistas em alunos com medo ou trauma. Nossos instrutores são treinados
-                        para te dar calma, segurança e ir no seu ritmo.
+                        Você precisa ter 18 anos completos (ser penalmente imputável). Pode dar entrada no processo no
+                        dia do seu aniversário de 18 anos!
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-header">Quais as formas de pagamento? <i class="ri-add-line"></i></button>
+                    <button class="accordion-header">Reprovei na prova prática. E agora? <i
+                            class="ri-add-line"></i></button>
                     <div class="accordion-body">
-                        Aceitamos PIX, Cartão de Crédito (parcelado), Boleto e Dinheiro. Conversamos para fechar o
-                        melhor pacote para o seu bolso.
+                        Fique tranquilo! Aqui na Mineiro somos especialistas em reabilitação. Analisaremos onde você
+                        errou, faremos aulas de reforço focadas e marcaremos um novo exame. Você não está sozinho!
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-header">Onde vocês ficam? <i class="ri-add-line"></i></button>
+                    <button class="accordion-header">A autoescola busca em casa? <i class="ri-add-line"></i></button>
                     <div class="accordion-body">
-                        Nossa unidade principal fica na Av. Hélio Ossamu Daikuara, 2445 - Jardim Vista Alegre, Embu das
-                        Artes.
+                        Para sua comodidade, temos pontos de encontro estratégicos na região do Jd. Vista Alegre e
+                        centro de Embu. Entre em contato para verificar a disponibilidade de leva-e-traz dependendo do
+                        seu endereço.
                     </div>
                 </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Quanto tempo dura o processo? <i class="ri-add-line"></i></button>
+                    <div class="accordion-body">
+                        Em média 3 a 4 meses, dependendo da sua dispoibilidade para as aulas e agilidade do Detran.
+                        Temos opções de intensivos para quem tem pressa!
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top:30px;">
+                <a href="#contato" style="color:var(--primary); font-weight:600; text-decoration:underline;">Tenho outra
+                    dúvida</a>
             </div>
         </div>
     </section>
 
-    <!-- 9. PAYMENT -->
+    <!-- 9. PAYMENT - DETAILED -->
     <section class="section-padding"
         style="background:var(--primary); color:white; border-bottom: 1px solid rgba(255,255,255,0.1);">
         <div class="container">
-            <div class="grid-2" style="align-items:center;">
-                <div>
-                    <h4 style="color:var(--secondary); letter-spacing:2px; font-weight:700; font-size:13px;">
-                        INVESTIMENTO</h4>
-                    <h2 style="color:white; margin-bottom:20px;">Habilitação que cabe no seu bolso.</h2>
-                    <p style="color:rgba(255,255,255,0.8);">
-                        Não deixe o dinheiro ser uma barreira. Temos parcerias e métodos flexíveis para você conquistar
-                        sua liberdade sem aperto.
-                    </p>
-                    <a href="https://wa.me/5511940345096?text=Quero%20saber%20os%20preços" class="btn btn-primary"
-                        style="margin-top:30px;">
-                        <i class="ri-whatsapp-line"></i> Consultar Valores
-                    </a>
-                </div>
-                <div class="payment-grid">
-                    <div class="payment-card">
-                        <i class="ri-bank-card-fill"></i>
-                        <div>
-                            <h4>Até 12x</h4>
-                            <span>No Cartão</span>
-                        </div>
+            <div class="text-center" style="margin-bottom:40px;">
+                <h2 style="color:white; margin-bottom:10px;">Investimento Facilitado</h2>
+                <p style="color:rgba(255,255,255,0.8);">Não deixe o dinheiro impedir seu sonho. Flexibilidade total.</p>
+            </div>
+
+            <div class="payment-grid" style="grid-template-columns: 1fr; gap: 15px;">
+                <!-- Card 1: Credit -->
+                <div class="payment-card"
+                    style="display:flex; flex-direction:row; align-items:center; text-align:left; gap:20px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);">
+                    <div
+                        style="background:var(--secondary); width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                        <i class="ri-bank-card-fill" style="font-size:24px; color:var(--primary);"></i>
                     </div>
-                    <div class="payment-card">
-                        <i class="ri-qr-code-line"></i>
-                        <div>
-                            <h4>PIX</h4>
-                            <span>À Vista c/ Desconto</span>
-                        </div>
-                    </div>
-                    <div class="payment-card">
-                        <i class="ri-file-paper-2-line"></i>
-                        <div>
-                            <h4>Boleto</h4>
-                            <span>Entrada + Parcelas</span>
-                        </div>
-                    </div>
-                    <div class="payment-card">
-                        <i class="ri-shake-hands-fill"></i>
-                        <div>
-                            <h4>Negociável</h4>
-                            <span>Fale Conosco</span>
-                        </div>
+                    <div>
+                        <h4 style="color:white; font-size:18px; margin-bottom:4px;">Cartão de Crédito</h4>
+                        <span style="color:rgba(255,255,255,0.8); font-size:13px;">Parcele em até 12x (Peça
+                            simulação)</span>
                     </div>
                 </div>
+
+                <!-- Card 2: Boleto -->
+                <div class="payment-card"
+                    style="display:flex; flex-direction:row; align-items:center; text-align:left; gap:20px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);">
+                    <div
+                        style="background:white; width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                        <i class="ri-barcode-box-line" style="font-size:24px; color:var(--primary);"></i>
+                    </div>
+                    <div>
+                        <h4 style="color:white; font-size:18px; margin-bottom:4px;">Boleto Bancário</h4>
+                        <span style="color:rgba(255,255,255,0.8); font-size:13px;">Entrada facilitada + Parcelas
+                            mensais</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Pix -->
+                <div class="payment-card"
+                    style="display:flex; flex-direction:row; align-items:center; text-align:left; gap:20px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);">
+                    <div
+                        style="background:#32BCAD; width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                        <i class="ri-pix-line" style="font-size:24px; color:white;"></i>
+                    </div>
+                    <div>
+                        <h4 style="color:white; font-size:18px; margin-bottom:4px;">PIX à Vista</h4>
+                        <span style="color:rgba(255,255,255,0.8); font-size:13px;">Desconto especial para pagamento à
+                            vista</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top:30px; text-align:center;">
+                <a href="https://wa.me/5511940345096?text=Quero%20saber%20as%20formas%20de%20pagamento"
+                    class="btn btn-primary" style="background:white; color:var(--primary); width:100%;">
+                    <i class="ri-whatsapp-line"></i> Consultar Valores no Zap
+                </a>
             </div>
         </div>
     </section>
