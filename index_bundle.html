@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Escola Mineiro | Leveza e Liberdade para Dirigir em Embu</title>
 
     <!-- Fonts -->
@@ -53,6 +53,14 @@
     /* Fallback to Poppins Bold if Babylon isn't available */
     --font-body: 'Poppins', sans-serif;
 
+    /* Fluid Typography (Mobile-first) */
+    --text-base: clamp(16px, 4vw, 18px);
+    --text-lg: clamp(18px, 4.5vw, 20px);
+    --h1: clamp(2rem, 8vw, 4.5rem);
+    --h2: clamp(1.5rem, 6vw, 3rem);
+    --h3: clamp(1.25rem, 5vw, 2rem);
+    --h4: clamp(1.1rem, 4vw, 1.5rem);
+
     /* --- Layout --- */
     --container: 1280px;
     --radius-lg: 24px;
@@ -60,6 +68,9 @@
     --radius-sm: 8px;
     --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+    /* Touch Targets (Apple HIG) */
+    --touch-min: 44px;
 }
 
 /* --- Base Reset --- */
@@ -157,9 +168,12 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 32px;
+    min-height: var(--touch-min);
+    /* 44px minimum */
+    padding: 12px 24px;
     border-radius: 50px;
     font-weight: 600;
+    font-size: var(--text-base);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
@@ -889,41 +903,147 @@ img {
 }
 
 
+/* ========================================
+   MOBILE-FIRST RESPONSIVE SYSTEM
+   ======================================== */
 
-/* --- Laptop Optimization (992px - 1440px) --- */
-@media (min-width: 992px) and (max-width: 1440px) {
+/* --- MOBILE BASE (320px+) --- */
+/* Default styles above are mobile-first */
+
+/* Hero: Stack vertically on mobile */
+.hero-section .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.hero-btns {
+    flex-direction: column;
+    width: 100%;
+}
+
+.hero-btns .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Stats: 2x2 grid on mobile */
+.stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/* Features: 2 columns on mobile */
+.features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/* Services: 1 column stack */
+.services-grid {
+    grid-template-columns: 1fr;
+}
+
+/* Gallery: 1 column stack */
+.gallery-grid {
+    grid-template-columns: 1fr;
+}
+
+/* Generic 2-col grid: stack on mobile */
+.grid-2 {
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+/* Footer: 2 columns on mobile */
+.footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* --- TABLET (768px+) --- */
+@media (min-width: 768px) {
+
+    /* Container: More breathing room */
     .container {
-        padding: 0 15px;
-        max-width: 98%;
-        /* Maximize space */
+        width: 85%;
     }
 
-    .logo {
-        font-size: 1.3rem;
+    /* Stats: 4 columns */
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
     }
 
-    .logo span {
-        font-size: 1.6rem;
+    /* Services: 2 columns */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .nav-desktop ul {
-        gap: 15px;
+    /* Gallery: 2 columns */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .nav-link {
-        font-size: 0.75rem;
+    /* Hero buttons: Side by side */
+    .hero-btns {
+        flex-direction: row;
+        width: auto;
     }
 
-    .btn {
-        padding: 8px 16px;
-        font-size: 0.8rem;
+    .hero-btns .btn {
+        width: auto;
     }
 
-    /* Compact Area do Aluno */
-    .nav-desktop a[href*="e-condutor"] {
-        padding: 4px 10px !important;
-        font-size: 0.75rem !important;
-        white-space: nowrap;
+    /* Footer: 3 columns */
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --- DESKTOP (1024px+) --- */
+@media (min-width: 1024px) {
+
+    /* Hero: 50/50 side by side */
+    .hero-section .grid-2 {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    /* Generic 2-column grids */
+    .grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Services: 3 columns */
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Gallery: 3 columns */
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Features: 4 columns */
+    .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Footer: 4 columns */
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* --- LARGE DESKTOP (1280px+) --- */
+@media (min-width: 1280px) {
+    .container {
+        width: 90%;
+    }
+
+    .section-padding {
+        padding: 100px 0;
     }
 }
 

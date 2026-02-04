@@ -19,7 +19,7 @@ try:
 
     # Replace Link Tag
     # We look for the specific link tag used in index.html
-    target_tag = '<link rel="stylesheet" href="css/style.css?v=13">'
+    target_tag = '<link rel="stylesheet" href="css/style.css?v=14">'
     
     if target_tag in html_content:
         final_html = html_content.replace(target_tag, style_block)
