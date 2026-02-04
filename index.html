@@ -593,124 +593,276 @@
         }
 
         /* FLEET SECTION */
+        /* --- SECTIONS UPGRADE v23 --- */
+
+        /* GLOBAL SECTION UTILS */
+        .section-padding {
+            padding: calc(var(--spacing-unit) * 8) 0;
+            scroll-margin-top: 80px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            color: var(--primary);
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* 3. ABOUT SECTION - MODERN */
+        .image-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .img-founder {
+            width: 100%;
+            display: block;
+            border-radius: var(--radius-lg);
+            transition: transform 0.5s ease;
+        }
+
+        .badge-floating {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .badge-number {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .badge-text {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* 4. SERVICES - PREMIUM CARDS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover,
+        .service-card:active {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(30, 53, 161, 0.12);
+            border-color: rgba(30, 53, 161, 0.2);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(30, 53, 161, 0.08);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary);
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* 5. FLEET - DARK MODE GLASS */
         .fleet-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: calc(var(--spacing-unit) * 3);
+            gap: 24px;
         }
 
         .fleet-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .fleet-card-img {
-            height: 180px;
-            background-size: cover !important;
-            background-position: center !important;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .fleet-card-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(18, 34, 106, 0.9), transparent);
         }
 
         .fleet-info {
-            padding: 20px;
+            padding: 24px;
         }
 
         .fleet-features {
             display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
         }
 
         .fleet-features span {
-            background: var(--bg-light);
-            color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        /* PAYMENT SECTION - MOBILE */
-        .payment-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: calc(var(--spacing-unit) * 2);
-            margin-top: calc(var(--spacing-unit) * 4);
-        }
-
-        .payment-card {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 16px;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 8px;
-        }
-
-        .payment-card i {
-            font-size: 32px;
-            color: var(--secondary);
-        }
-
-        .payment-card h4 {
-            color: white !important;
-            font-size: 16px;
-            margin: 0;
-        }
-
-        .payment-card span {
             font-size: 12px;
-            opacity: 0.7;
-            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        /* ACCORDION */
+        /* 6. FEATURES - BOXES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .feature-box {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .feature-box h4 {
+            color: var(--primary);
+            font-size: 18px;
+            margin: 15px 0 10px;
+            font-weight: 700;
+        }
+
+        /* 8. FAQ - ACCORDION */
         .accordion {
             display: flex;
             flex-direction: column;
-            gap: calc(var(--spacing-unit) * 2);
+            gap: 12px;
         }
 
         .accordion-item {
             background: white;
-            border-radius: var(--radius-md);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
             overflow: hidden;
-            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
         }
 
         .accordion-header {
             width: 100%;
-            background: white;
-            border: none;
-            padding: calc(var(--spacing-unit) * 2);
-            text-align: left;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary);
-            cursor: pointer;
+            padding: 20px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .accordion-header i {
+            color: var(--secondary);
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-header i {
+            transform: rotate(45deg);
         }
 
         .accordion-body {
-            max-height: 0;
+            height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 calc(var(--spacing-unit) * 2);
-            font-size: 14px;
+            padding: 0 24px;
+            opacity: 0;
+            transition: all 0.3s ease;
             color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        .accordion-body.active {
-            max-height: 500px;
-            padding: calc(var(--spacing-unit) * 2);
+        .accordion-item.active .accordion-body {
+            height: auto;
+            padding: 0 24px 24px;
+            opacity: 1;
+        }
+
+        .accordion-item.active {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-color: rgba(30, 53, 161, 0.2);
         }
 
         /* REVIEW SECTION */
