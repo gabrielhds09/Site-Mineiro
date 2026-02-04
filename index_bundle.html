@@ -275,122 +275,65 @@
             margin-bottom: calc(var(--spacing-unit) * 4);
         }
 
-        /* HERO SECTION - MODERN OVERLAY DESIGN */
+        /* HERO SECTION - HULK-INSPIRED CLEAN LAYOUT */
         .hero-section {
             position: relative;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
+            background: var(--primary);
             color: white;
-            padding: calc(var(--spacing-unit) * 10) 0 calc(var(--spacing-unit) * 8) 0;
-            text-align: center;
+            padding: 0;
             overflow: hidden;
-            background: linear-gradient(135deg, #1e35a1 0%, #12226a 100%);
         }
 
-        /* Background Image with Overlay */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('img/hero-real.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.25;
-            z-index: 0;
-        }
-
-        /* Dark gradient overlay for legibility */
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg,
-                    rgba(30, 53, 161, 0.92) 0%,
-                    rgba(18, 34, 106, 0.88) 50%,
-                    rgba(30, 53, 161, 0.90) 100%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        /* Remove decorative blurs for cleaner look */
+        .hero-decoration {
+            display: none;
         }
 
         .hero-visual {
             position: relative;
-            z-index: 2;
-            margin-bottom: calc(var(--spacing-unit) * 5);
-            animation: slideUpFade 0.8s ease-out 0.2s both;
+            z-index: 1;
+            margin: 0;
+            animation: fadeIn 0.6s ease-out;
         }
 
-        @keyframes slideUpFade {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(40px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
         .hero-image-wrapper {
             position: relative;
-            border-radius: var(--radius-lg);
+            border-radius: 0;
+            /* Fullwidth like Hulk */
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4),
-                0 0 0 1px rgba(255, 255, 255, 0.1);
+            box-shadow: none;
         }
 
         .hero-img-effect {
             width: 100%;
             display: block;
-            border-radius: var(--radius-lg);
+            border-radius: 0;
         }
 
-        /* Optional: Hero Image Badge */
-        .hero-img-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 10px 18px;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-            z-index: 10;
-            animation: float 3s ease-in-out infinite 1s;
-        }
-
-        .hero-img-badge-number {
-            display: block;
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-        }
-
-        .hero-img-badge-text {
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
+        /* Content area with solid background */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: var(--primary);
+            padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 3);
+            text-align: center;
         }
 
         .hero-tag {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 8px 20px;
             border-radius: 30px;
@@ -400,100 +343,89 @@
             margin-bottom: calc(var(--spacing-unit) * 3);
             text-transform: uppercase;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-6px);
-            }
-        }
-
-        @keyframes glow {
-
-            0%,
-            100% {
-                box-shadow: 0 4px 20px rgba(203, 154, 43, 0.4);
-            }
-
-            50% {
-                box-shadow: 0 6px 30px rgba(203, 154, 43, 0.7);
-            }
         }
 
         .hero-title {
-            font-size: 30px;
-            line-height: 1.25;
+            font-size: 32px;
+            line-height: 1.2;
             color: white;
-            margin-bottom: calc(var(--spacing-unit) * 2.5);
+            margin-bottom: calc(var(--spacing-unit) * 3);
             hyphens: none;
             word-break: keep-all;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 0.8s ease-out;
+            font-weight: 700;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Highlighted word in title */
+        .hero-title-highlight {
+            color: var(--secondary);
+            font-weight: 800;
         }
 
         .hero-subtitle {
             font-size: 15px;
-            line-height: 1.7;
+            line-height: 1.6;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: calc(var(--spacing-unit) * 5);
             max-width: 100%;
-            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         .hero-actions {
             display: flex;
             flex-direction: column;
             gap: calc(var(--spacing-unit) * 2);
-            margin-bottom: 0;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
+            margin-bottom: calc(var(--spacing-unit) * 3);
         }
 
-        .hero-actions .btn-primary {
-            animation: glow 2s ease-in-out infinite;
+        /* Single prominent CTA like Hulk */
+        .hero-cta-primary {
+            background: var(--secondary);
+            color: var(--primary-dark);
+            font-size: 15px;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(203, 154, 43, 0.5);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Decorative Elements */
-        .hero-decoration {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(203, 154, 43, 0.15) 0%, transparent 70%);
-            filter: blur(60px);
-            pointer-events: none;
-            z-index: 1;
+        .hero-cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(203, 154, 43, 0.7);
         }
 
-        .hero-decoration:nth-child(1) {
-            top: -100px;
-            right: -100px;
+        /* Secondary CTA - more subtle */
+        .hero-cta-secondary {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
 
-        .hero-decoration:nth-child(2) {
-            bottom: -100px;
-            left: -100px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+        /* Social proof badge */
+        .hero-proof-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+            margin-top: calc(var(--spacing-unit) * 2);
+        }
+
+        .hero-proof-icon {
+            font-size: 20px;
+            color: var(--secondary);
         }
 
         /* STATS SECTION - 2x2 MOBILE */
@@ -2285,36 +2217,46 @@ h3 {
         </ul>
     </div>
 
-    <!-- 1. HERO -->
+    <!-- 1. HERO - HULK-INSPIRED LAYOUT -->
     <section id="inicio" class="hero-section">
-        <!-- Decorative Elements -->
-        <div class="hero-decoration"></div>
-        <div class="hero-decoration"></div>
-
-        <div class="container">
-            <!-- Hero Image First (Top) -->
+        <div class="container" style="padding:0; max-width:100%;">
+            <!-- Hero Image First (Fullwidth) -->
             <div class="hero-visual">
                 <div class="hero-image-wrapper">
                     <img src="img/hero-real.jpg" alt="Entrada Auto Escola Mineiro" class="hero-img-effect">
                 </div>
             </div>
 
-            <!-- Hero Content Below -->
+            <!-- Hero Content (Solid Background) -->
             <div class="hero-content">
                 <span class="hero-tag">Embu das Artes • Jd. Vista Alegre</span>
-                <h1 class="hero-title">Transformando<br>Burocracia em<br><span
-                        style="color:var(--secondary)">Liberdade</span>.</h1>
+
+                <h1 class="hero-title">
+                    Tire sua <span class="hero-title-highlight">CNH</span> na<br>
+                    autoescola <span class="hero-title-highlight">campeã</span><br>
+                    em aprovação!
+                </h1>
+
                 <p class="hero-subtitle">
-                    Esqueça o processo rígido e estressante. Aqui na Mineiro, sua habilitação é leve, humana e 100%
-                    focada em você.
+                    Quer conquistar sua CNH com segurança, qualidade e ainda economizar?
+                    Então vem pra <strong>melhor</strong> autoescola da região! ⭐💚
                 </p>
+
                 <div class="hero-actions">
-                    <a href="https://wa.me/5511940345096" class="btn btn-primary">
-                        <i class="ri-whatsapp-line"></i> Quero Minha CNH
+                    <a href="https://wa.me/5511940345096" class="hero-cta-primary">
+                        <i class="ri-whatsapp-line" style="font-size:20px;"></i>
+                        Faça sua Matrícula Já
                     </a>
-                    <a href="#sobre" class="btn btn-outline" style="color:white; border-color:white;">
-                        Conhecer Mineiro
+
+                    <a href="#sobre" class="hero-cta-secondary">
+                        Conhecer a Mineiro
                     </a>
+                </div>
+
+                <!-- Social Proof Badge -->
+                <div class="hero-proof-badge">
+                    <i class="ri-check-double-line hero-proof-icon"></i>
+                    <span><strong>+5 Mil CNHs</strong> emitidas!</span>
                 </div>
             </div>
         </div>
