@@ -32,12 +32,12 @@
     --font-body: 'Poppins', sans-serif;
 
     /* Fluid Typography (Mobile-first) */
-    --text-base: clamp(16px, 4vw, 18px);
-    --text-lg: clamp(18px, 4.5vw, 20px);
-    --h1: clamp(2rem, 8vw, 4.5rem);
-    --h2: clamp(1.5rem, 6vw, 3rem);
-    --h3: clamp(1.25rem, 5vw, 2rem);
-    --h4: clamp(1.1rem, 4vw, 1.5rem);
+    --text-base: clamp(14px, 4vw, 18px);
+    --text-lg: clamp(16px, 4.5vw, 20px);
+    --h1: clamp(1.75rem, 7vw, 4.5rem);
+    --h2: clamp(1.35rem, 5.5vw, 3rem);
+    --h3: clamp(1.15rem, 4.5vw, 2rem);
+    --h4: clamp(1rem, 3.5vw, 1.5rem);
 
     /* --- Layout --- */
     --container: 1280px;
@@ -116,9 +116,12 @@ img {
 
 /* --- Utilities --- */
 .container {
-    width: 90%;
+    width: 88%;
+    /* More padding on mobile */
     max-width: var(--container);
     margin: 0 auto;
+    padding: 0 15px;
+    /* Extra safety padding */
 }
 
 .section-padding {
@@ -938,12 +941,54 @@ img {
     gap: 20px;
 }
 
+/* Mobile Text Safety */
+.hero-title,
+h1,
+h2,
+h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+}
+
+.hero-section p,
+.section-padding p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.hero-title {
+    font-size: 1.75rem;
+    /* Override for mobile */
+    line-height: 1.1;
+}
+
+/* Section Padding - Mobile */
+.section-padding {
+    padding: 50px 0;
+}
+
 /* --- TABLET (768px+) --- */
 @media (min-width: 768px) {
 
     /* Container: More breathing room */
     .container {
-        width: 85%;
+        width: 90%;
+        padding: 0;
+    }
+
+    /* Restore larger typography */
+    .hero-title {
+        font-size: var(--h1);
+    }
+
+    .hero-section p {
+        font-size: var(--text-lg);
+    }
+
+    .section-padding {
+        padding: 80px 0;
     }
 
     /* Stats: 4 columns */
