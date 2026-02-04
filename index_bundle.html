@@ -18,8 +18,886 @@
     <meta name="description"
         content="Auto Escola Mineiro em Embu das Artes. 20+ anos de experiência. Sem burocracia, com paciência e método focado em quem tem medo de dirigir. Tire sua CNH agora!">
 
-    <!-- CSS -->
     <style>
+        /* AUTO ESCOLA MINEIRO - MOBILE-FIRST OPTIMIZED */
+
+        :root {
+            /* Colors */
+            --primary: #1e35a1;
+            --primary-light: #2a4cc7;
+            --primary-dark: #12226a;
+            --secondary: #cb9a2b;
+            --secondary-hover: #e0ac3a;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fc;
+            --bg-dark: #0f172a;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+
+            /* Typography - Mobile First */
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+
+            /* Layout */
+            --container: 1280px;
+            --spacing-unit: 8px;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        /* BASE RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background: var(--bg-white);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            color: var(--primary);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        /* MOBILE-FIRST TYPOGRAPHY */
+        h1 {
+            font-size: 28px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 22px;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-size: 18px;
+            line-height: 1.3;
+        }
+
+        h4 {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* CONTAINER */
+        .container {
+            width: 92%;
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 2);
+        }
+
+        /* SECTION PADDING - MOBILE */
+        .section-padding {
+            padding: calc(var(--spacing-unit) * 6) 0;
+        }
+
+        /* UTILITIES */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .text-secondary {
+            color: var(--secondary);
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        /* GRID SYSTEM */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing-unit) * 4);
+        }
+
+        /* BUTTONS - MOBILE FIRST (44px minimum) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 15px rgba(203, 154, 43, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(203, 154, 43, 0.6);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* HEADER */
+        .site-header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: calc(var(--spacing-unit) * 2) 0;
+        }
+
+        .header-logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-desktop {
+            display: none;
+        }
+
+        .mobile-toggle {
+            font-size: 28px;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* MOBILE MENU OVERLAY */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100vh;
+            background: white;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
+            z-index: 200;
+            padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 3);
+        }
+
+        .mobile-menu-overlay.active {
+            left: 0;
+        }
+
+        .mobile-menu-overlay ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu-overlay li {
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+
+        .mobile-menu-overlay a {
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 600;
+            display: block;
+            padding: 12px 0;
+        }
+
+        .menu-close {
+            font-size: 32px;
+            color: var(--primary);
+            cursor: pointer;
+            margin-bottom: calc(var(--spacing-unit) * 4);
+        }
+
+        /* HERO SECTION - MOBILE OPTIMIZED */
+        .hero-section {
+            background: linear-gradient(135deg, #1e35a1 0%, #12226a 100%);
+            color: white;
+            padding: calc(var(--spacing-unit) * 8) 0 calc(var(--spacing-unit) * 6) 0;
+            text-align: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 28px;
+            line-height: 1.2;
+            color: white;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            hyphens: none;
+            word-break: keep-all;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: calc(var(--spacing-unit) * 4);
+            max-width: 100%;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--spacing-unit) * 2);
+            margin-bottom: calc(var(--spacing-unit) * 4);
+        }
+
+        .hero-image-wrapper {
+            margin-top: calc(var(--spacing-unit) * 4);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-img-effect {
+            width: 100%;
+            border-radius: var(--radius-lg);
+        }
+
+        /* STATS SECTION - 2x2 MOBILE */
+        .trust-stripe {
+            background: white;
+            padding: calc(var(--spacing-unit) * 5) 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: calc(var(--spacing-unit) * 2);
+        }
+
+        .stat-item {
+            background: var(--bg-light);
+            padding: calc(var(--spacing-unit) * 3);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            color: var(--secondary);
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+
+        .stat-item p {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        /* SECTIONS */
+        .section-purpose,
+        .section-services {
+            background: white;
+        }
+
+        /* IMAGE WRAPPER */
+        .image-wrapper {
+            position: relative;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+
+        .img-founder {
+            border-radius: var(--radius-lg);
+            width: 100%;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .badge-floating {
+            position: absolute;
+            top: calc(var(--spacing-unit) * 3);
+            left: calc(var(--spacing-unit) * 2);
+            background: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            border-left: 4px solid var(--secondary);
+            z-index: 10;
+        }
+
+        .badge-number {
+            display: block;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .badge-text {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* STORY CARD */
+        .story-card {
+            background: var(--bg-light);
+            padding: calc(var(--spacing-unit) * 3);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .story-card em {
+            color: var(--primary);
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        /* SERVICES GRID - SINGLE COLUMN MOBILE */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing-unit) * 3);
+            margin-top: calc(var(--spacing-unit) * 4);
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-lg);
+            padding: calc(var(--spacing-unit) * 3);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .service-icon i {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* FEATURES GRID - 2 COLUMNS MOBILE */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 4);
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 2);
+        }
+
+        .feature-box h4 {
+            font-size: 14px;
+            margin: calc(var(--spacing-unit) * 1.5) 0;
+        }
+
+        .feature-box p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* FLEET SECTION */
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing-unit) * 3);
+        }
+
+        .fleet-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .fleet-card-img {
+            height: 180px;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .fleet-info {
+            padding: 20px;
+        }
+
+        .fleet-features {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .fleet-features span {
+            background: var(--bg-light);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* PAYMENT SECTION - MOBILE */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 4);
+        }
+
+        .payment-card {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+        }
+
+        .payment-card i {
+            font-size: 32px;
+            color: var(--secondary);
+        }
+
+        .payment-card h4 {
+            color: white !important;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .payment-card span {
+            font-size: 12px;
+            opacity: 0.7;
+            color: white;
+        }
+
+        /* ACCORDION */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--spacing-unit) * 2);
+        }
+
+        .accordion-item {
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: white;
+            border: none;
+            padding: calc(var(--spacing-unit) * 2);
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 calc(var(--spacing-unit) * 2);
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .accordion-body.active {
+            max-height: 500px;
+            padding: calc(var(--spacing-unit) * 2);
+        }
+
+        /* REVIEW SECTION */
+        .section-reviews {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* MAP */
+        .map-wrapper {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 300px;
+        }
+
+        .location-bar {
+            background: var(--bg-light);
+            padding: calc(var(--spacing-unit) * 3);
+            border-radius: var(--radius-md);
+            margin-top: calc(var(--spacing-unit) * 4);
+        }
+
+        .location-bar>div {
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+
+        .location-bar h5 {
+            font-size: 14px;
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+
+        .location-bar p {
+            font-size: 13px;
+            margin-bottom: 0;
+        }
+
+        /* FOOTER */
+        .site-footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: calc(var(--spacing-unit) * 6) 0 calc(var(--spacing-unit) * 3) 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing-unit) * 4);
+            margin-bottom: calc(var(--spacing-unit) * 4);
+        }
+
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        .footer-col a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+        }
+
+        .footer-meta {
+            text-align: center;
+            padding-top: calc(var(--spacing-unit) * 3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-meta p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0;
+        }
+
+        /* FLOATING WHATSAPP */
+        .btn-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* TABLET (768px+) */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 42px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .section-padding {
+                padding: calc(var(--spacing-unit) * 10) 0;
+            }
+
+            .hero-section {
+                padding: calc(var(--spacing-unit) * 12) 0 calc(var(--spacing-unit) * 10) 0;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-actions {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .hero-actions .btn {
+                width: auto;
+                min-width: 200px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: calc(var(--spacing-unit) * 3);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+
+            .fleet-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .location-bar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .location-bar>div {
+                margin-bottom: 0;
+            }
+
+            .map-wrapper {
+                height: 400px;
+            }
+        }
+
+        /* DESKTOP (1024px+) */
+        @media (min-width: 1024px) {
+            .mobile-toggle {
+                display: none;
+            }
+
+            .nav-desktop {
+                display: block;
+            }
+
+            .nav-desktop ul {
+                display: flex;
+                align-items: center;
+                gap: calc(var(--spacing-unit) * 3);
+                list-style: none;
+            }
+
+            .nav-link {
+                color: var(--primary);
+                font-weight: 600;
+                font-size: 14px;
+                transition: color 0.3s ease;
+            }
+
+            .nav-link:hover {
+                color: var(--secondary);
+            }
+
+            .nav-btn-highlight {
+                border: 2px solid var(--secondary);
+                padding: 6px 16px;
+                border-radius: 50px;
+                color: var(--primary);
+                transition: 0.3s;
+            }
+
+            .nav-btn-highlight:hover {
+                background: var(--secondary);
+                color: white;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .fleet-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .btn-whatsapp {
+                bottom: 30px;
+                right: 30px;
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* LARGE DESKTOP (1280px+) */
+        @media (min-width: 1280px) {
+            .container {
+                width: 90%;
+            }
+
+            .section-padding {
+                padding: calc(var(--spacing-unit) * 12) 0;
+            }
+        }
+    </style>
+<style>
 /* Auto Escola MINEIRO - 360° Edition (Blue & Yellow) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Babylon+Industrial&display=swap');
 
@@ -1191,12 +2069,11 @@ h3 {
 </head>
 
 <body>
-
     <!-- Header -->
     <header class="site-header">
         <div class="container header-inner">
             <a href="#" class="logo">
-                <img src="img/logo-header-final.png" alt="Auto Escola Mineiro" class="header-logo logo-header-img">
+                <img src="img/logo-header-final.png" alt="Auto Escola Mineiro" class="header-logo">
             </a>
 
             <nav class="nav-desktop">
@@ -1214,24 +2091,33 @@ h3 {
                 </ul>
             </nav>
 
-            <div class="mobile-toggle">
+            <div class="mobile-toggle" id="menuToggle">
                 <i class="ri-menu-4-line"></i>
             </div>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay (Hidden by default, JS toggles) -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu-overlay" id="mobileMenu">
-        <!-- Content injected by JS or simple CSS toggle -->
+        <div class="menu-close" id="menuClose">
+            <i class="ri-close-line"></i>
+        </div>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Nossa História</a></li>
+            <li><a href="#servicos">Habilitação</a></li>
+            <li><a href="https://www.e-condutor.com.br/simulado" target="_blank">Área do Aluno</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
     </div>
 
-    <!-- 1. HERO (Purpose/Promise) -->
+    <!-- 1. HERO -->
     <section id="inicio" class="hero-section">
         <div class="container">
             <div class="grid-2">
                 <div class="hero-content">
                     <span class="hero-tag">Embu das Artes • Jd. Vista Alegre</span>
-                    <h1 class="hero-title">Transformando Burocracia em <span
+                    <h1 class="hero-title">Transformando<br>Burocracia em<br><span
                             style="color:var(--secondary)">Liberdade</span>.</h1>
                     <p class="hero-subtitle">
                         Esqueça o processo rígido e estressante. Aqui na Mineiro, sua habilitação é leve, humana e 100%
@@ -1241,14 +2127,13 @@ h3 {
                         <a href="https://wa.me/5511940345096" class="btn btn-primary">
                             <i class="ri-whatsapp-line"></i> Quero Minha CNH
                         </a>
-                        <a href="#sobre" class="btn btn-outline"
-                            style="margin-left: 10px; color:white; border-color:white;">
+                        <a href="#sobre" class="btn btn-outline" style="color:white; border-color:white;">
                             Conhecer Mineiro
                         </a>
                     </div>
                 </div>
 
-                <div class="hero-visual" id="heroVisual">
+                <div class="hero-visual">
                     <div class="hero-image-wrapper">
                         <img src="img/hero-real.jpg" alt="Entrada Auto Escola Mineiro" class="hero-img-effect">
                     </div>
@@ -1257,7 +2142,7 @@ h3 {
         </div>
     </section>
 
-    <!-- 2. STATS (Authority) -->
+    <!-- 2. STATS -->
     <div class="trust-stripe">
         <div class="container">
             <div class="stats-grid">
@@ -1281,46 +2166,42 @@ h3 {
         </div>
     </div>
 
-    <!-- 3. AGITATE (Problem vs Solution) -->
+    <!-- 3. ABOUT -->
     <section id="sobre" class="section-padding section-purpose">
         <div class="container">
             <div class="grid-2">
-                <div class="image-wrapper" style="position:relative;">
+                <div class="image-wrapper">
                     <img src="img/mineiro-val.jpg" alt="Mineiro e Valquires - Fundadores" class="img-founder"
                         loading="lazy">
 
-                    <!-- Floating Badge (Drivezai Style) -->
                     <div class="badge-floating">
                         <span class="badge-number">20+</span>
                         <span class="badge-text">Anos de História</span>
                     </div>
 
                     <p class="text-center"
-                        style="margin-top:10px; font-size:0.9rem; color:var(--text-muted); font-style:italic;">Mineiro e
-                        Valquires: O rosto e o coração da autoescola.</p>
+                        style="margin-top:10px; font-size:13px; color:var(--text-muted); font-style:italic;">
+                        Mineiro e Valquires: O rosto e o coração da autoescola.
+                    </p>
                 </div>
                 <div class="content">
-                    <h4 class="text-primary" style="letter-spacing:2px; font-size:0.9rem; font-weight:700;">QUEM SOMOS
+                    <h4 class="text-primary" style="letter-spacing:2px; font-size:12px; font-weight:700;">QUEM SOMOS
                     </h4>
-                    <h2>Mais que uma Autoescola. <br>Amigos da sua jornada.</h2>
-                    <br>
+                    <h2>Mais que uma Autoescola.<br>Amigos da sua jornada.</h2>
                     <p>
                         Sabe aquele processo frio, robótico e cheio de taxas surpresa que você ouve falar por aí?
                         <strong>A gente abomina.</strong>
                     </p>
-                    <br>
                     <p>
                         Fundada por <strong>Mineiro e Valquires</strong>, um casal com mais de 20 anos de experiência, a
                         Auto Escola Mineiro nasceu de um sonho: criar um Centro de Formação de Condutores onde o aluno
                         não é um número.
                     </p>
-                    <br>
                     <div class="story-card">
                         <p><em>"Queremos mais que clientes, queremos AMIGOS. Todos os nossos alunos se tornam parte da
                                 nossa família."</em></p>
                     </div>
-                    <br>
-                    <ul style="list-style:none; display:flex; flex-direction:column; gap:10px;">
+                    <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; margin-top:20px;">
                         <li><i class="ri-check-line text-secondary"></i> Acolhimento real e empatia com seu medo.</li>
                         <li><i class="ri-check-line text-secondary"></i> Flexibilidade que cabe na sua rotina.</li>
                         <li><i class="ri-check-line text-secondary"></i> Transparência total: sem letras miúdas.</li>
@@ -1330,7 +2211,7 @@ h3 {
         </div>
     </section>
 
-    <!-- 4. GUIDE (Services) -->
+    <!-- 4. SERVICES -->
     <section id="servicos" class="section-padding section-services">
         <div class="container">
             <div class="text-center" style="max-width:700px; margin:0 auto;">
@@ -1339,80 +2220,68 @@ h3 {
             </div>
 
             <div class="services-grid">
-                <!-- Card 1 -->
                 <div class="service-card">
-
                     <div class="service-icon">
                         <i class="ri-steering-fill"></i>
                     </div>
                     <h3>1ª Habilitação (A/B)</h3>
-                    <p style="margin:16px 0;">O começo da sua liberdade. Curso completo teórico e prático para carro e
-                        moto. Focado em tirar seu medo e te aprovar.</p>
+                    <p>O começo da sua liberdade. Curso completo teórico e prático para carro e moto. Focado em tirar
+                        seu medo e te aprovar.</p>
                     <a href="https://wa.me/5511940345096?text=Quero%20saber%20sobre%20Primeira%20Habilitação"
                         class="text-primary" style="font-weight:600;">Saiba mais &rarr;</a>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="service-card">
-
                     <div class="service-icon">
                         <i class="ri-add-circle-fill"></i>
                     </div>
                     <h3>Adição de Categoria</h3>
-                    <p style="margin:16px 0;">Já dirige carro e quer moto? Ou o contrário? Processo rápido (20-35 dias).
-                        Aulas práticas diretas ao ponto.</p>
+                    <p>Já dirige carro e quer moto? Ou o contrário? Processo rápido (20-35 dias). Aulas práticas diretas
+                        ao ponto.</p>
                     <a href="https://wa.me/5511940345096?text=Quero%20adicionar%20categoria" class="text-primary"
                         style="font-weight:600;">Adicionar agora &rarr;</a>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="service-card">
-
                     <div class="service-icon">
                         <i class="ri-bus-fill"></i>
                     </div>
                     <h3>Profissional (C, D, E)</h3>
-                    <p style="margin:16px 0;">Evolua sua carreira. Habilitação para Ônibus, Caminhão e Carreta com
-                        instrutores veteranos de estrada.</p>
+                    <p>Evolua sua carreira. Habilitação para Ônibus, Caminhão e Carreta com instrutores veteranos de
+                        estrada.</p>
                     <a href="https://wa.me/5511940345096?text=Quero%20categoria%20Profissional" class="text-primary"
                         style="font-weight:600;">Evoluir CNH &rarr;</a>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="service-card">
-
                     <div class="service-icon">
                         <i class="ri-heart-pulse-fill"></i>
                     </div>
                     <h3>Aulas p/ Habilitados</h3>
-                    <p style="margin:16px 0;">Tem CNH mas tem medo de dirigir? Nossos instrutores são especialistas em
-                        devolver sua confiança no volante.</p>
+                    <p>Tem CNH mas tem medo de dirigir? Nossos instrutores são especialistas em devolver sua confiança
+                        no volante.</p>
                     <a href="https://wa.me/5511940345096?text=Tenho%20medo%20de%20dirigir" class="text-primary"
                         style="font-weight:600;">Voltar a dirigir &rarr;</a>
                 </div>
 
-                <!-- Card 5 (New) -->
                 <div class="service-card">
-
                     <div class="service-icon">
                         <i class="ri-refresh-line"></i>
                     </div>
                     <h3>Reciclagem & Reabilitação</h3>
-                    <p style="margin:16px 0;">CNH suspensa ou cassada? Reciclagem preventiva? Resolvemos sua situação
-                        com agilidade e orientação completa.</p>
+                    <p>CNH suspensa ou cassada? Reciclagem preventiva? Resolvemos sua situação com agilidade e
+                        orientação completa.</p>
                     <a href="https://wa.me/5511940345096?text=Preciso%20de%20Reciclagem" class="text-primary"
                         style="font-weight:600;">Regularizar CNH &rarr;</a>
                 </div>
 
-                <!-- Card 6 (New) -->
                 <div class="service-card">
-
                     <div class="service-icon">
                         <i class="ri-briefcase-fill"></i>
                     </div>
                     <h3>Cursos Especiais (MOPP)</h3>
-                    <p style="margin:16px 0;">Especialize-se para o mercado. Cursos de MOPP, Transporte de Passageiros e
-                        Cargas Indivisíveis.</p>
+                    <p>Especialize-se para o mercado. Cursos de MOPP, Transporte de Passageiros e Cargas Indivisíveis.
+                    </p>
                     <a href="https://wa.me/5511940345096?text=Interesse%20em%20Cursos%20Especiais" class="text-primary"
                         style="font-weight:600;">Se Especializar &rarr;</a>
                 </div>
@@ -1420,137 +2289,106 @@ h3 {
         </div>
     </section>
 
-    <!-- 5. FLEET (Nossa Frota - Premium) -->
+    <!-- 5. FLEET -->
     <section class="section-padding" style="background:var(--primary); color:white; position:relative;">
-        <!-- Background Pattern -->
-        <div class="fleet-bg-pattern">
+        <div
+            style="position:absolute; top:0; left:0; width:100%; height:100%; background:url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); opacity:0.05; pointer-events:none;">
         </div>
 
         <div class="container" style="position:relative; z-index:2;">
-            <div class="text-center" style="margin-bottom:60px;">
-                <h4 style="color:var(--secondary); letter-spacing:2px; font-weight:700;">NOSSA FROTA</h4>
-                <h2 style="color:white; font-size:2.5rem;">Aprenda no que há de melhor.</h2>
+            <div class="text-center" style="margin-bottom:48px;">
+                <h4 style="color:var(--secondary); letter-spacing:2px; font-weight:700; font-size:13px;">NOSSA FROTA
+                </h4>
+                <h2 style="color:white;">Aprenda no que há de melhor.</h2>
                 <p style="color:rgba(255,255,255,0.8); max-width:600px; margin:0 auto;">
                     Não treinamos você no passado. Nossa frota é 100% atualizada com direção hidráulica e
                     ar-condicionado para facilitar seu aprendizado.
                 </p>
             </div>
 
-            <!-- Fleet Grid -->
-            <div class="fleet-grid"
-                style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
-
-                <!-- Car Item -->
-                <div class="fleet-card glass-card"
-                    style="border-radius:20px; overflow:hidden; transition:transform 0.3s ease;">
-                    <div class="fleet-img fleet-card-img"
+            <div class="fleet-grid">
+                <div class="fleet-card">
+                    <div class="fleet-card-img"
                         style="background-image:url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80');">
                     </div>
-                    <div class="fleet-info" style="padding:25px;">
+                    <div class="fleet-info">
                         <h3 style="color:white; margin-bottom:10px;">Fiat Mobi & Onix</h3>
-                        <p style="color:rgba(255,255,255,0.8); font-size:0.9rem; margin-bottom:15px;">Ideais para baliza
-                            e trânsito
-                            urbano.</p>
-                        <div class="fleet-features" style="display:flex; gap:10px; flex-wrap:wrap;">
-                            <span
-                                style="background:var(--bg-light); color:var(--primary); padding:5px 10px; border-radius:50px; font-size:0.8rem; font-weight:600;"><i
-                                    class="ri-steering-2-line"></i> Dir. Elétrica</span>
-                            <span
-                                style="background:var(--bg-light); color:var(--primary); padding:5px 10px; border-radius:50px; font-size:0.8rem; font-weight:600;"><i
-                                    class="ri-windy-line"></i> Ar Cond.</span>
+                        <p style="color:rgba(255,255,255,0.8); font-size:14px; margin-bottom:15px;">Ideais para baliza e
+                            trânsito urbano.</p>
+                        <div class="fleet-features">
+                            <span><i class="ri-steering-2-line"></i> Dir. Elétrica</span>
+                            <span><i class="ri-windy-line"></i> Ar Cond.</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Moto Item -->
-                <div class="fleet-card glass-card"
-                    style="border-radius:20px; overflow:hidden; transition:transform 0.3s ease;">
-                    <div class="fleet-img fleet-card-img"
+                <div class="fleet-card">
+                    <div class="fleet-card-img"
                         style="background-image:url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80');">
                     </div>
-                    <div class="fleet-info" style="padding:25px;">
+                    <div class="fleet-info">
                         <h3 style="color:white; margin-bottom:10px;">Yamaha Factor 150</h3>
-                        <p style="color:rgba(255,255,255,0.8); font-size:0.9rem; margin-bottom:15px;">Leve, estável e
-                            perfeita para o
-                            exame.</p>
-                        <div class="fleet-features" style="display:flex; gap:10px; flex-wrap:wrap;">
-                            <span
-                                style="background:var(--bg-light); color:var(--primary); padding:5px 10px; border-radius:50px; font-size:0.8rem; font-weight:600;"><i
-                                    class="ri-motorbike-fill"></i> Partida Elétrica</span>
-                            <span
-                                style="background:var(--bg-light); color:var(--primary); padding:5px 10px; border-radius:50px; font-size:0.8rem; font-weight:600;"><i
-                                    class="ri-check-double-line"></i> Revisadas</span>
+                        <p style="color:rgba(255,255,255,0.8); font-size:14px; margin-bottom:15px;">Leve, estável e
+                            perfeita para o exame.</p>
+                        <div class="fleet-features">
+                            <span><i class="ri-motorbike-fill"></i> Partida Elétrica</span>
+                            <span><i class="ri-check-double-line"></i> Revisadas</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bus Item -->
-                <div class="fleet-card glass-card"
-                    style="border-radius:20px; overflow:hidden; transition:transform 0.3s ease;">
-                    <div class="fleet-img fleet-card-img"
+                <div class="fleet-card">
+                    <div class="fleet-card-img"
                         style="background-image:url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5960?auto=format&fit=crop&w=800&q=80');">
                     </div>
-                    <div class="fleet-info" style="padding:25px;">
+                    <div class="fleet-info">
                         <h3 style="color:white; margin-bottom:10px;">Ônibus & Caminhão</h3>
-                        <p style="color:rgba(255,255,255,0.8); font-size:0.9rem; margin-bottom:15px;">Categorias C e D
-                            com veículos
-                            modernos.</p>
-                        <div class="fleet-features" style="display:flex; gap:10px; flex-wrap:wrap;">
-                            <span
-                                style="background:var(--bg-light); color:var(--primary); padding:5px 10px; border-radius:50px; font-size:0.8rem; font-weight:600;"><i
-                                    class="ri-bus-line"></i> Direção Hidráulica</span>
+                        <p style="color:rgba(255,255,255,0.8); font-size:14px; margin-bottom:15px;">Categorias C e D com
+                            veículos modernos.</p>
+                        <div class="fleet-features">
+                            <span><i class="ri-bus-line"></i> Direção Hidráulica</span>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-
-
-    <!-- 5. BRAND MANIFESTO (O Jeito Mineiro) -->
+    <!-- 6. FEATURES -->
     <section class="section-padding" style="background:white; text-align:center;">
         <div class="container">
-            <h2 class="text-primary" style="margin-bottom:40px;">O Jeito Mineiro de Ensinar</h2>
-            <p style="max-width:700px; margin:0 auto 50px; font-size:1.1rem; color:var(--text-muted);">
+            <h2 class="text-primary" style="margin-bottom:32px;">O Jeito Mineiro de Ensinar</h2>
+            <p style="max-width:700px; margin:0 auto 40px; font-size:16px; color:var(--text-muted);">
                 Não acreditamos em aulas robóticas. Acreditamos em café quentinho, conversa olho no olho e ensinar com
                 paciência de quem ensina um filho.
             </p>
 
             <div class="features-grid">
                 <div class="feature-box">
-                    <i class="ri-emotion-happy-line"
-                        style="font-size:3rem; color:var(--secondary); margin-bottom:10px;"></i>
+                    <i class="ri-emotion-happy-line" style="font-size:2.5rem; color:var(--secondary);"></i>
                     <h4>Sem "Gritar"</h4>
                     <p>Instrutores proibidos de perder a paciência. Aqui o erro faz parte do aprendizado.</p>
                 </div>
                 <div class="feature-box">
-                    <i class="ri-calendar-check-line"
-                        style="font-size:3rem; color:var(--secondary); margin-bottom:10px;"></i>
+                    <i class="ri-calendar-check-line" style="font-size:2.5rem; color:var(--secondary);"></i>
                     <h4>No Seu Tempo</h4>
                     <p>Agenda flexível de verdade. Trabalha? Estuda? A gente se adapta ao seu relógio.</p>
                 </div>
                 <div class="feature-box">
-                    <i class="ri-shield-check-fill"
-                        style="font-size:3rem; color:var(--secondary); margin-bottom:10px;"></i>
+                    <i class="ri-shield-check-fill" style="font-size:2.5rem; color:var(--secondary);"></i>
                     <h4>Transparência Radical</h4>
                     <p>O valor que a gente fala é o valor que você paga. Sem taxas "surpresas" no final.</p>
                 </div>
                 <div class="feature-box">
-                    <i class="ri-heart-pulse-fill"
-                        style="font-size:3rem; color:var(--secondary); margin-bottom:10px;"></i>
+                    <i class="ri-heart-pulse-fill" style="font-size:2.5rem; color:var(--secondary);"></i>
                     <h4>Inteligência Emocional</h4>
-                    <p>Sabemos lidar com o nervosismo. Usamos técnicas que acalmam e preparam sua mente para qualquer
-                        desafio no trânsito.</p>
+                    <p>Sabemos lidar com o nervosismo. Usamos técnicas que acalmam e preparam sua mente.</p>
                 </div>
             </div>
-
-
         </div>
     </section>
 
-    <!-- 6. EMOTION (Testimonials) -->
+    <!-- 7. REVIEWS -->
     <section id="depoimentos" class="section-padding section-reviews">
         <div class="container">
             <div class="text-center">
@@ -1558,15 +2396,14 @@ h3 {
                 <p style="color:rgba(255,255,255,0.8);">Histórias reais de alunos de Embu das Artes.</p>
             </div>
 
-            <div class="reviews-widget-container" style="margin-top:40px;">
-                <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+            <div style="margin-top:40px;">
                 <script src="https://elfsightcdn.com/platform.js" async></script>
                 <div class="elfsight-app-b0d3daaa-508e-4424-9d45-be9c19e4786d" data-elfsight-app-lazy></div>
             </div>
         </div>
     </section>
 
-    <!-- 7. FAQ -->
+    <!-- 8. FAQ -->
     <section class="section-padding" style="background:var(--bg-light);">
         <div class="container" style="max-width:800px;">
             <h2 class="text-center text-primary" style="margin-bottom:40px;">Dúvidas Frequentes</h2>
@@ -1606,15 +2443,16 @@ h3 {
         </div>
     </section>
 
-    <!-- 7. PAYMENT (Facilidades - Restored) -->
+    <!-- 9. PAYMENT -->
     <section class="section-padding"
         style="background:var(--primary); color:white; border-bottom: 1px solid rgba(255,255,255,0.1);">
         <div class="container">
             <div class="grid-2" style="align-items:center;">
                 <div>
-                    <h4 style="color:var(--secondary); letter-spacing:2px; font-weight:700;">INVESTIMENTO</h4>
+                    <h4 style="color:var(--secondary); letter-spacing:2px; font-weight:700; font-size:13px;">
+                        INVESTIMENTO</h4>
                     <h2 style="color:white; margin-bottom:20px;">Habilitação que cabe no seu bolso.</h2>
-                    <p style="color:rgba(255,255,255,0.8); font-size:1.1rem;">
+                    <p style="color:rgba(255,255,255,0.8);">
                         Não deixe o dinheiro ser uma barreira. Temos parcerias e métodos flexíveis para você conquistar
                         sua liberdade sem aperto.
                     </p>
@@ -1623,41 +2461,33 @@ h3 {
                         <i class="ri-whatsapp-line"></i> Consultar Valores
                     </a>
                 </div>
-                <div class="payment-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:20px;">
-                    <!-- Item 1 -->
-                    <div class="payment-card glass-card-dark"
-                        style="padding:20px; border-radius:15px; display:flex; align-items:center; gap:15px;">
-                        <i class="ri-bank-card-fill" style="font-size:2rem; color:var(--secondary);"></i>
+                <div class="payment-grid">
+                    <div class="payment-card">
+                        <i class="ri-bank-card-fill"></i>
                         <div>
-                            <h4 class="text-white-force" style="margin:0; font-size:1rem;">Até 12x</h4>
-                            <span style="font-size:0.8rem; opacity:0.7;">No Cartão</span>
+                            <h4>Até 12x</h4>
+                            <span>No Cartão</span>
                         </div>
                     </div>
-                    <!-- Item 2 -->
-                    <div class="payment-card glass-card-dark"
-                        style="padding:20px; border-radius:15px; display:flex; align-items:center; gap:15px;">
-                        <i class="ri-qr-code-line" style="font-size:2rem; color:var(--secondary);"></i>
+                    <div class="payment-card">
+                        <i class="ri-qr-code-line"></i>
                         <div>
-                            <h4 class="text-white-force" style="margin:0; font-size:1rem;">PIX</h4>
-                            <span style="font-size:0.8rem; opacity:0.7;">À Vista c/ Desconto</span>
+                            <h4>PIX</h4>
+                            <span>À Vista c/ Desconto</span>
                         </div>
                     </div>
-                    <!-- Item 3 -->
-                    <div class="payment-card glass-card-dark"
-                        style="padding:20px; border-radius:15px; display:flex; align-items:center; gap:15px;">
-                        <i class="ri-file-paper-2-line" style="font-size:2rem; color:var(--secondary);"></i>
+                    <div class="payment-card">
+                        <i class="ri-file-paper-2-line"></i>
                         <div>
-                            <h4 class="text-white-force" style="margin:0; font-size:1rem;">Boleto</h4>
-                            <span style="font-size:0.8rem; opacity:0.7;">Entrada + Parcelas</span>
+                            <h4>Boleto</h4>
+                            <span>Entrada + Parcelas</span>
                         </div>
                     </div>
-                    <!-- Item 4 -->
-                    <div class="payment-card glass-card-dark"
-                        style="padding:20px; border-radius:15px; display:flex; align-items:center; gap:15px;">
-                        <i class="ri-shake-hands-fill" style="font-size:2rem; color:var(--secondary);"></i>
+                    <div class="payment-card">
+                        <i class="ri-shake-hands-fill"></i>
                         <div>
-                            <h4 class="text-white-force" style="margin:0; font-size:1rem;">Negociável</h4>
-                            <span style="font-size:0.8rem; opacity:0.7;">Fale Conosco</span>
+                            <h4>Negociável</h4>
+                            <span>Fale Conosco</span>
                         </div>
                     </div>
                 </div>
@@ -1665,46 +2495,37 @@ h3 {
         </div>
     </section>
 
-
-
-    <!-- 8. LOCATION (Map) -->
+    <!-- 10. LOCATION -->
     <section class="section-padding" style="background:white;" id="localizacao">
         <div class="container">
-            <!-- Top Header -->
-            <div class="text-center" style="margin-bottom: 50px;">
+            <div class="text-center" style="margin-bottom: 40px;">
                 <h4 class="text-primary">ONDE ESTAMOS</h4>
                 <h2>Venha tomar um café com a gente!</h2>
                 <p style="color:var(--text-muted);">Estamos localizados em um ponto estratégico de Embu das Artes.</p>
             </div>
 
-            <!-- Visuals Grid (Map Only) -->
             <div style="margin-bottom: 40px;">
-                <div class="map-wrapper"
-                    style="border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md); height: 400px;">
+                <div class="map-wrapper">
                     <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
                         src="https://maps.google.com/maps?q=Av.+H%C3%A9lio+Ossamu+Daikuara,+2445+-+Jardim+Vista+Alegre,+Embu+das+Artes&t=&z=15&ie=UTF8&iwloc=&output=embed">
                     </iframe>
                 </div>
             </div>
 
-            <!-- Bottom Info Bar -->
-            <div class="location-bar"
-                style="background:var(--bg-light); padding:30px; border-radius:var(--radius-md); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:30px;">
-
+            <div class="location-bar">
                 <div style="display:flex; align-items:center; gap:15px;">
                     <i class="ri-map-pin-2-fill text-secondary" style="font-size:2rem;"></i>
                     <div>
-                        <h5 style="margin-bottom:5px; color:var(--primary);">Unidade Principal</h5>
-                        <p style="margin:0; font-size:0.9rem;">Av. Hélio Ossamu Daikuara, 2445<br>Jd. Vista Alegre, Embu
-                            das Artes</p>
+                        <h5 style="color:var(--primary);">Unidade Principal</h5>
+                        <p style="margin:0;">Av. Hélio Ossamu Daikuara, 2445<br>Jd. Vista Alegre, Embu das Artes</p>
                     </div>
                 </div>
 
                 <div style="display:flex; align-items:center; gap:15px;">
                     <i class="ri-time-fill text-secondary" style="font-size:2rem;"></i>
                     <div>
-                        <h5 style="margin-bottom:5px; color:var(--primary);">Horário</h5>
-                        <p style="margin:0; font-size:0.9rem;">Seg-Sex: 08h às 18h<br>Sáb: 08h às 13h</p>
+                        <h5 style="color:var(--primary);">Horário</h5>
+                        <p style="margin:0;">Seg-Sex: 08h às 18h<br>Sáb: 08h às 13h</p>
                     </div>
                 </div>
 
@@ -1718,20 +2539,19 @@ h3 {
         </div>
     </section>
 
-    <!-- 9. FOOTER -->
+    <!-- 11. FOOTER -->
     <footer id="contato" class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="img/logo-footer.png" alt="Auto Escola Mineiro" class="footer-logo logo-footer-img"
-                        loading="lazy">
+                    <img src="img/logo-footer.png" alt="Auto Escola Mineiro" class="footer-logo" loading="lazy">
                     <p>Referência em formação de condutores em Embu das Artes. 20+ anos de tradição, agora com uma nova
                         cara.</p>
                 </div>
 
                 <div class="footer-col">
                     <h4>Links Rápidos</h4>
-                    <ul style="list-style:none; line-height:2;">
+                    <ul>
                         <li><a href="#inicio">Início</a></li>
                         <li><a href="#sobre">Quem Somos</a></li>
                         <li><a href="#servicos">Categorias</a></li>
@@ -1740,7 +2560,7 @@ h3 {
 
                 <div class="footer-col">
                     <h4>Serviços</h4>
-                    <ul style="list-style:none; line-height:2;">
+                    <ul>
                         <li><a href="#">Carro (B)</a></li>
                         <li><a href="#">Moto (A)</a></li>
                         <li><a href="#">Ônibus (D)</a></li>
@@ -1750,7 +2570,7 @@ h3 {
 
                 <div class="footer-col">
                     <h4>Contato</h4>
-                    <ul style="list-style:none; line-height:2;">
+                    <ul>
                         <li><i class="ri-map-pin-line" style="color:var(--secondary);"></i> Av. Hélio Ossamu Daikuara,
                             2445 - Jd. Vista Alegre</li>
                         <li><i class="ri-whatsapp-line" style="color:var(--secondary);"></i> (11) 94034-5096</li>
@@ -1767,15 +2587,87 @@ h3 {
     </footer>
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/5511940345096" class="btn-whatsapp"
-        style="position:fixed; bottom:30px; right:30px; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; z-index:999;">
+    <a href="https://wa.me/5511940345096" class="btn-whatsapp">
         <i class="ri-whatsapp-line"></i>
     </a>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="js/script.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuClose = document.getElementById('menuClose');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        menuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close menu when clicking a link
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Accordion
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const body = item.querySelector('.accordion-body');
+                const icon = header.querySelector('i');
+
+                // Toggle current item
+                body.classList.toggle('active');
+                icon.classList.toggle('ri-add-line');
+                icon.classList.toggle('ri-subtract-line');
+
+                // Close other items
+                accordionHeaders.forEach(otherHeader => {
+                    if (otherHeader !== header) {
+                        const otherItem = otherHeader.parentElement;
+                        const otherBody = otherItem.querySelector('.accordion-body');
+                        const otherIcon = otherHeader.querySelector('i');
+                        otherBody.classList.remove('active');
+                        otherIcon.classList.add('ri-add-line');
+                        otherIcon.classList.remove('ri-subtract-line');
+                    }
+                });
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        //Header Shadow on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
 </body>
 
 </html>
