@@ -275,24 +275,24 @@
             margin-bottom: calc(var(--spacing-unit) * 4);
         }
 
-        /* HERO SECTION - HULK-INSPIRED CLEAN LAYOUT */
+        /* HERO SECTION - INTEGRATED IMAGE WITH CLEAN COPY */
         .hero-section {
             position: relative;
             background: var(--primary);
             color: white;
-            padding: 0;
+            padding: calc(var(--spacing-unit) * 8) 0 calc(var(--spacing-unit) * 6) 0;
             overflow: hidden;
         }
 
-        /* Remove decorative blurs for cleaner look */
+        /* Remove decorative blurs */
         .hero-decoration {
             display: none;
         }
 
         .hero-visual {
             position: relative;
-            z-index: 1;
-            margin: 0;
+            z-index: 2;
+            margin-bottom: calc(var(--spacing-unit) * 5);
             animation: fadeIn 0.6s ease-out;
         }
 
@@ -308,24 +308,22 @@
 
         .hero-image-wrapper {
             position: relative;
-            border-radius: 0;
-            /* Fullwidth like Hulk */
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: none;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
         }
 
         .hero-img-effect {
             width: 100%;
             display: block;
-            border-radius: 0;
+            border-radius: var(--radius-lg);
         }
 
-        /* Content area with solid background */
+        /* Content area */
         .hero-content {
             position: relative;
             z-index: 2;
-            background: var(--primary);
-            padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 3);
             text-align: center;
         }
 
@@ -376,7 +374,7 @@
             margin-bottom: calc(var(--spacing-unit) * 3);
         }
 
-        /* Single prominent CTA like Hulk */
+        /* Primary CTA - prominent golden button */
         .hero-cta-primary {
             background: var(--secondary);
             color: var(--primary-dark);
@@ -399,7 +397,7 @@
             box-shadow: 0 8px 25px rgba(203, 154, 43, 0.7);
         }
 
-        /* Secondary CTA - more subtle */
+        /* Secondary CTA - subtle link */
         .hero-cta-secondary {
             color: rgba(255, 255, 255, 0.9);
             font-size: 14px;
@@ -2217,17 +2215,17 @@ h3 {
         </ul>
     </div>
 
-    <!-- 1. HERO - HULK-INSPIRED LAYOUT -->
+    <!-- 1. HERO - INTEGRATED IMAGE LAYOUT -->
     <section id="inicio" class="hero-section">
-        <div class="container" style="padding:0; max-width:100%;">
-            <!-- Hero Image First (Fullwidth) -->
+        <div class="container">
+            <!-- Hero Image First -->
             <div class="hero-visual">
                 <div class="hero-image-wrapper">
                     <img src="img/hero-real.jpg" alt="Entrada Auto Escola Mineiro" class="hero-img-effect">
                 </div>
             </div>
 
-            <!-- Hero Content (Solid Background) -->
+            <!-- Hero Content -->
             <div class="hero-content">
                 <span class="hero-tag">Embu das Artes • Jd. Vista Alegre</span>
 
@@ -2268,19 +2266,19 @@ h3 {
             <div class="stats-grid">
                 <div class="stat-item">
                     <h3>20+</h3>
-                    <p>Anos de Experiência</p>
+                    <p>Anos no Mercado</p>
                 </div>
                 <div class="stat-item">
-                    <h3>5k+</h3>
-                    <p>Alunos Habilitados</p>
+                    <h3>+5 Mil</h3>
+                    <p>CNHs Emitidas</p>
                 </div>
                 <div class="stat-item">
                     <h3>98%</h3>
-                    <p>Taxa de Aprovação</p>
+                    <p>Aprovação 1ª Vez</p>
                 </div>
                 <div class="stat-item">
-                    <h3>ZERO</h3>
-                    <p>Burocracia Chata</p>
+                    <h3>#1</h3>
+                    <p>Campeã em Aprovação</p>
                 </div>
             </div>
         </div>
