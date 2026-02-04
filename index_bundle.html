@@ -326,8 +326,8 @@
         .hero-visual {
             position: relative;
             z-index: 2;
-            margin-top: calc(var(--spacing-unit) * 6);
-            animation: slideUpFade 1s ease-out 0.6s both;
+            margin-bottom: calc(var(--spacing-unit) * 5);
+            animation: slideUpFade 0.8s ease-out 0.2s both;
         }
 
         @keyframes slideUpFade {
@@ -2292,6 +2292,14 @@ h3 {
         <div class="hero-decoration"></div>
 
         <div class="container">
+            <!-- Hero Image First (Top) -->
+            <div class="hero-visual">
+                <div class="hero-image-wrapper">
+                    <img src="img/hero-real.jpg" alt="Entrada Auto Escola Mineiro" class="hero-img-effect">
+                </div>
+            </div>
+
+            <!-- Hero Content Below -->
             <div class="hero-content">
                 <span class="hero-tag">Embu das Artes • Jd. Vista Alegre</span>
                 <h1 class="hero-title">Transformando<br>Burocracia em<br><span
@@ -2307,19 +2315,6 @@ h3 {
                     <a href="#sobre" class="btn btn-outline" style="color:white; border-color:white;">
                         Conhecer Mineiro
                     </a>
-                </div>
-            </div>
-
-            <!-- Hero Image with Slide-Up Animation -->
-            <div class="hero-visual">
-                <div class="hero-image-wrapper">
-                    <img src="img/hero-real.jpg" alt="Entrada Auto Escola Mineiro" class="hero-img-effect">
-
-                    <!-- Optional: Floating Badge -->
-                    <div class="hero-img-badge">
-                        <span class="hero-img-badge-number">20+</span>
-                        <span class="hero-img-badge-text">Anos</span>
-                    </div>
                 </div>
             </div>
         </div>
