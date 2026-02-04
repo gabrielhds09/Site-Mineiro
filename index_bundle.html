@@ -275,62 +275,167 @@
             margin-bottom: calc(var(--spacing-unit) * 4);
         }
 
-        /* HERO SECTION - MOBILE OPTIMIZED */
+        /* HERO SECTION - MODERN OVERLAY DESIGN */
         .hero-section {
-            background: linear-gradient(135deg, #1e35a1 0%, #12226a 100%);
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
             color: white;
-            padding: calc(var(--spacing-unit) * 8) 0 calc(var(--spacing-unit) * 6) 0;
+            padding: calc(var(--spacing-unit) * 10) 0 calc(var(--spacing-unit) * 8) 0;
             text-align: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e35a1 0%, #12226a 100%);
+        }
+
+        /* Background Image with Overlay */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/hero-real.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            z-index: 0;
+        }
+
+        /* Dark gradient overlay for legibility */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                    rgba(30, 53, 161, 0.92) 0%,
+                    rgba(18, 34, 106, 0.88) 50%,
+                    rgba(30, 53, 161, 0.90) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-visual {
+            display: none;
+            /* Hidden on mobile - image is background */
         }
 
         .hero-tag {
             display: inline-block;
             background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 6px 16px;
+            padding: 8px 20px;
             border-radius: 30px;
             font-size: 11px;
-            letter-spacing: 1.5px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: calc(var(--spacing-unit) * 2);
+            letter-spacing: 1.8px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: calc(var(--spacing-unit) * 3);
             text-transform: uppercase;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 20px rgba(203, 154, 43, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 6px 30px rgba(203, 154, 43, 0.7);
+            }
         }
 
         .hero-title {
-            font-size: 28px;
-            line-height: 1.2;
+            font-size: 30px;
+            line-height: 1.25;
             color: white;
-            margin-bottom: calc(var(--spacing-unit) * 2);
+            margin-bottom: calc(var(--spacing-unit) * 2.5);
             hyphens: none;
             word-break: keep-all;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-subtitle {
-            font-size: 14px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: calc(var(--spacing-unit) * 4);
+            font-size: 15px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: calc(var(--spacing-unit) * 5);
             max-width: 100%;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         .hero-actions {
             display: flex;
             flex-direction: column;
             gap: calc(var(--spacing-unit) * 2);
-            margin-bottom: calc(var(--spacing-unit) * 4);
+            margin-bottom: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
-        .hero-image-wrapper {
-            margin-top: calc(var(--spacing-unit) * 4);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        .hero-actions .btn-primary {
+            animation: glow 2s ease-in-out infinite;
         }
 
-        .hero-img-effect {
-            width: 100%;
-            border-radius: var(--radius-lg);
+        /* Decorative Elements */
+        .hero-decoration {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(203, 154, 43, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-decoration:nth-child(1) {
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero-decoration:nth-child(2) {
+            bottom: -100px;
+            left: -100px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
         }
 
         /* STATS SECTION - 2x2 MOBILE */
@@ -764,6 +869,17 @@
 
             .hero-section {
                 padding: calc(var(--spacing-unit) * 12) 0 calc(var(--spacing-unit) * 10) 0;
+                min-height: 85vh;
+                text-align: left;
+            }
+
+            .hero-section::before {
+                opacity: 0.15;
+                /* Reduce background image on desktop */
+            }
+
+            .hero-content {
+                max-width: 600px;
             }
 
             .hero-title {
@@ -776,7 +892,7 @@
 
             .hero-actions {
                 flex-direction: row;
-                justify-content: center;
+                justify-content: flex-start;
             }
 
             .hero-actions .btn {
@@ -2113,30 +2229,26 @@ h3 {
 
     <!-- 1. HERO -->
     <section id="inicio" class="hero-section">
-        <div class="container">
-            <div class="grid-2">
-                <div class="hero-content">
-                    <span class="hero-tag">Embu das Artes • Jd. Vista Alegre</span>
-                    <h1 class="hero-title">Transformando<br>Burocracia em<br><span
-                            style="color:var(--secondary)">Liberdade</span>.</h1>
-                    <p class="hero-subtitle">
-                        Esqueça o processo rígido e estressante. Aqui na Mineiro, sua habilitação é leve, humana e 100%
-                        focada em você.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="https://wa.me/5511940345096" class="btn btn-primary">
-                            <i class="ri-whatsapp-line"></i> Quero Minha CNH
-                        </a>
-                        <a href="#sobre" class="btn btn-outline" style="color:white; border-color:white;">
-                            Conhecer Mineiro
-                        </a>
-                    </div>
-                </div>
+        <!-- Decorative Elements -->
+        <div class="hero-decoration"></div>
+        <div class="hero-decoration"></div>
 
-                <div class="hero-visual">
-                    <div class="hero-image-wrapper">
-                        <img src="img/hero-real.jpg" alt="Entrada Auto Escola Mineiro" class="hero-img-effect">
-                    </div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">Embu das Artes • Jd. Vista Alegre</span>
+                <h1 class="hero-title">Transformando<br>Burocracia em<br><span
+                        style="color:var(--secondary)">Liberdade</span>.</h1>
+                <p class="hero-subtitle">
+                    Esqueça o processo rígido e estressante. Aqui na Mineiro, sua habilitação é leve, humana e 100%
+                    focada em você.
+                </p>
+                <div class="hero-actions">
+                    <a href="https://wa.me/5511940345096" class="btn btn-primary">
+                        <i class="ri-whatsapp-line"></i> Quero Minha CNH
+                    </a>
+                    <a href="#sobre" class="btn btn-outline" style="color:white; border-color:white;">
+                        Conhecer Mineiro
+                    </a>
                 </div>
             </div>
         </div>
