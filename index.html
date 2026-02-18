@@ -3,40 +3,171 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1e35a1">
     <title>Auto Escola Mineiro | Leveza e Liberdade para Dirigir em Embu</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo-mineiro.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
+    <!-- SEO -->
     <meta name="description"
         content="Auto Escola Mineiro em Embu das Artes. 20+ anos de experiência. Sem burocracia, com paciência e método focado em quem tem medo de dirigir. Tire sua CNH agora!">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Auto Escola Mineiro | Campeã em Aprovação em Embu das Artes">
+    <meta property="og:description"
+        content="20+ anos formando condutores. Instrutores pacientes, veículos novos e 98% de aprovação na 1ª vez. Tire sua CNH agora!">
+    <meta property="og:image" content="img/hero-real.jpg">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DrivingSchool",
+      "name": "Auto Escola Mineiro",
+      "description": "Centro de Formação de Condutores com 20+ anos de experiência em Embu das Artes.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Hélio Ossamu Daikuara, 2445",
+        "addressLocality": "Embu das Artes",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "telephone": "+5511940345096",
+      "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-13:00",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "200"
+      }
+    }
+    </script>
 
     <style>
         /* AUTO ESCOLA MINEIRO - MOBILE-FIRST OPTIMIZED */
 
-        :root {
-            /* Colors */
-            --primary: #1e35a1;
-            --primary-light: #2a4cc7;
-            --primary-dark: #12226a;
-            --secondary: #cb9a2b;
-            --secondary-hover: #e0ac3a;
-            --bg-white: #ffffff;
-            --bg-light: #f8f9fc;
-            --bg-dark: #0f172a;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
+        /* =============================================
+           PREMIUM VISUAL UPGRADES (The "Wow" Factor)
+           ============================================= */
 
-            /* Typography - Mobile First */
-            --font-heading: 'Poppins', sans-serif;
+        /* 1. Gold Gradient Text */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFD700 0%, #FDB931 50%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 10px rgba(253, 185, 49, 0.2);
+        }
+
+        /* 2. Button Shimmer Effect (Infinite subtle attention) */
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.3) 50%,
+                    rgba(255, 255, 255, 0) 100%);
+            transform: skewX(-25deg);
+            animation: shine-sweep 4s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes shine-sweep {
+            0% {
+                left: -100%;
+            }
+
+            20% {
+                left: 200%;
+            }
+
+            100% {
+                left: 200%;
+            }
+        }
+
+        /* 3. Background Texture (Depth) */
+        .bg-noise {
+            position: relative;
+        }
+
+        .bg-noise::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            opacity: 0.08;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        /* 4. Glassmorphism + Glow Hover */
+        .card-premium-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-premium-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(30, 53, 161, 0.15);
+            border-color: var(--secondary);
+        }
+
+        /* Variables Update for Premium Feel */
+        :root {
+            --primary: #1a2b85;
+            /* Slightly deeper blue */
+            --primary-dark: #121f66;
+            --secondary: #d4a02e;
+            /* Richer gold */
+            --secondary-light: #f5c45e;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --spacing-unit: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
             --font-body: 'Poppins', sans-serif;
+            --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+            --shadow-sharp: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 
             /* Layout */
             --container: 1280px;
@@ -54,11 +185,13 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
@@ -67,6 +200,9 @@
             background: var(--bg-white);
             line-height: 1.5;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
         }
 
         h1,
@@ -128,10 +264,7 @@
             padding: 0 calc(var(--spacing-unit) * 2);
         }
 
-        /* SECTION PADDING - MOBILE */
-        .section-padding {
-            padding: calc(var(--spacing-unit) * 6) 0;
-        }
+        /* SECTION PADDING - see v23 section below */
 
         /* UTILITIES */
         .text-center {
@@ -275,34 +408,51 @@
             margin-bottom: calc(var(--spacing-unit) * 4);
         }
 
-        /* HERO SECTION - INTEGRATED IMAGE WITH CLEAN COPY */
+        /* =============================================
+           HERO SECTION - REDESIGNED
+           Mobile: stacked (content first, image second)
+           Desktop: 2-column grid (content left, image right)
+           ============================================= */
         .hero-section {
             position: relative;
             background: var(--primary);
             color: white;
-            padding: calc(var(--spacing-unit) * 8) 0 calc(var(--spacing-unit) * 6) 0;
+            padding: calc(var(--spacing-unit) * 10) 0 calc(var(--spacing-unit) * 8) 0;
             overflow: hidden;
         }
 
-        /* Remove decorative blurs */
-        .hero-decoration {
-            display: none;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing-unit) * 5);
+            align-items: center;
         }
 
+        /* Content area — appears FIRST on mobile */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            order: 1;
+        }
+
+        /* Visual — appears SECOND on mobile */
         .hero-visual {
             position: relative;
             z-index: 2;
-            margin-bottom: calc(var(--spacing-unit) * 5);
+            order: 2;
             animation: fadeIn 0.6s ease-out;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
+                transform: translateY(10px);
             }
 
             to {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
@@ -310,7 +460,7 @@
             position: relative;
             border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35),
                 0 0 0 1px rgba(255, 255, 255, 0.1);
         }
 
@@ -319,71 +469,61 @@
             display: block;
             border-radius: var(--radius-lg);
             object-fit: cover;
-            object-position: center center;
+            object-position: center;
             height: auto;
-        }
-
-        /* Content area */
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
+            max-height: 320px;
         }
 
         .hero-tag {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             padding: 8px 20px;
             border-radius: 30px;
             font-size: 11px;
             letter-spacing: 1.8px;
             color: rgba(255, 255, 255, 0.95);
-            margin-bottom: calc(var(--spacing-unit) * 3);
+            margin-bottom: calc(var(--spacing-unit) * 2);
             text-transform: uppercase;
             font-weight: 600;
         }
 
         .hero-title {
-            font-size: 32px;
-            line-height: 1.2;
+            font-size: 28px;
+            line-height: 1.15;
             color: white;
-            margin-bottom: calc(var(--spacing-unit) * 3);
+            margin-bottom: calc(var(--spacing-unit) * 2);
             hyphens: none;
             word-break: keep-all;
             font-weight: 700;
         }
 
-        /* Highlighted word in title */
         .hero-title-highlight {
             color: var(--secondary);
             font-weight: 800;
         }
 
         .hero-subtitle {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: calc(var(--spacing-unit) * 5);
-            max-width: 100%;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: calc(var(--spacing-unit) * 4);
         }
 
         .hero-actions {
             display: flex;
             flex-direction: column;
             gap: calc(var(--spacing-unit) * 2);
-            margin-bottom: calc(var(--spacing-unit) * 3);
         }
 
-        /* Primary CTA - prominent golden button */
         .hero-cta-primary {
             background: var(--secondary);
             color: var(--primary-dark);
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
-            padding: 16px 32px;
+            padding: 16px 28px;
             border-radius: 50px;
             display: inline-flex;
             align-items: center;
@@ -393,40 +533,47 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            width: 100%;
         }
 
         .hero-cta-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(203, 154, 43, 0.7);
+            box-shadow: 0 10px 30px rgba(203, 154, 43, 0.7);
+            background: var(--secondary-hover);
         }
 
-        /* Secondary CTA - subtle link */
         .hero-cta-secondary {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 14px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 13px;
             font-weight: 600;
             text-decoration: underline;
             text-underline-offset: 4px;
         }
 
-        /* Social proof badge */
         .hero-proof-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 10px 20px;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            padding: 10px 18px;
             border-radius: 50px;
             font-size: 13px;
             font-weight: 600;
             color: white;
-            margin-top: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 3);
         }
 
         .hero-proof-icon {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--secondary);
+        }
+
+        .hero-safe-text {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: calc(var(--spacing-unit) * 2);
+            margin-bottom: 0;
         }
 
         /* STATS SECTION - 2x2 MOBILE */
@@ -463,49 +610,15 @@
         }
 
         /* SECTIONS */
-        .section-purpose,
+        .section-purpose {
+            background: white;
+        }
+
         .section-services {
-            background: white;
+            background: var(--bg-light);
         }
 
-        /* IMAGE WRAPPER */
-        .image-wrapper {
-            position: relative;
-            margin-bottom: calc(var(--spacing-unit) * 3);
-        }
-
-        .img-founder {
-            border-radius: var(--radius-lg);
-            width: 100%;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .badge-floating {
-            position: absolute;
-            top: calc(var(--spacing-unit) * 3);
-            left: calc(var(--spacing-unit) * 2);
-            background: white;
-            padding: 12px 20px;
-            border-radius: 10px;
-            box-shadow: var(--shadow-lg);
-            border-left: 4px solid var(--secondary);
-            z-index: 10;
-        }
-
-        .badge-number {
-            display: block;
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-        }
-
-        .badge-text {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
+        /* IMAGE WRAPPER, BADGE — see v23 section below */
 
         /* STORY CARD */
         .story-card {
@@ -521,76 +634,8 @@
             font-size: 14px;
         }
 
-        /* SERVICES GRID - SINGLE COLUMN MOBILE */
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: calc(var(--spacing-unit) * 3);
-            margin-top: calc(var(--spacing-unit) * 4);
-        }
+        /* SERVICES, FEATURES — see v23 section below */
 
-        .service-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: var(--radius-lg);
-            padding: calc(var(--spacing-unit) * 3);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--bg-light);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: calc(var(--spacing-unit) * 2);
-        }
-
-        .service-icon i {
-            font-size: 24px;
-            color: var(--primary);
-        }
-
-        .service-card h3 {
-            font-size: 18px;
-            margin-bottom: calc(var(--spacing-unit) * 2);
-        }
-
-        .service-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        /* FEATURES GRID - 2 COLUMNS MOBILE */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: calc(var(--spacing-unit) * 2);
-            margin-top: calc(var(--spacing-unit) * 4);
-        }
-
-        .feature-box {
-            text-align: center;
-            padding: calc(var(--spacing-unit) * 2);
-        }
-
-        .feature-box h4 {
-            font-size: 14px;
-            margin: calc(var(--spacing-unit) * 1.5) 0;
-        }
-
-        .feature-box p {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 0;
-        }
 
         /* FLEET SECTION */
         /* --- SECTIONS UPGRADE v23 --- */
@@ -637,11 +682,11 @@
 
         .badge-floating {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
+            bottom: 16px;
+            right: 16px;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 12px 20px;
+            padding: 10px 16px;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             display: flex;
@@ -651,18 +696,19 @@
         }
 
         .badge-number {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
             color: var(--secondary);
             line-height: 1;
         }
 
         .badge-text {
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             font-weight: 700;
             color: var(--primary);
+            white-space: nowrap;
         }
 
         /* 4. SERVICES - PREMIUM CARDS */
@@ -802,6 +848,18 @@
             font-size: 18px;
             margin: 15px 0 10px;
             font-weight: 700;
+        }
+
+        /* PAYMENT GRID */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .payment-card {
+            padding: 20px;
+            border-radius: 16px;
         }
 
         /* 8. FAQ - ACCORDION */
@@ -977,11 +1035,377 @@
             z-index: 999;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
             transition: all 0.3s ease;
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes whatsappPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0.15);
+            }
         }
 
         .btn-whatsapp:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+
+        /* MOBILE MENU BACKDROP */
+        .mobile-menu-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            z-index: 199;
+            pointer-events: none;
+            transition: background 0.3s ease;
+        }
+
+        .mobile-menu-backdrop.active {
+            background: rgba(0, 0, 0, 0.5);
+            pointer-events: all;
+        }
+
+        /* SERVICE CARD POPULAR BADGE */
+        .service-badge-popular {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: linear-gradient(135deg, var(--secondary), #e0ac3a);
+            color: var(--primary-dark);
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            box-shadow: 0 4px 12px rgba(203, 154, 43, 0.35);
+        }
+
+        /* GSAP REVEAL HELPERS */
+        .gs-reveal {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* SMOOTH ACCORDION */
+        .accordion-item .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 24px;
+            opacity: 0;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .accordion-item.active .accordion-body {
+            max-height: 500px;
+            /* A sufficiently large value to accommodate content */
+            opacity: 1;
+            padding: 0 24px 24px;
+        }
+
+        /* SERVICE ICON HOVER SPIN */
+        .service-card:hover .service-icon,
+        .service-card:active .service-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .service-icon {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* HERO AMBIENT GLOW */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(203, 154, 43, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(42, 76, 199, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* =============================================
+           MOBILE POLISH — iPhone optimized (< 768px)
+           ============================================= */
+
+        /* Small phones (iPhone SE, iPhone Mini) */
+        @media (max-width: 374px) {
+            .hero-title {
+                font-size: 24px;
+            }
+
+            .hero-subtitle {
+                font-size: 13px;
+            }
+
+            .stat-item h3 {
+                font-size: 26px;
+            }
+
+            .stat-item p {
+                font-size: 10px;
+            }
+
+            .section-header h2 {
+                font-size: 22px;
+            }
+
+            .service-card {
+                padding: 24px 20px;
+            }
+
+            .service-card h3 {
+                font-size: 17px;
+            }
+
+            .feature-box {
+                padding: 24px 20px;
+            }
+
+            .accordion-header {
+                font-size: 14px;
+                padding: 18px 20px;
+            }
+        }
+
+        /* Standard mobile (375px - 428px = iPhone 12/13/14/15 range) */
+        @media (max-width: 767px) {
+
+            /* Tighter section padding for vertical rhythm */
+            .section-padding {
+                padding: calc(var(--spacing-unit) * 6) 0;
+            }
+
+            .section-header {
+                margin-bottom: 32px;
+            }
+
+            /* Hero — more breathing room, no orphan text */
+            .hero-section {
+                padding: calc(var(--spacing-unit) * 8) 0 calc(var(--spacing-unit) * 6) 0;
+            }
+
+            .hero-title {
+                font-size: clamp(26px, 7vw, 32px);
+                text-wrap: balance;
+            }
+
+            .hero-subtitle {
+                text-wrap: pretty;
+            }
+
+            .hero-img-effect {
+                max-height: 260px;
+                aspect-ratio: 16/10;
+                object-fit: cover;
+            }
+
+            /* Stats — equal cell height */
+            .stat-item {
+                padding: calc(var(--spacing-unit) * 2.5);
+            }
+
+            .stat-item h3 {
+                font-size: 28px;
+            }
+
+            /* Service cards — touch-friendly */
+            .service-card {
+                padding: 28px 22px;
+            }
+
+            .service-card .btn {
+                padding: 14px 20px;
+                font-size: 13px;
+                min-height: 48px;
+            }
+
+            /* Fleet cards — taller images for mobile */
+            .fleet-card-img {
+                height: 180px;
+            }
+
+            /* Features — 2-col on mobile for compact view */
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .feature-box {
+                padding: 18px 12px;
+                text-align: center;
+                border-radius: 16px;
+            }
+
+            .feature-box h4 {
+                font-size: 13px;
+                margin: 8px 0 0;
+            }
+
+            .feature-box .feature-desc {
+                display: none;
+            }
+
+            .feature-box i {
+                font-size: 26px;
+            }
+
+            /* Badge — compact on mobile, no text overlap */
+            .badge-floating {
+                bottom: 12px;
+                right: 12px;
+                padding: 8px 12px;
+                border-radius: 10px;
+                gap: 2px;
+            }
+
+            .badge-number {
+                font-size: 18px;
+            }
+
+            .badge-text {
+                font-size: 8px;
+            }
+
+            /* Caption text — clear of badge */
+            .image-wrapper .text-center {
+                margin-top: 8px;
+                font-size: 12px !important;
+            }
+
+            /* FAQ — bigger touch target */
+            .accordion-header {
+                min-height: 56px;
+                padding: 18px 20px;
+                gap: 12px;
+            }
+
+            .accordion-header i {
+                font-size: 22px;
+                flex-shrink: 0;
+            }
+
+            /* Map — shorter on mobile */
+            .map-wrapper {
+                height: 240px;
+                border-radius: var(--radius-md);
+            }
+
+            /* Location bar — stack vertically */
+            .location-bar {
+                padding: calc(var(--spacing-unit) * 2.5);
+            }
+
+            /* Footer grid */
+            .footer-grid {
+                gap: calc(var(--spacing-unit) * 3);
+            }
+
+            .footer-col ul {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4px 12px;
+            }
+
+            /* WhatsApp button — safe area bottom */
+            .btn-whatsapp {
+                bottom: calc(20px + env(safe-area-inset-bottom));
+                right: 16px;
+                width: 54px;
+                height: 54px;
+            }
+
+            /* Mobile menu — iPhone safe area */
+            .mobile-menu-overlay {
+                padding-top: calc(var(--spacing-unit) * 4 + env(safe-area-inset-top));
+                padding-bottom: calc(var(--spacing-unit) * 4 + env(safe-area-inset-bottom));
+                width: 85%;
+                max-width: 340px;
+                overflow-y: auto;
+            }
+
+            .mobile-menu-overlay a {
+                padding: 14px 0;
+                font-size: 17px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                min-height: 48px;
+            }
+
+            /* Hero proof badge — smaller on mobile */
+            .hero-proof-badge {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+
+            /* About story card */
+            .story-card {
+                padding: calc(var(--spacing-unit) * 2.5);
+            }
+
+            /* Active states for touch feedback */
+            .service-card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+
+            .fleet-card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+
+            .accordion-item:active {
+                transform: scale(0.99);
+                transition: transform 0.1s ease;
+            }
+
+            .btn:active {
+                transform: scale(0.97);
+                transition: transform 0.08s ease;
+            }
+        }
+
+        /* Dynamic Island safe area for iPhone 14 Pro+ */
+        @supports (padding: max(0px)) {
+            .site-header {
+                padding-top: max(0px, env(safe-area-inset-top));
+            }
+
+            .site-footer {
+                padding-bottom: max(calc(var(--spacing-unit) * 3), env(safe-area-inset-bottom));
+            }
         }
 
         /* TABLET (768px+) */
@@ -1012,35 +1436,45 @@
 
             .hero-section {
                 padding: calc(var(--spacing-unit) * 12) 0 calc(var(--spacing-unit) * 10) 0;
-                min-height: 85vh;
-                text-align: left;
+                min-height: 80vh;
+                display: flex;
+                align-items: center;
             }
 
-            .hero-section::before {
-                opacity: 0.15;
-                /* Reduce background image on desktop */
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: calc(var(--spacing-unit) * 6);
             }
 
             .hero-content {
-                max-width: 600px;
+                text-align: left;
+                order: 1;
+            }
+
+            .hero-visual {
+                order: 2;
             }
 
             .hero-title {
-                font-size: 48px;
+                font-size: 40px;
             }
 
             .hero-subtitle {
-                font-size: 18px;
+                font-size: 16px;
+            }
+
+            .hero-img-effect {
+                max-height: 420px;
+            }
+
+            .hero-cta-primary {
+                width: auto;
+                font-size: 15px;
+                padding: 16px 36px;
             }
 
             .hero-actions {
                 flex-direction: row;
-                justify-content: flex-start;
-            }
-
-            .hero-actions .btn {
-                width: auto;
-                min-width: 200px;
             }
 
             .stats-grid {
@@ -1155,8 +1589,25 @@
                 padding: calc(var(--spacing-unit) * 12) 0;
             }
 
+            .hero-grid {
+                grid-template-columns: 5fr 6fr;
+                gap: calc(var(--spacing-unit) * 8);
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 17px;
+            }
+
+            .hero-img-effect {
+                max-height: 480px;
+            }
+
         }
-        }
+
 
         /* MOBILE MENU FIX */
         .mobile-toggle {
@@ -1164,7 +1615,6 @@
             z-index: 1001;
             padding: 10px;
             margin-right: -10px;
-            /* Increase hit area */
         }
     </style>
 </head>
@@ -1188,7 +1638,8 @@
                             Área do Aluno
                         </a>
                     </li>
-                    <li><a href="#contato" class="btn btn-primary" style="margin-left:10px;">Falar no WhatsApp</a></li>
+                    <li><a href="#contato" class="btn btn-primary btn-shine" style="margin-left:10px;">Falar no
+                            WhatsApp</a></li>
                 </ul>
             </nav>
 
@@ -1197,6 +1648,9 @@
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu Backdrop -->
+    <div class="mobile-menu-backdrop" id="menuBackdrop"></div>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu-overlay" id="mobileMenu">
@@ -1209,70 +1663,65 @@
             <li><a href="#servicos">Habilitação</a></li>
             <li><a href="https://www.e-condutor.com.br/simulado" target="_blank">Área do Aluno</a></li>
             <li><a href="#contato">Contato</a></li>
+            <li style="margin-top:10px;">
+                <a href="https://wa.me/5511940345096"
+                    style="background:var(--secondary);color:var(--primary-dark);padding:14px 28px;border-radius:50px;font-weight:700;display:inline-flex;align-items:center;gap:8px;">
+                    <i class="ri-whatsapp-fill" style="font-size:20px;"></i> Falar no WhatsApp
+                </a>
+            </li>
         </ul>
     </div>
 
-    <!-- 1. HERO - V3 PREMIUM OVERLAY LAYOUT -->
-    <section id="inicio" class="hero-section">
+    <!-- 1. HERO SECTION -->
+    <section id="inicio" class="hero-section bg-noise">
         <div class="container">
-            <!-- Hero Image with Overlay Tags -->
-            <div class="hero-visual">
-                <div class="hero-image-wrapper" style="position:relative;">
-                    <img src="img/hero-real.jpg" alt="Entrada Auto Escola Mineiro" class="hero-img-effect">
+            <div class="hero-grid">
 
-                    <!-- Integrated Location Tag (Top Left) -->
-                    <div
-                        style="position:absolute; top:12px; left:12px; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); padding:6px 12px; border-radius:30px; display:flex; align-items:center; gap:6px; border:1px solid rgba(255,255,255,0.2);">
-                        <i class="ri-map-pin-user-fill" style="color:var(--secondary); font-size:14px;"></i>
-                        <span
-                            style="color:white; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Embu
-                            das Artes</span>
+                <!-- Hero Content (first in DOM = first on mobile) -->
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Tire sua <span class="hero-title-highlight text-gradient-gold">CNH</span> na<br>
+                        autoescola <span class="hero-title-highlight text-gradient-gold">campeã</span><br>
+                        em aprovação!
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Quer conquistar sua CNH com segurança, qualidade e ainda economizar?
+                        Vem pra <strong>melhor de Embu!</strong> ⭐⭐⭐⭐⭐
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="https://wa.me/5511940345096" class="hero-cta-primary btn-shine">
+                            <i class="ri-whatsapp-fill" style="font-size:22px;"></i>
+                            MATRICULE-SE ESTA SEMANA
+                        </a>
                     </div>
 
-                    <!-- 20 Years Badge (Bottom Right) -->
-                    <div
-                        style="position:absolute; bottom:-15px; right:15px; background:var(--secondary); padding:10px 20px; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,0.2); transform:rotate(-2deg);">
-                        <span
-                            style="display:block; font-size:20px; font-weight:900; color:var(--primary-dark); line-height:1;">20+</span>
-                        <span
-                            style="display:block; font-size:10px; font-weight:700; color:var(--primary-dark); text-transform:uppercase;">Anos
-                            de História</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hero Content -->
-            <div class="hero-content">
-                <!-- Tag removed (integrated in image) -->
-
-                <h1 class="hero-title">
-                    Tire sua <span class="hero-title-highlight">CNH</span> na<br>
-                    autoescola <span class="hero-title-highlight">campeã</span><br>
-                    em aprovação!
-                </h1>
-
-                <p class="hero-subtitle">
-                    Quer conquistar sua CNH com segurança, qualidade e ainda economizar?
-                    Vem pra <strong>melhor de Embu!</strong> ⭐⭐⭐⭐⭐
-                </p>
-
-                <div class="hero-actions" style="margin-top:30px;">
-                    <a href="https://wa.me/5511940345096" class="hero-cta-primary"
-                        style="width:100%; justify-content:center; height:56px; font-size:16px; box-shadow: 0 10px 30px rgba(203, 154, 43, 0.4);">
-                        <i class="ri-whatsapp-fill" style="font-size:24px;"></i>
-                        MATRICULE-SE ESTA SEMANA
-                    </a>
-
-                    <p style="font-size:12px; color:rgba(255,255,255,0.6); margin-top:15px;">
+                    <p class="hero-safe-text">
                         <i class="ri-shield-check-line"></i> Site 100% Seguro • Atendimento Imediato
                     </p>
+
+
                 </div>
 
-                <!-- Social Proof Badge -->
-                <div class="hero-proof-badge" style="margin-top:20px;">
-                    <i class="ri-group-fill hero-proof-icon"></i>
-                    <span>Junte-se a <strong>+5 Mil Alunos</strong></span>
+                <!-- Hero Image -->
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper" style="position:relative;">
+                        <img src="img/hero-real.jpg" alt="Entrada Auto Escola Mineiro" class="hero-img-effect">
+
+                        <!-- Location Tag (Top Left) -->
+                        <div
+                            style="position:absolute; top:12px; left:12px; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); padding:6px 12px; border-radius:30px; display:flex; align-items:center; gap:6px; border:1px solid rgba(255,255,255,0.2);">
+                            <i class="ri-map-pin-user-fill" style="color:var(--secondary); font-size:14px;"></i>
+                            <span
+                                style="color:white; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Embu
+                                das Artes</span>
+                        </div>
+
+
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1355,37 +1804,38 @@
             </div>
 
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card card-premium-hover">
+                    <span class="service-badge-popular">⭐ Mais Popular</span>
                     <div class="service-icon">
                         <i class="ri-steering-fill"></i>
                     </div>
                     <h3>1ª Habilitação (A/B)</h3>
                     <p>O começo da sua liberdade. Curso completo teórico e prático para carro e moto. Focado em tirar
                         seu medo e te aprovar.</p>
-                    <a href="https://wa.me/5511940345096?text=Quero%20saber%20sobre%20Primeira%20Habilitação"
-                        class="text-primary" style="font-weight:600;">Saiba mais &rarr;</a>
+                    <a href="servicos/primeira-habilitacao.html" class="text-primary" style="font-weight:600;">Saiba
+                        mais &rarr;</a>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card card-premium-hover">
                     <div class="service-icon">
                         <i class="ri-add-circle-fill"></i>
                     </div>
                     <h3>Adição de Categoria</h3>
                     <p>Já dirige carro e quer moto? Ou o contrário? Processo rápido (20-35 dias). Aulas práticas diretas
                         ao ponto.</p>
-                    <a href="https://wa.me/5511940345096?text=Quero%20adicionar%20categoria" class="text-primary"
-                        style="font-weight:600;">Adicionar agora &rarr;</a>
+                    <a href="servicos/adicao-categoria.html" class="text-primary" style="font-weight:600;">Adicionar
+                        agora &rarr;</a>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card card-premium-hover">
                     <div class="service-icon">
                         <i class="ri-bus-fill"></i>
                     </div>
                     <h3>Profissional (C, D, E)</h3>
                     <p>Evolua sua carreira. Habilitação para Ônibus, Caminhão e Carreta com instrutores veteranos de
                         estrada.</p>
-                    <a href="https://wa.me/5511940345096?text=Quero%20categoria%20Profissional" class="text-primary"
-                        style="font-weight:600;">Evoluir CNH &rarr;</a>
+                    <a href="servicos/mudanca-categoria.html" class="text-primary" style="font-weight:600;">Evoluir CNH
+                        &rarr;</a>
                 </div>
 
                 <div class="service-card">
@@ -1395,8 +1845,8 @@
                     <h3>Aulas p/ Habilitados</h3>
                     <p>Tem CNH mas tem medo de dirigir? Nossos instrutores são especialistas em devolver sua confiança
                         no volante.</p>
-                    <a href="https://wa.me/5511940345096?text=Tenho%20medo%20de%20dirigir" class="text-primary"
-                        style="font-weight:600;">Voltar a dirigir &rarr;</a>
+                    <a href="servicos/aulas-habilitados.html" class="text-primary" style="font-weight:600;">Voltar a
+                        dirigir &rarr;</a>
                 </div>
 
                 <div class="service-card">
@@ -1406,8 +1856,8 @@
                     <h3>Reciclagem & Reabilitação</h3>
                     <p>CNH suspensa ou cassada? Reciclagem preventiva? Resolvemos sua situação com agilidade e
                         orientação completa.</p>
-                    <a href="https://wa.me/5511940345096?text=Preciso%20de%20Reciclagem" class="text-primary"
-                        style="font-weight:600;">Regularizar CNH &rarr;</a>
+                    <a href="servicos/reciclagem.html" class="text-primary" style="font-weight:600;">Regularizar CNH
+                        &rarr;</a>
                 </div>
 
                 <div class="service-card">
@@ -1417,15 +1867,15 @@
                     <h3>Cursos Especiais (MOPP)</h3>
                     <p>Especialize-se para o mercado. Cursos de MOPP, Transporte de Passageiros e Cargas Indivisíveis.
                     </p>
-                    <a href="https://wa.me/5511940345096?text=Interesse%20em%20Cursos%20Especiais" class="text-primary"
-                        style="font-weight:600;">Se Especializar &rarr;</a>
+                    <a href="servicos/cursos-especiais.html" class="text-primary" style="font-weight:600;">Se
+                        Especializar &rarr;</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 5. FLEET -->
-    <section class="section-padding" style="background:var(--primary); color:white; position:relative;">
+    <section class="section-padding bg-noise" style="background:var(--primary); color:white; position:relative;">
         <div
             style="position:absolute; top:0; left:0; width:100%; height:100%; background:url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); opacity:0.05; pointer-events:none;">
         </div>
@@ -1490,34 +1940,38 @@
     </section>
 
     <!-- 6. FEATURES -->
-    <section class="section-padding" style="background:white; text-align:center;">
+    <section class="section-padding" style="background:white;">
         <div class="container">
-            <h2 class="text-primary" style="margin-bottom:32px;">O Jeito Mineiro de Ensinar</h2>
-            <p style="max-width:700px; margin:0 auto 40px; font-size:16px; color:var(--text-muted);">
-                Não acreditamos em aulas robóticas. Acreditamos em café quentinho, conversa olho no olho e ensinar com
-                paciência de quem ensina um filho.
-            </p>
+            <div class="text-center" style="margin-bottom:32px;">
+                <h4 class="text-primary"
+                    style="letter-spacing:2px; font-weight:700; font-size:12px; margin-bottom:8px;">POR QUE A MINEIRO?
+                </h4>
+                <h2 class="text-primary" style="margin-bottom:12px;">Diferenciais que fazem<br>a diferença</h2>
+                <p style="max-width:500px; margin:0 auto; font-size:14px; color:var(--text-muted);">
+                    Mais que uma autoescola — somos seus amigos na jornada da habilitação.
+                </p>
+            </div>
 
             <div class="features-grid">
                 <div class="feature-box">
-                    <i class="ri-emotion-happy-line" style="font-size:2.5rem; color:var(--secondary);"></i>
-                    <h4>Sem "Gritar"</h4>
-                    <p>Instrutores proibidos de perder a paciência. Aqui o erro faz parte do aprendizado.</p>
+                    <i class="ri-emotion-happy-line" style="font-size:2rem; color:var(--secondary);"></i>
+                    <h4>Especialistas em medo</h4>
+                    <p class="feature-desc">Instrutores treinados para lidar com ansiedade e fobia de direção.</p>
                 </div>
                 <div class="feature-box">
-                    <i class="ri-calendar-check-line" style="font-size:2.5rem; color:var(--secondary);"></i>
-                    <h4>No Seu Tempo</h4>
-                    <p>Agenda flexível de verdade. Trabalha? Estuda? A gente se adapta ao seu relógio.</p>
+                    <i class="ri-car-fill" style="font-size:2rem; color:var(--secondary);"></i>
+                    <h4>Veículos novos</h4>
+                    <p class="feature-desc">Frota moderna com duplo comando para sua total segurança.</p>
                 </div>
                 <div class="feature-box">
-                    <i class="ri-shield-check-fill" style="font-size:2.5rem; color:var(--secondary);"></i>
-                    <h4>Transparência Radical</h4>
-                    <p>O valor que a gente fala é o valor que você paga. Sem taxas "surpresas" no final.</p>
+                    <i class="ri-shield-check-fill" style="font-size:2rem; color:var(--secondary);"></i>
+                    <h4>Sem taxas surpresa</h4>
+                    <p class="feature-desc">O preço que falamos é o que você paga. Transparência total.</p>
                 </div>
                 <div class="feature-box">
-                    <i class="ri-heart-pulse-fill" style="font-size:2.5rem; color:var(--secondary);"></i>
-                    <h4>Inteligência Emocional</h4>
-                    <p>Sabemos lidar com o nervosismo. Usamos técnicas que acalmam e preparam sua mente.</p>
+                    <i class="ri-heart-pulse-fill" style="font-size:2rem; color:var(--secondary);"></i>
+                    <h4>Acolhimento familiar</h4>
+                    <p class="feature-desc">Tratamos cada aluno como parte da nossa família.</p>
                 </div>
             </div>
         </div>
@@ -1595,64 +2049,122 @@
         </div>
     </section>
 
-    <!-- 9. PAYMENT - DETAILED -->
+    <!-- 9. PAYMENT - PREMIUM REDESIGN -->
     <section class="section-padding"
-        style="background:var(--primary); color:white; border-bottom: 1px solid rgba(255,255,255,0.1);">
-        <div class="container">
-            <div class="text-center" style="margin-bottom:40px;">
-                <h2 style="color:white; margin-bottom:10px;">Investimento Facilitado</h2>
-                <p style="color:rgba(255,255,255,0.8);">Não deixe o dinheiro impedir seu sonho. Flexibilidade total.</p>
+        style="background: linear-gradient(160deg, #0d1f6e 0%, var(--primary) 40%, #2a4cc7 100%); color:white; position:relative; overflow:hidden;">
+        <!-- Ambient orbs -->
+        <div
+            style="position:absolute; top:-100px; right:-100px; width:350px; height:350px; background:radial-gradient(circle, rgba(203,154,43,0.12) 0%, transparent 70%); border-radius:50%; pointer-events:none;">
+        </div>
+        <div
+            style="position:absolute; bottom:-80px; left:-80px; width:300px; height:300px; background:radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%); border-radius:50%; pointer-events:none;">
+        </div>
+
+        <div class="container" style="position:relative; z-index:2;">
+            <div class="text-center" style="margin-bottom:48px;">
+                <h4
+                    style="color:var(--secondary); letter-spacing:2px; font-weight:700; font-size:12px; margin-bottom:12px;">
+                    INVESTIMENTO</h4>
+                <h2 style="color:white; margin-bottom:12px; font-size:clamp(26px, 5vw, 36px);">Seu Sonho Cabe no Bolso
+                </h2>
+                <p style="color:rgba(255,255,255,0.75); max-width:500px; margin:0 auto; font-size:15px;">Formas
+                    flexíveis para você começar agora. Sem surpresas, sem letras miúdas.</p>
             </div>
 
-            <div class="payment-grid" style="grid-template-columns: 1fr; gap: 15px;">
-                <!-- Card 1: Credit -->
-                <div class="payment-card"
-                    style="display:flex; flex-direction:row; align-items:center; text-align:left; gap:20px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);">
+            <div style="display:grid; grid-template-columns:1fr; gap:16px; max-width:900px; margin:0 auto;">
+
+                <!-- Card 1: Cartão de Crédito -->
+                <div style="background:rgba(255,255,255,0.08); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.15); border-radius:20px; padding:28px 24px; display:flex; align-items:center; gap:20px; transition:all 0.3s ease; cursor:default;"
+                    onmouseover="this.style.background='rgba(255,255,255,0.14)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.2)'"
+                    onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     <div
-                        style="background:var(--secondary); width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                        <i class="ri-bank-card-fill" style="font-size:24px; color:var(--primary);"></i>
+                        style="background:linear-gradient(135deg, var(--secondary), #e0ac3a); width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 4px 16px rgba(203,154,43,0.3);">
+                        <i class="ri-bank-card-fill" style="font-size:26px; color:var(--primary-dark);"></i>
                     </div>
-                    <div>
-                        <h4 style="color:white; font-size:18px; margin-bottom:4px;">Cartão de Crédito</h4>
-                        <span style="color:rgba(255,255,255,0.8); font-size:13px;">Parcele em até 12x (Peça
-                            simulação)</span>
+                    <div style="flex:1;">
+                        <h4 style="color:white; font-size:17px; font-weight:700; margin-bottom:4px;">Cartão de Crédito
+                        </h4>
+                        <p style="color:rgba(255,255,255,0.7); font-size:13px; margin:0;">Parcele em até <strong
+                                style="color:var(--secondary);">12x sem juros</strong></p>
+                    </div>
+                    <div
+                        style="background:rgba(255,255,255,0.1); padding:6px 14px; border-radius:50px; font-size:11px; font-weight:700; color:rgba(255,255,255,0.9); letter-spacing:0.5px; white-space:nowrap;">
+                        ATÉ 12X
                     </div>
                 </div>
 
-                <!-- Card 2: Boleto -->
-                <div class="payment-card"
-                    style="display:flex; flex-direction:row; align-items:center; text-align:left; gap:20px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);">
+                <!-- Card 2: Boleto Bancário -->
+                <div style="background:rgba(255,255,255,0.08); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.15); border-radius:20px; padding:28px 24px; display:flex; align-items:center; gap:20px; transition:all 0.3s ease; cursor:default;"
+                    onmouseover="this.style.background='rgba(255,255,255,0.14)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.2)'"
+                    onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     <div
-                        style="background:white; width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                        <i class="ri-barcode-box-line" style="font-size:24px; color:var(--primary);"></i>
+                        style="background:white; width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 4px 16px rgba(0,0,0,0.15);">
+                        <i class="ri-barcode-box-fill" style="font-size:26px; color:var(--primary);"></i>
                     </div>
-                    <div>
-                        <h4 style="color:white; font-size:18px; margin-bottom:4px;">Boleto Bancário</h4>
-                        <span style="color:rgba(255,255,255,0.8); font-size:13px;">Entrada facilitada + Parcelas
-                            mensais</span>
+                    <div style="flex:1;">
+                        <h4 style="color:white; font-size:17px; font-weight:700; margin-bottom:4px;">Boleto Bancário
+                        </h4>
+                        <p style="color:rgba(255,255,255,0.7); font-size:13px; margin:0;">Entrada facilitada + parcelas
+                            mensais fixas</p>
+                    </div>
+                    <div
+                        style="background:rgba(255,255,255,0.1); padding:6px 14px; border-radius:50px; font-size:11px; font-weight:700; color:rgba(255,255,255,0.9); letter-spacing:0.5px; white-space:nowrap;">
+                        PARCELADO
                     </div>
                 </div>
 
-                <!-- Card 3: Pix -->
-                <div class="payment-card"
-                    style="display:flex; flex-direction:row; align-items:center; text-align:left; gap:20px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);">
+                <!-- Card 3: PIX - HIGHLIGHTED -->
+                <div style="background:linear-gradient(135deg, rgba(50,188,173,0.2), rgba(50,188,173,0.08)); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:2px solid rgba(50,188,173,0.5); border-radius:20px; padding:28px 24px; display:flex; align-items:center; gap:20px; position:relative; transition:all 0.3s ease; cursor:default;"
+                    onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 40px rgba(50,188,173,0.25)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <!-- Best deal badge -->
                     <div
-                        style="background:#32BCAD; width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                        <i class="ri-pix-line" style="font-size:24px; color:white;"></i>
+                        style="position:absolute; top:-12px; right:20px; background:linear-gradient(135deg, #32BCAD, #28a99b); color:white; font-size:10px; font-weight:800; padding:5px 16px; border-radius:50px; text-transform:uppercase; letter-spacing:1px; box-shadow:0 4px 12px rgba(50,188,173,0.4);">
+                        🏷️ Melhor Opção
                     </div>
-                    <div>
-                        <h4 style="color:white; font-size:18px; margin-bottom:4px;">PIX à Vista</h4>
-                        <span style="color:rgba(255,255,255,0.8); font-size:13px;">Desconto especial para pagamento à
-                            vista</span>
+                    <div
+                        style="background:linear-gradient(135deg, #32BCAD, #28a99b); width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 4px 16px rgba(50,188,173,0.35);">
+                        <i class="ri-money-dollar-circle-fill" style="font-size:26px; color:white;"></i>
+                    </div>
+                    <div style="flex:1;">
+                        <h4 style="color:white; font-size:17px; font-weight:700; margin-bottom:4px;">PIX à Vista</h4>
+                        <p style="color:rgba(255,255,255,0.7); font-size:13px; margin:0;">Desconto <strong
+                                style="color:#5de8d8;">exclusivo</strong> no pagamento à vista</p>
+                    </div>
+                    <div
+                        style="background:rgba(50,188,173,0.25); padding:6px 14px; border-radius:50px; font-size:11px; font-weight:700; color:#5de8d8; letter-spacing:0.5px; white-space:nowrap;">
+                        DESCONTO
+                    </div>
+                </div>
+
+                <!-- Card 4: Entrada Negociável -->
+                <div style="background:rgba(255,255,255,0.05); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:20px 24px; display:flex; align-items:center; gap:16px; transition:all 0.3s ease;"
+                    onmouseover="this.style.background='rgba(255,255,255,0.1)'"
+                    onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+                    <div
+                        style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:rgba(255,255,255,0.1);">
+                        <i class="ri-hand-coin-fill" style="font-size:22px; color:var(--secondary);"></i>
+                    </div>
+                    <div style="flex:1;">
+                        <h4 style="color:white; font-size:15px; font-weight:600; margin-bottom:2px;">Entrada Negociável
+                        </h4>
+                        <p style="color:rgba(255,255,255,0.6); font-size:12px; margin:0;">Conte sua situação. A gente
+                            encontra uma solução juntos.</p>
                     </div>
                 </div>
             </div>
 
-            <div style="margin-top:30px; text-align:center;">
-                <a href="https://wa.me/5511940345096?text=Quero%20saber%20as%20formas%20de%20pagamento"
-                    class="btn btn-primary" style="background:white; color:var(--primary); width:100%;">
-                    <i class="ri-whatsapp-line"></i> Consultar Valores no Zap
+            <!-- CTA -->
+            <div style="margin-top:36px; text-align:center; max-width:500px; margin-left:auto; margin-right:auto;">
+                <a href="https://wa.me/5511940345096?text=Quero%20saber%20os%20valores%20e%20formas%20de%20pagamento"
+                    style="display:flex; align-items:center; justify-content:center; gap:10px; background:var(--secondary); color:var(--primary-dark); font-weight:700; font-size:15px; padding:18px 32px; border-radius:60px; text-decoration:none; box-shadow:0 6px 24px rgba(203,154,43,0.35); transition:all 0.3s ease; letter-spacing:0.3px; margin-top:36px;"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 32px rgba(203,154,43,0.5)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 24px rgba(203,154,43,0.35)'">
+                    <i class="ri-whatsapp-fill" style="font-size:20px;"></i>
+                    Consultar Valores no WhatsApp
                 </a>
+                <p style="color:rgba(255,255,255,0.5); font-size:11px; margin-top:12px;">Resposta em até 5 minutos • Sem
+                    compromisso</p>
             </div>
         </div>
     </section>
@@ -1723,10 +2235,12 @@
                 <div class="footer-col">
                     <h4>Serviços</h4>
                     <ul>
-                        <li><a href="#">Carro (B)</a></li>
-                        <li><a href="#">Moto (A)</a></li>
-                        <li><a href="#">Ônibus (D)</a></li>
-                        <li><a href="#">Aulas p/ Habilitados</a></li>
+                        <li><a href="servicos/primeira-habilitacao.html">1ª Habilitação (A/B)</a></li>
+                        <li><a href="servicos/adicao-categoria.html">Adição de Categoria</a></li>
+                        <li><a href="servicos/mudanca-categoria.html">Profissional (C/D/E)</a></li>
+                        <li><a href="servicos/aulas-habilitados.html">Aulas p/ Habilitados</a></li>
+                        <li><a href="servicos/reciclagem.html">Reciclagem</a></li>
+                        <li><a href="servicos/cursos-especiais.html">Cursos (MOPP)</a></li>
                     </ul>
                 </div>
 
@@ -1753,57 +2267,166 @@
         <i class="ri-whatsapp-line"></i>
     </a>
 
+    <!-- GSAP + ScrollTrigger CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
     <script>
-        // Mobile Menu Toggle
+        // ================================================
+        // AUTO ESCOLA MINEIRO — FULL ANIMATION SYSTEM
+        // ================================================
+        gsap.registerPlugin(ScrollTrigger);
+
+        // === MOBILE MENU WITH BACKDROP ===
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         const menuClose = document.getElementById('menuClose');
+        const menuBackdrop = document.getElementById('menuBackdrop');
 
-        menuToggle.addEventListener('click', () => {
+        function openMenu() {
             mobileMenu.classList.add('active');
-        });
+            menuBackdrop.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-        menuClose.addEventListener('click', () => {
+        function closeMenu() {
             mobileMenu.classList.remove('active');
+            menuBackdrop.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        menuBackdrop.addEventListener('click', closeMenu);
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
         });
 
-        // Close menu when clicking a link
-        const menuLinks = mobileMenu.querySelectorAll('a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
+        // === HERO ENTRANCE ANIMATION ===
+        const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+        heroTL
+            .fromTo('.hero-title', { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
+            .fromTo('.hero-subtitle', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, '-=0.6')
+            .fromTo('.hero-actions', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, '-=0.5')
+            .fromTo('.hero-safe-text', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, '-=0.4')
+            .fromTo('.hero-visual', { x: 80, opacity: 0 }, { x: 0, opacity: 1, duration: 1.2, ease: 'power2.out' }, '-=1.0');
+
+        // === SAFE SCROLL REVEAL HELPER ===
+        function scrollReveal(selector, trigger, fromVars, toVars, stagger) {
+            const els = gsap.utils.toArray(selector);
+            if (!els.length) return;
+
+            ScrollTrigger.create({
+                trigger: trigger || els[0],
+                start: 'top 85%',
+                once: true,
+                onEnter: () => {
+                    gsap.fromTo(els,
+                        { ...fromVars, opacity: 0 },
+                        { ...toVars, opacity: 1, duration: toVars.duration || 0.8, stagger: stagger || 0, ease: toVars.ease || 'power2.out' }
+                    );
+                }
             });
+        }
+
+        // === STATS COUNTER ANIMATION ===
+        function animateCounter(el) {
+            const text = el.textContent.trim();
+            let prefix = '';
+            let suffix = '';
+            let target = 0;
+
+            if (text === '20+') { target = 20; suffix = '+'; }
+            else if (text === '+5 Mil') { target = 5; prefix = '+'; suffix = ' Mil'; }
+            else if (text === '98%') { target = 98; suffix = '%'; }
+            else { return; }
+
+            const obj = { val: 0 };
+            gsap.to(obj, {
+                val: target,
+                duration: 2,
+                ease: 'power2.out',
+                onUpdate: () => {
+                    el.textContent = prefix + Math.floor(obj.val) + suffix;
+                }
+            });
+        }
+
+        ScrollTrigger.create({
+            trigger: '.trust-stripe',
+            start: 'top 85%',
+            once: true,
+            onEnter: () => {
+                gsap.fromTo('.stat-item',
+                    { y: 50, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'back.out(1.4)' }
+                );
+                document.querySelectorAll('.stat-item h3').forEach(animateCounter);
+            }
         });
 
-        // Accordion
+        // === ABOUT SECTION ===
+        scrollReveal('.image-wrapper', '#sobre', { x: -80 }, { x: 0, duration: 1 });
+        scrollReveal('#sobre .content', '#sobre', { x: 80 }, { x: 0, duration: 1, ease: 'power2.out' });
+        scrollReveal('.story-card', '.story-card', { y: 30 }, { y: 0, duration: 0.8 });
+
+        // === SERVICE CARDS STAGGER ===
+        scrollReveal('.service-card', '#servicos', { y: 80 }, { y: 0, duration: 0.8, ease: 'power3.out' }, 0.12);
+
+        // === FLEET CARDS ===
+        scrollReveal('.fleet-card', '.fleet-grid', { y: 60 }, { y: 0, duration: 0.8 }, 0.2);
+
+        // === FEATURES GRID ===
+        scrollReveal('.feature-box', '.features-grid', { y: 50 }, { y: 0, duration: 0.7, ease: 'back.out(1.3)' }, 0.15);
+
+        // === REVIEWS SECTION ===
+        scrollReveal('#depoimentos .text-center', '#depoimentos', { y: 40 }, { y: 0, duration: 0.8 });
+
+        // === FAQ ACCORDION ===
         const accordionHeaders = document.querySelectorAll('.accordion-header');
 
         accordionHeaders.forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
-                const body = item.querySelector('.accordion-body');
                 const icon = header.querySelector('i');
+                const isActive = item.classList.contains('active');
 
-                // Toggle current item
-                body.classList.toggle('active');
-                icon.classList.toggle('ri-add-line');
-                icon.classList.toggle('ri-subtract-line');
-
-                // Close other items
+                // Close all others
                 accordionHeaders.forEach(otherHeader => {
                     if (otherHeader !== header) {
                         const otherItem = otherHeader.parentElement;
-                        const otherBody = otherItem.querySelector('.accordion-body');
                         const otherIcon = otherHeader.querySelector('i');
-                        otherBody.classList.remove('active');
+                        otherItem.classList.remove('active');
                         otherIcon.classList.add('ri-add-line');
                         otherIcon.classList.remove('ri-subtract-line');
                     }
                 });
+
+                // Toggle current
+                if (isActive) {
+                    item.classList.remove('active');
+                    icon.classList.add('ri-add-line');
+                    icon.classList.remove('ri-subtract-line');
+                } else {
+                    item.classList.add('active');
+                    icon.classList.remove('ri-add-line');
+                    icon.classList.add('ri-subtract-line');
+                }
             });
         });
 
-        // Smooth Scroll
+        // FAQ section reveal
+        scrollReveal('.accordion-item', '.accordion', { y: 30 }, { y: 0, duration: 0.6 }, 0.1);
+
+        // === SECTION HEADERS ===
+        scrollReveal('.section-header', null, { y: 40 }, { y: 0, duration: 0.8, ease: 'power3.out' });
+
+        // === LOCATION ===
+        scrollReveal('.map-wrapper', '#localizacao', { y: 40 }, { y: 0, duration: 0.8 });
+
+        // === SMOOTH SCROLL ===
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -1811,22 +2434,19 @@
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 }
             });
         });
 
-        //Header Shadow on Scroll
+        // === HEADER SHADOW ON SCROLL ===
+        const siteHeader = document.querySelector('.site-header');
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('.site-header');
             if (window.scrollY > 50) {
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                siteHeader.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
             } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+                siteHeader.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
             }
         });
     </script>
