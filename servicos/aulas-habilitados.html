@@ -364,6 +364,58 @@
             color: var(--text-muted)
         }
 
+        .docs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 30px
+        }
+
+        .doc-card {
+            background: #fff;
+            border: 2px solid var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all .3s
+        }
+
+        .doc-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm)
+        }
+
+        .doc-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .doc-icon i {
+            color: #fff;
+            font-size: 22px
+        }
+
+        .doc-card h4 {
+            font-size: 15px;
+            color: var(--primary);
+            margin-bottom: 2px
+        }
+
+        .doc-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0
+        }
+
         .benefit-list {
             list-style: none;
             display: grid;
@@ -528,6 +580,9 @@
                 grid-template-columns: 1fr 1fr
             }
 
+            .docs-grid {
+                grid-template-columns: 1fr 1fr
+            }
             .benefit-list {
                 grid-template-columns: 1fr 1fr
             }
@@ -693,6 +748,47 @@
                     <h4><i class="ri-emotion-happy-fill"></i> Sem julgamento</h4>
                     <p>Nosso ambiente é acolhedor. Aqui ninguém ri do seu medo. Seus sentimentos são válidos e vamos
                         superar juntos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O QUE LEVAR -->
+    <section class="section-padding">
+        <div class="container">
+            <h4 class="text-secondary" style="letter-spacing:2px; font-size:12px; font-weight:700; margin-bottom:8px;">
+                DOCUMENTAÇÃO</h4>
+            <h2 class="section-title">O que levar para as aulas</h2>
+            <p class="section-subtitle">Itens simples, sem burocracia. Veja o que é necessário para começar.</p>
+
+            <div class="docs-grid">
+                <div class="doc-card">
+                    <div class="doc-icon"><i class="ri-steering-2-fill"></i></div>
+                    <div>
+                        <h4>CNH válida</h4>
+                        <p>Sua habilitação vigente (qualquer categoria). É o único documento obrigatório.</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon"><i class="ri-t-shirt-2-fill"></i></div>
+                    <div>
+                        <h4>Roupas e calçados confortáveis</h4>
+                        <p>Sapato fechado obrigatório. Evite chinelos e salto alto por segurança.</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon"><i class="ri-eye-fill"></i></div>
+                    <div>
+                        <h4>Óculos ou lentes (se usar)</h4>
+                        <p>Se sua CNH tem observação de uso de lentes, leve seus óculos ou lentes.</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon"><i class="ri-drop-fill"></i></div>
+                    <div>
+                        <h4>Água e disposição</h4>
+                        <p>Mantenha-se hidratado e descansado. Aulas com sono ou desidratação prejudicam o aprendizado.</p>
+                    </div>
                 </div>
             </div>
         </div>

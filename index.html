@@ -10,7 +10,7 @@
     <title>Auto Escola Mineiro | Leveza e Liberdade para Dirigir em Embu</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/logo-mineiro.png">
+    <link rel="icon" type="image/webp" href="img/logo-mineiro.webp">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,9 +19,13 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    
+    <!-- Critical Image Preload -->
+    <link rel="preload" as="image" href="img/hero-real.webp">
 
-    <!-- Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Icons Deferred -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"></noscript>
 
     <!-- SEO -->
     <meta name="description"
@@ -30,7 +34,7 @@
     <meta property="og:title" content="Auto Escola Mineiro | Campeã em Aprovação em Embu das Artes">
     <meta property="og:description"
         content="20+ anos formando condutores. Instrutores pacientes, veículos novos e 98% de aprovação na 1ª vez. Tire sua CNH agora!">
-    <meta property="og:image" content="img/hero-real.jpg">
+    <meta property="og:image" content="img/hero-real.webp">
     <meta property="og:locale" content="pt_BR">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -140,13 +144,22 @@
 
         /* 4. Glassmorphism + Glow Hover */
         .card-premium-hover {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
         }
 
         .card-premium-hover:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(30, 53, 161, 0.15);
+            box-shadow: 0 20px 40px rgba(30, 53, 161, 0.15), 0 1px 8px rgba(0, 0, 0, 0.05);
             border-color: var(--secondary);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
 
         /* Variables Update for Premium Feel */
@@ -218,7 +231,8 @@
             font-family: var(--font-heading);
             color: var(--primary);
             line-height: 1.2;
-            font-weight: 700;
+            font-weight: 800; /* Contrast-safe weight */
+            letter-spacing: -0.02em;
         }
 
         /* MOBILE-FIRST TYPOGRAPHY */
@@ -251,7 +265,7 @@
         a {
             text-decoration: none;
             color: inherit;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         img {
@@ -302,11 +316,11 @@
             min-height: 44px;
             padding: 12px 24px;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 800;
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
             cursor: pointer;
             border: none;
             gap: 8px;
@@ -356,6 +370,7 @@
         .header-logo {
             height: 50px;
             width: auto;
+            aspect-ratio: auto;
         }
 
         .nav-desktop {
@@ -400,7 +415,7 @@
         .mobile-menu-overlay a {
             color: var(--primary);
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 800;
             display: block;
             padding: 12px 0;
         }
@@ -476,6 +491,7 @@
             object-position: center;
             height: auto;
             max-height: 320px;
+            aspect-ratio: 16/10;
         }
 
         .hero-tag {
@@ -491,7 +507,7 @@
             color: rgba(255, 255, 255, 0.95);
             margin-bottom: calc(var(--spacing-unit) * 2);
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 800;
         }
 
         .hero-title {
@@ -501,7 +517,7 @@
             margin-bottom: calc(var(--spacing-unit) * 2);
             hyphens: none;
             word-break: keep-all;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .hero-title-highlight {
@@ -526,7 +542,7 @@
             background: var(--secondary);
             color: var(--primary-dark);
             font-size: 14px;
-            font-weight: 700;
+            font-weight: 800;
             padding: 16px 28px;
             border-radius: 50px;
             display: inline-flex;
@@ -534,7 +550,7 @@
             justify-content: center;
             gap: 10px;
             box-shadow: 0 6px 20px rgba(203, 154, 43, 0.5);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             width: 100%;
@@ -549,7 +565,7 @@
         .hero-cta-secondary {
             color: rgba(255, 255, 255, 0.85);
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 800;
             text-decoration: underline;
             text-underline-offset: 4px;
         }
@@ -563,7 +579,7 @@
             padding: 10px 18px;
             border-radius: 50px;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 800;
             color: white;
             margin-top: calc(var(--spacing-unit) * 3);
         }
@@ -609,7 +625,7 @@
             font-size: 12px;
             color: var(--text-muted);
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 800;
             margin-bottom: 0;
         }
 
@@ -710,7 +726,7 @@
             font-size: 9px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--primary);
             white-space: nowrap;
         }
@@ -728,7 +744,7 @@
             border-radius: 20px;
             border: 1px solid rgba(0, 0, 0, 0.05);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
             position: relative;
             overflow: hidden;
         }
@@ -751,7 +767,7 @@
             font-size: 26px;
             color: var(--primary);
             margin-bottom: 20px;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .service-card:hover .service-icon {
@@ -763,7 +779,7 @@
             font-size: 20px;
             color: var(--primary-dark);
             margin-bottom: 10px;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .service-card p {
@@ -830,15 +846,15 @@
         .features-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 24px;
         }
 
         .feature-box {
             background: var(--bg-light);
-            padding: 30px;
+            padding: 36px 28px;
             border-radius: 20px;
             text-align: left;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .feature-box:hover {
@@ -847,11 +863,23 @@
             transform: translateY(-3px);
         }
 
+        .feature-box h3 {
+            font-size: 17px;
+            margin: 14px 0 10px;
+        }
+
         .feature-box h4 {
             color: var(--primary);
             font-size: 18px;
             margin: 15px 0 10px;
-            font-weight: 700;
+            font-weight: 800;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--text-muted);
+            margin-bottom: 0;
         }
 
         /* PAYMENT GRID */
@@ -878,7 +906,7 @@
             border-radius: 16px;
             border: 1px solid rgba(0, 0, 0, 0.05);
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .accordion-header {
@@ -911,7 +939,7 @@
             overflow: hidden;
             padding: 0 24px;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
             color: var(--text-muted);
             line-height: 1.6;
         }
@@ -1037,8 +1065,8 @@
             justify-content: center;
             font-size: 28px;
             z-index: 999;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4), 0 2px 8px rgba(37, 211, 102, 0.1);
+            transition: transform 0.3s ease, opacity 0.3s ease;
             animation: whatsappPulse 2s ease-in-out infinite;
         }
 
@@ -1046,11 +1074,11 @@
 
             0%,
             100% {
-                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4), 0 2px 8px rgba(37, 211, 102, 0.1);
             }
 
             50% {
-                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0.15);
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4), 0 2px 8px rgba(37, 211, 102, 0.1), 0 0 0 12px rgba(37, 211, 102, 0.15);
             }
         }
 
@@ -1106,7 +1134,7 @@
             overflow: hidden;
             padding: 0 24px;
             opacity: 0;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                 opacity 0.3s ease,
                 padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             color: var(--text-muted);
@@ -1260,14 +1288,14 @@
                 height: 180px;
             }
 
-            /* Features — 2-col on mobile for compact view */
+            /* Features — 2-col on tablet */
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                gap: 18px;
             }
 
             .feature-box {
-                padding: 18px 12px;
+                padding: 24px 20px;
                 text-align: center;
                 border-radius: 16px;
             }
@@ -1414,21 +1442,15 @@
 
         /* TABLET (768px+) */
         @media (min-width: 768px) {
-            h1 {
-                font-size: 42px;
-            }
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.1 !important;
+            letter-spacing: -0.02em;
+        }
 
-            h2 {
-                font-size: 32px;
-            }
-
-            h3 {
-                font-size: 24px;
-            }
-
-            p {
-                font-size: 16px;
-            }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
 
             .container {
                 width: 92%;
@@ -1492,11 +1514,13 @@
 
             .features-grid {
                 grid-template-columns: repeat(4, 1fr);
+                gap: 28px;
             }
 
             .grid-2 {
                 grid-template-columns: 1fr 1fr;
                 align-items: center;
+                gap: 48px;
             }
 
             .fleet-grid {
@@ -1625,13 +1649,13 @@
 
 <body>
     <!-- Header -->
-    <header class="site-header">
+    <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a href="#" class="logo">
-                <img src="img/logo-header-final.png" alt="Auto Escola Mineiro" class="header-logo">
+            <a href="#" class="logo" aria-label="Voltar para o início">
+                <img src="img/logo-header-final.webp" alt="Auto Escola Mineiro" class="header-logo" width="180" height="50">
             </a>
 
-            <nav class="nav-desktop">
+            <nav class="nav-desktop" role="navigation" aria-label="Navegação desktop">
                 <ul>
                     <li><a href="#inicio" class="nav-link">Início</a></li>
                     <li><a href="#sobre" class="nav-link">Nossa História</a></li>
@@ -1647,8 +1671,8 @@
                 </ul>
             </nav>
 
-            <div class="mobile-toggle" id="menuToggle">
-                <i class="ri-menu-4-line"></i>
+            <div class="mobile-toggle" id="menuToggle" role="button" aria-haspopup="true" aria-expanded="false" aria-label="Abrir menu de navegação">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M16 18V20H5V18H16ZM21 11V13H3V11H21ZM19 4V6H8V4H19Z"></path></svg>
             </div>
         </div>
     </header>
@@ -1657,9 +1681,9 @@
     <div class="mobile-menu-backdrop" id="menuBackdrop"></div>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu-overlay" id="mobileMenu">
-        <div class="menu-close" id="menuClose">
-            <i class="ri-close-line"></i>
+    <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu móvel">
+        <div class="menu-close" id="menuClose" role="button" aria-label="Fechar menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor" aria-hidden="true"><path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"></path></svg>
         </div>
         <ul>
             <li><a href="#inicio">Início</a></li>
@@ -1669,14 +1693,15 @@
             <li><a href="#contato">Contato</a></li>
             <li style="margin-top:10px;">
                 <a href="https://wa.me/5511940345096"
-                    style="background:var(--secondary);color:var(--primary-dark);padding:14px 28px;border-radius:50px;font-weight:700;display:inline-flex;align-items:center;gap:8px;">
-                    <i class="ri-whatsapp-fill" style="font-size:20px;"></i> Falar no WhatsApp
+                    style="background:var(--secondary);color:var(--primary-dark);padding:14px 28px;border-radius:50px;font-weight:800;display:inline-flex;align-items:center;gap:8px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="margin-right:8px;"><path d="M19.05 4.91C17.18 3.03 14.63 2 12.03 2c-5.35 0-9.7 4.35-9.7 9.7 0 1.71.44 3.38 1.29 4.85L2 22l5.59-1.47c1.43.78 3.03 1.19 4.67 1.19l.01 0c5.35 0 9.7-4.35 9.7-9.7 0-2.6-.98-5.06-2.92-6.91v-.21zm-7.02 15.01c-1.45 0-2.87-.39-4.11-1.12l-.3-.18-3.06.8.81-2.99-.19-.31c-.81-1.28-1.23-2.77-1.23-4.31 0-4.34 3.53-7.87 7.87-7.87 2.1 0 4.08.82 5.57 2.31 1.49 1.49 2.31 3.47 2.31 5.56 0 4.34-3.53 7.87-7.87 7.87zm4.31-5.91c-.24-.12-1.4-.69-1.61-.77-.22-.08-.37-.12-.53.12-.16.24-.61.77-.75.91-.14.14-.28.16-.51.04-.24-.12-.99-.36-1.89-1.16-.7-.62-1.17-1.39-1.31-1.63-.14-.24-.01-.36.1-.48.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.53-1.28-.73-1.75-.19-.48-.39-.41-.53-.41h-.45c-.16 0-.41.06-.63.31-.22.24-.83.81-.83 1.98 0 1.17.85 2.31.97 2.47.12.16 1.67 2.55 4.05 3.58.57.24 1.01.39 1.35.5.57.18 1.09.15 1.5.09.46-.07 1.4-.57 1.61-1.13.22-.57.22-1.05.15-1.13-.07-.08-.23-.12-.46-.24z"></path></svg> Falar no WhatsApp
                 </a>
             </li>
         </ul>
     </div>
 
     <!-- 1. HERO SECTION -->
+    <main role="main">
     <section id="inicio" class="hero-section bg-noise">
         <div class="container">
             <div class="hero-grid">
@@ -1696,13 +1721,13 @@
 
                     <div class="hero-actions">
                         <a href="https://wa.me/5511940345096" class="hero-cta-primary btn-shine">
-                            <i class="ri-whatsapp-fill" style="font-size:22px;"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="margin-right:10px;"><path d="M19.05 4.91C17.18 3.03 14.63 2 12.03 2c-5.35 0-9.7 4.35-9.7 9.7 0 1.71.44 3.38 1.29 4.85L2 22l5.59-1.47c1.43.78 3.03 1.19 4.67 1.19l.01 0c5.35 0 9.7-4.35 9.7-9.7 0-2.6-.98-5.06-2.92-6.91v-.21zm-7.02 15.01c-1.45 0-2.87-.39-4.11-1.12l-.3-.18-3.06.8.81-2.99-.19-.31c-.81-1.28-1.23-2.77-1.23-4.31 0-4.34 3.53-7.87 7.87-7.87 2.1 0 4.08.82 5.57 2.31 1.49 1.49 2.31 3.47 2.31 5.56 0 4.34-3.53 7.87-7.87 7.87zm4.31-5.91c-.24-.12-1.4-.69-1.61-.77-.22-.08-.37-.12-.53.12-.16.24-.61.77-.75.91-.14.14-.28.16-.51.04-.24-.12-.99-.36-1.89-1.16-.7-.62-1.17-1.39-1.31-1.63-.14-.24-.01-.36.1-.48.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.53-1.28-.73-1.75-.19-.48-.39-.41-.53-.41h-.45c-.16 0-.41.06-.63.31-.22.24-.83.81-.83 1.98 0 1.17.85 2.31.97 2.47.12.16 1.67 2.55 4.05 3.58.57.24 1.01.39 1.35.5.57.18 1.09.15 1.5.09.46-.07 1.4-.57 1.61-1.13.22-.57.22-1.05.15-1.13-.07-.08-.23-.12-.46-.24z"></path></svg>
                             MATRICULE-SE ESTA SEMANA
                         </a>
                     </div>
 
                     <p class="hero-safe-text">
-                        <i class="ri-shield-check-line"></i> Site 100% Seguro • Atendimento Imediato
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="vertical-align:middle; margin-right:4px;"><path d="M11.0001 2.59375L3.43759 5.74479C2.87103 5.98086 2.5 6.53697 2.5 7.15041V11C2.5 16.5228 6.7533 21.3506 12 22.5C17.2467 21.3506 21.5 16.5228 21.5 11V7.15041C21.5 6.53697 21.129 5.98086 20.5624 5.74479L13.0001 2.59375C12.3592 2.32675 11.641 2.32675 11.0001 2.59375ZM12 20.4852C7.94939 19.3976 4.5 15.5243 4.5 11V7.15041L12 4.02541L19.5 7.15041V11C19.5 15.5243 16.0506 19.3976 12 20.4852ZM11.0001 15.4142L7.293 11.7071L8.70721 10.2929L11.0001 12.5858L15.293 8.29289L16.7072 9.70711L11.0001 15.4142Z"></path></svg> Site 100% Seguro • Atendimento Imediato
                     </p>
 
 
@@ -1711,14 +1736,14 @@
                 <!-- Hero Image -->
                 <div class="hero-visual">
                     <div class="hero-image-wrapper" style="position:relative;">
-                        <img src="img/hero-real.jpg" alt="Entrada Auto Escola Mineiro" class="hero-img-effect">
+                        <img src="img/hero-real.webp" alt="Entrada Auto Escola Mineiro" class="hero-img-effect" width="480" height="300" decoding="async">
 
                         <!-- Location Tag (Top Left) -->
                         <div
                             style="position:absolute; top:12px; left:12px; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); padding:6px 12px; border-radius:30px; display:flex; align-items:center; gap:6px; border:1px solid rgba(255,255,255,0.2);">
-                            <i class="ri-map-pin-user-fill" style="color:var(--secondary); font-size:14px;"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="color:var(--secondary);"><path d="M12 23.5C12 23.5 19 18.5 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 18.5 12 23.5 12 23.5ZM12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5Z"></path></svg>
                             <span
-                                style="color:white; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Embu
+                                style="color:white; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">Embu
                                 das Artes</span>
                         </div>
 
@@ -1759,8 +1784,8 @@
         <div class="container">
             <div class="grid-2">
                 <div class="image-wrapper">
-                    <img src="img/mineiro-val.jpg" alt="Mineiro e Valquires - Fundadores" class="img-founder"
-                        loading="lazy">
+                    <img src="img/mineiro-val.webp" alt="Mineiro e Valquires - Fundadores" class="img-founder"
+                        loading="lazy" width="450" height="450" decoding="async">
 
                     <div class="badge-floating">
                         <span class="badge-number">20+</span>
@@ -1772,9 +1797,9 @@
                         Mineiro e Valquires: O rosto e o coração da autoescola.
                     </p>
                 </div>
-                <div class="content">
-                    <h4 class="text-primary" style="letter-spacing:2px; font-size:12px; font-weight:700;">QUEM SOMOS
-                    </h4>
+                <div class="content" style="padding-left: 8px;">
+                    <h3 class="text-primary" style="letter-spacing:2px; font-size:12px; font-weight:800;">QUEM SOMOS
+                    </h3>
                     <h2>Mais que uma Autoescola.<br>Amigos da sua jornada.</h2>
                     <p>
                         Sabe aquele processo frio, robótico e cheio de taxas surpresa que você ouve falar por aí?
@@ -1816,7 +1841,7 @@
                     <h3>1ª Habilitação (A/B)</h3>
                     <p>O começo da sua liberdade. Curso completo teórico e prático para carro e moto. Focado em tirar
                         seu medo e te aprovar.</p>
-                    <a href="servicos/primeira-habilitacao.html" class="text-primary" style="font-weight:600;">Saiba
+                    <a href="servicos/primeira-habilitacao.html" class="text-primary" style="font-weight:800;">Saiba
                         mais &rarr;</a>
                 </div>
 
@@ -1827,7 +1852,7 @@
                     <h3>Adição de Categoria</h3>
                     <p>Já dirige carro e quer moto? Ou o contrário? Processo rápido (20-35 dias). Aulas práticas diretas
                         ao ponto.</p>
-                    <a href="servicos/adicao-categoria.html" class="text-primary" style="font-weight:600;">Adicionar
+                    <a href="servicos/adicao-categoria.html" class="text-primary" style="font-weight:800;">Adicionar
                         agora &rarr;</a>
                 </div>
 
@@ -1838,7 +1863,7 @@
                     <h3>Profissional (C, D, E)</h3>
                     <p>Evolua sua carreira. Habilitação para Ônibus, Caminhão e Carreta com instrutores veteranos de
                         estrada.</p>
-                    <a href="servicos/mudanca-categoria.html" class="text-primary" style="font-weight:600;">Evoluir CNH
+                    <a href="servicos/mudanca-categoria.html" class="text-primary" style="font-weight:800;">Evoluir CNH
                         &rarr;</a>
                 </div>
 
@@ -1849,7 +1874,7 @@
                     <h3>Aulas p/ Habilitados</h3>
                     <p>Tem CNH mas tem medo de dirigir? Nossos instrutores são especialistas em devolver sua confiança
                         no volante.</p>
-                    <a href="servicos/aulas-habilitados.html" class="text-primary" style="font-weight:600;">Voltar a
+                    <a href="servicos/aulas-habilitados.html" class="text-primary" style="font-weight:800;">Voltar a
                         dirigir &rarr;</a>
                 </div>
 
@@ -1860,7 +1885,7 @@
                     <h3>Reciclagem & Reabilitação</h3>
                     <p>CNH suspensa ou cassada? Reciclagem preventiva? Resolvemos sua situação com agilidade e
                         orientação completa.</p>
-                    <a href="servicos/reciclagem.html" class="text-primary" style="font-weight:600;">Regularizar CNH
+                    <a href="servicos/reciclagem.html" class="text-primary" style="font-weight:800;">Regularizar CNH
                         &rarr;</a>
                 </div>
 
@@ -1871,7 +1896,7 @@
                     <h3>Cursos Especiais (MOPP)</h3>
                     <p>Especialize-se para o mercado. Cursos de MOPP, Transporte de Passageiros e Cargas Indivisíveis.
                     </p>
-                    <a href="servicos/cursos-especiais.html" class="text-primary" style="font-weight:600;">Se
+                    <a href="servicos/cursos-especiais.html" class="text-primary" style="font-weight:800;">Se
                         Especializar &rarr;</a>
                 </div>
             </div>
@@ -1886,8 +1911,8 @@
 
         <div class="container" style="position:relative; z-index:2;">
             <div class="text-center" style="margin-bottom:48px;">
-                <h4 style="color:var(--secondary); letter-spacing:2px; font-weight:700; font-size:13px;">NOSSA FROTA
-                </h4>
+                <h3 style="color:var(--secondary); letter-spacing:2px; font-weight:800; font-size:13px;">NOSSA FROTA
+                </h3>
                 <h2 style="color:white;">Aprenda no que há de melhor.</h2>
                 <p style="color:rgba(255,255,255,0.8); max-width:600px; margin:0 auto;">
                     Não treinamos você no passado. Nossa frota é 100% atualizada com direção hidráulica e
@@ -1898,7 +1923,7 @@
             <div class="fleet-grid">
                 <div class="fleet-card">
                     <div class="fleet-card-img"
-                        style="background-image:url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80');">
+                        style="background-image:url('img/fleet-car-mobi.webp');">
                     </div>
                     <div class="fleet-info">
                         <h3 style="color:white; margin-bottom:10px;">Fiat Mobi & Onix</h3>
@@ -1947,9 +1972,9 @@
     <section class="section-padding" style="background:white;">
         <div class="container">
             <div class="text-center" style="margin-bottom:32px;">
-                <h4 class="text-primary"
-                    style="letter-spacing:2px; font-weight:700; font-size:12px; margin-bottom:8px;">POR QUE A MINEIRO?
-                </h4>
+                <h3 class="text-primary"
+                    style="letter-spacing:2px; font-weight:800; font-size:12px; margin-bottom:8px;">POR QUE A MINEIRO?
+                </h3>
                 <h2 class="text-primary" style="margin-bottom:12px;">Diferenciais que fazem<br>a diferença</h2>
                 <p style="max-width:500px; margin:0 auto; font-size:14px; color:var(--text-muted);">
                     Mais que uma autoescola — somos seus amigos na jornada da habilitação.
@@ -1959,22 +1984,22 @@
             <div class="features-grid">
                 <div class="feature-box">
                     <i class="ri-emotion-happy-line" style="font-size:2rem; color:var(--secondary);"></i>
-                    <h4>Especialistas em medo</h4>
+                    <h3>Especialistas em medo</h3>
                     <p class="feature-desc">Instrutores treinados para lidar com ansiedade e fobia de direção.</p>
                 </div>
                 <div class="feature-box">
                     <i class="ri-car-fill" style="font-size:2rem; color:var(--secondary);"></i>
-                    <h4>Veículos novos</h4>
+                    <h3>Veículos novos</h3>
                     <p class="feature-desc">Frota moderna com duplo comando para sua total segurança.</p>
                 </div>
                 <div class="feature-box">
                     <i class="ri-shield-check-fill" style="font-size:2rem; color:var(--secondary);"></i>
-                    <h4>Sem taxas surpresa</h4>
+                    <h3>Sem taxas surpresa</h3>
                     <p class="feature-desc">O preço que falamos é o que você paga. Transparência total.</p>
                 </div>
                 <div class="feature-box">
                     <i class="ri-heart-pulse-fill" style="font-size:2rem; color:var(--secondary);"></i>
-                    <h4>Acolhimento familiar</h4>
+                    <h3>Acolhimento familiar</h3>
                     <p class="feature-desc">Tratamos cada aluno como parte da nossa família.</p>
                 </div>
             </div>
@@ -2047,7 +2072,7 @@
             </div>
 
             <div class="text-center" style="margin-top:30px;">
-                <a href="#contato" style="color:var(--primary); font-weight:600; text-decoration:underline;">Tenho outra
+                <a href="#contato" style="color:var(--primary); font-weight:800; text-decoration:underline;">Tenho outra
                     dúvida</a>
             </div>
         </div>
@@ -2066,9 +2091,9 @@
 
         <div class="container" style="position:relative; z-index:2;">
             <div class="text-center" style="margin-bottom:48px;">
-                <h4
-                    style="color:var(--secondary); letter-spacing:2px; font-weight:700; font-size:12px; margin-bottom:12px;">
-                    INVESTIMENTO</h4>
+                <h3
+                    style="color:var(--secondary); letter-spacing:2px; font-weight:800; font-size:12px; margin-bottom:12px;">
+                    INVESTIMENTO</h3>
                 <h2 style="color:white; margin-bottom:12px; font-size:clamp(26px, 5vw, 36px);">Seu Sonho Cabe no Bolso
                 </h2>
                 <p style="color:rgba(255,255,255,0.75); max-width:500px; margin:0 auto; font-size:15px;">Formas
@@ -2078,7 +2103,7 @@
             <div style="display:grid; grid-template-columns:1fr; gap:16px; max-width:900px; margin:0 auto;">
 
                 <!-- Card 1: Cartão de Crédito -->
-                <div style="background:rgba(255,255,255,0.08); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.15); border-radius:20px; padding:28px 24px; display:flex; align-items:center; gap:20px; transition:all 0.3s ease; cursor:default;"
+                <div style="background:rgba(255,255,255,0.08); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.15); border-radius:20px; padding:28px 24px; display:flex; align-items:center; gap:20px; transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; cursor:default;"
                     onmouseover="this.style.background='rgba(255,255,255,0.14)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.2)'"
                     onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     <div
@@ -2086,19 +2111,19 @@
                         <i class="ri-bank-card-fill" style="font-size:26px; color:var(--primary-dark);"></i>
                     </div>
                     <div style="flex:1;">
-                        <h4 style="color:white; font-size:17px; font-weight:700; margin-bottom:4px;">Cartão de Crédito
-                        </h4>
+                        <h3 style="color:white; font-size:17px; font-weight:800; margin-bottom:4px;">Cartão de Crédito
+                        </h3>
                         <p style="color:rgba(255,255,255,0.7); font-size:13px; margin:0;">Parcele em até <strong
                                 style="color:var(--secondary);">12x sem juros</strong></p>
                     </div>
                     <div
-                        style="background:rgba(255,255,255,0.1); padding:6px 14px; border-radius:50px; font-size:11px; font-weight:700; color:rgba(255,255,255,0.9); letter-spacing:0.5px; white-space:nowrap;">
+                        style="background:rgba(255,255,255,0.1); padding:6px 14px; border-radius:50px; font-size:11px; font-weight:800; color:rgba(255,255,255,0.9); letter-spacing:0.5px; white-space:nowrap;">
                         ATÉ 12X
                     </div>
                 </div>
 
                 <!-- Card 2: Boleto Bancário -->
-                <div style="background:rgba(255,255,255,0.08); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.15); border-radius:20px; padding:28px 24px; display:flex; align-items:center; gap:20px; transition:all 0.3s ease; cursor:default;"
+                <div style="background:rgba(255,255,255,0.08); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.15); border-radius:20px; padding:28px 24px; display:flex; align-items:center; gap:20px; transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; cursor:default;"
                     onmouseover="this.style.background='rgba(255,255,255,0.14)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.2)'"
                     onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     <div
@@ -2106,19 +2131,19 @@
                         <i class="ri-barcode-box-fill" style="font-size:26px; color:var(--primary);"></i>
                     </div>
                     <div style="flex:1;">
-                        <h4 style="color:white; font-size:17px; font-weight:700; margin-bottom:4px;">Boleto Bancário
-                        </h4>
+                        <h3 style="color:white; font-size:17px; font-weight:800; margin-bottom:4px;">Boleto Bancário
+                        </h3>
                         <p style="color:rgba(255,255,255,0.7); font-size:13px; margin:0;">Entrada facilitada + parcelas
                             mensais fixas</p>
                     </div>
                     <div
-                        style="background:rgba(255,255,255,0.1); padding:6px 14px; border-radius:50px; font-size:11px; font-weight:700; color:rgba(255,255,255,0.9); letter-spacing:0.5px; white-space:nowrap;">
+                        style="background:rgba(255,255,255,0.1); padding:6px 14px; border-radius:50px; font-size:11px; font-weight:800; color:rgba(255,255,255,0.9); letter-spacing:0.5px; white-space:nowrap;">
                         PARCELADO
                     </div>
                 </div>
 
                 <!-- Card 3: PIX - HIGHLIGHTED -->
-                <div style="background:linear-gradient(135deg, rgba(50,188,173,0.2), rgba(50,188,173,0.08)); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:2px solid rgba(50,188,173,0.5); border-radius:20px; padding:28px 24px; display:flex; align-items:center; gap:20px; position:relative; transition:all 0.3s ease; cursor:default;"
+                <div style="background:linear-gradient(135deg, rgba(50,188,173,0.2), rgba(50,188,173,0.08)); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:2px solid rgba(50,188,173,0.5); border-radius:20px; padding:28px 24px; display:flex; align-items:center; gap:20px; position:relative; transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; cursor:default;"
                     onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 40px rgba(50,188,173,0.25)'"
                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     <!-- Best deal badge -->
@@ -2131,18 +2156,18 @@
                         <i class="ri-money-dollar-circle-fill" style="font-size:26px; color:white;"></i>
                     </div>
                     <div style="flex:1;">
-                        <h4 style="color:white; font-size:17px; font-weight:700; margin-bottom:4px;">PIX à Vista</h4>
+                        <h3 style="color:white; font-size:17px; font-weight:800; margin-bottom:4px;">PIX à Vista</h3>
                         <p style="color:rgba(255,255,255,0.7); font-size:13px; margin:0;">Desconto <strong
                                 style="color:#5de8d8;">exclusivo</strong> no pagamento à vista</p>
                     </div>
                     <div
-                        style="background:rgba(50,188,173,0.25); padding:6px 14px; border-radius:50px; font-size:11px; font-weight:700; color:#5de8d8; letter-spacing:0.5px; white-space:nowrap;">
+                        style="background:rgba(50,188,173,0.25); padding:6px 14px; border-radius:50px; font-size:11px; font-weight:800; color:#5de8d8; letter-spacing:0.5px; white-space:nowrap;">
                         DESCONTO
                     </div>
                 </div>
 
                 <!-- Card 4: Entrada Negociável -->
-                <div style="background:rgba(255,255,255,0.05); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:20px 24px; display:flex; align-items:center; gap:16px; transition:all 0.3s ease;"
+                <div style="background:rgba(255,255,255,0.05); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:20px 24px; display:flex; align-items:center; gap:16px; transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;"
                     onmouseover="this.style.background='rgba(255,255,255,0.1)'"
                     onmouseout="this.style.background='rgba(255,255,255,0.05)'">
                     <div
@@ -2150,8 +2175,8 @@
                         <i class="ri-hand-coin-fill" style="font-size:22px; color:var(--secondary);"></i>
                     </div>
                     <div style="flex:1;">
-                        <h4 style="color:white; font-size:15px; font-weight:600; margin-bottom:2px;">Entrada Negociável
-                        </h4>
+                        <h3 style="color:white; font-size:15px; font-weight:800; margin-bottom:2px;">Entrada Negociável
+                        </h3>
                         <p style="color:rgba(255,255,255,0.6); font-size:12px; margin:0;">Conte sua situação. A gente
                             encontra uma solução juntos.</p>
                     </div>
@@ -2161,7 +2186,7 @@
             <!-- CTA -->
             <div style="margin-top:36px; text-align:center; max-width:500px; margin-left:auto; margin-right:auto;">
                 <a href="https://wa.me/5511940345096?text=Quero%20saber%20os%20valores%20e%20formas%20de%20pagamento"
-                    style="display:flex; align-items:center; justify-content:center; gap:10px; background:var(--secondary); color:var(--primary-dark); font-weight:700; font-size:15px; padding:18px 32px; border-radius:60px; text-decoration:none; box-shadow:0 6px 24px rgba(203,154,43,0.35); transition:all 0.3s ease; letter-spacing:0.3px; margin-top:36px;"
+                    style="display:flex; align-items:center; justify-content:center; gap:10px; background:var(--secondary); color:var(--primary-dark); font-weight:800; font-size:15px; padding:18px 32px; border-radius:60px; text-decoration:none; box-shadow: 0 6px 24px rgba(203,154,43,0.35), 0 2px 8px rgba(203,154,43,0.1); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; letter-spacing:0.3px; margin-top:36px;"
                     onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 32px rgba(203,154,43,0.5)'"
                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 24px rgba(203,154,43,0.35)'">
                     <i class="ri-whatsapp-fill" style="font-size:20px;"></i>
@@ -2177,7 +2202,7 @@
     <section class="section-padding" style="background:white;" id="localizacao">
         <div class="container">
             <div class="text-center" style="margin-bottom: 40px;">
-                <h4 class="text-primary">ONDE ESTAMOS</h4>
+                <h3 class="text-primary">ONDE ESTAMOS</h3>
                 <h2>Venha tomar um café com a gente!</h2>
                 <p style="color:var(--text-muted);">Estamos localizados em um ponto estratégico de Embu das Artes.</p>
             </div>
@@ -2194,7 +2219,7 @@
                 <div style="display:flex; align-items:center; gap:15px;">
                     <i class="ri-map-pin-2-fill text-secondary" style="font-size:2rem;"></i>
                     <div>
-                        <h5 style="color:var(--primary);">Unidade Principal</h5>
+                        <h4 style="color:var(--primary);">Unidade Principal</h4>
                         <p style="margin:0;">Av. Hélio Ossamu Daikuara, 2445<br>Jd. Vista Alegre, Embu das Artes</p>
                     </div>
                 </div>
@@ -2202,7 +2227,7 @@
                 <div style="display:flex; align-items:center; gap:15px;">
                     <i class="ri-time-fill text-secondary" style="font-size:2rem;"></i>
                     <div>
-                        <h5 style="color:var(--primary);">Horário</h5>
+                        <h4 style="color:var(--primary);">Horário</h4>
                         <p style="margin:0;">Seg-Sex: 08h às 18h<br>Sáb: 08h às 13h</p>
                     </div>
                 </div>
@@ -2222,13 +2247,13 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="img/logo-footer.png" alt="Auto Escola Mineiro" class="footer-logo" loading="lazy">
+                    <img src="img/logo-footer.webp" alt="Auto Escola Mineiro" class="footer-logo" loading="lazy">
                     <p>Referência em formação de condutores em Embu das Artes. 20+ anos de tradição, agora com uma nova
                         cara.</p>
                 </div>
 
                 <div class="footer-col">
-                    <h4>Links Rápidos</h4>
+                    <h3>Links Rápidos</h3>
                     <ul>
                         <li><a href="#inicio">Início</a></li>
                         <li><a href="#sobre">Quem Somos</a></li>
@@ -2237,7 +2262,7 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4>Serviços</h4>
+                    <h3>Serviços</h3>
                     <ul>
                         <li><a href="servicos/primeira-habilitacao.html">1ª Habilitação (A/B)</a></li>
                         <li><a href="servicos/adicao-categoria.html">Adição de Categoria</a></li>
@@ -2249,7 +2274,7 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4>Contato</h4>
+                    <h3>Contato</h3>
                     <ul>
                         <li><i class="ri-map-pin-line" style="color:var(--secondary);"></i> Av. Hélio Ossamu Daikuara,
                             2445 - Jd. Vista Alegre</li>
@@ -2266,20 +2291,102 @@
         </div>
     </footer>
 
+    </main>
+
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/5511940345096" class="btn-whatsapp">
-        <i class="ri-whatsapp-line"></i>
+    <a href="https://wa.me/5511940345096" class="btn-whatsapp" aria-label="Falar conosco no WhatsApp">
+        <i class="ri-whatsapp-line" aria-hidden="true"></i>
     </a>
 
     <!-- GSAP + ScrollTrigger CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 
     <script>
         // ================================================
         // AUTO ESCOLA MINEIRO — FULL ANIMATION SYSTEM
         // ================================================
         gsap.registerPlugin(ScrollTrigger);
+
+        // Utilize gsap.context() para gerenciar memória e escopo de animações
+        let ctx = gsap.context(() => {
+
+            // === HERO ENTRANCE ANIMATION ===
+            const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
+            heroTL
+                .fromTo('.hero-title', { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
+                .fromTo('.hero-subtitle', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, '-=0.6')
+                .fromTo('.hero-actions', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, '-=0.5')
+                .fromTo('.hero-safe-text', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, '-=0.4')
+                .fromTo('.hero-visual', { x: 80, opacity: 0 }, { x: 0, opacity: 1, duration: 1.2, ease: 'power2.out' }, '-=1.0');
+
+            // === SAFE SCROLL REVEAL HELPER ===
+            function scrollReveal(selector, trigger, fromVars, toVars, stagger) {
+                const els = gsap.utils.toArray(selector);
+                if (!els.length) return;
+
+                ScrollTrigger.create({
+                    trigger: trigger || els[0],
+                    start: 'top 85%',
+                    once: true,
+                    onEnter: () => {
+                        gsap.fromTo(els,
+                            { ...fromVars, opacity: 0 },
+                            { ...toVars, opacity: 1, duration: toVars.duration || 0.8, stagger: stagger || 0, ease: toVars.ease || 'power2.out' }
+                        );
+                    }
+                });
+            }
+
+            // === STATS COUNTER ANIMATION ===
+            function animateCounter(el) {
+                const text = el.textContent.trim();
+                let prefix = '';
+                let suffix = '';
+                let target = 0;
+
+                if (text === '20+') { target = 20; suffix = '+'; }
+                else if (text === '+5 Mil') { target = 5; prefix = '+'; suffix = ' Mil'; }
+                else if (text === '98%') { target = 98; suffix = '%'; }
+                else { return; }
+
+                const obj = { val: 0 };
+                gsap.to(obj, {
+                    val: target,
+                    duration: 2,
+                    ease: 'power2.out',
+                    onUpdate: () => {
+                        el.textContent = prefix + Math.floor(obj.val) + suffix;
+                    }
+                });
+            }
+
+            ScrollTrigger.create({
+                trigger: '.trust-stripe',
+                start: 'top 85%',
+                once: true,
+                onEnter: () => {
+                    gsap.fromTo('.stat-item',
+                        { y: 50, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'back.out(1.4)' }
+                    );
+                    document.querySelectorAll('.stat-item h3').forEach(animateCounter);
+                }
+            });
+
+            // === SECTIONS REVEAL ===
+            scrollReveal('.image-wrapper', '#sobre', { x: -80 }, { x: 0, duration: 1 });
+            scrollReveal('#sobre .content', '#sobre', { x: 80 }, { x: 0, duration: 1, ease: 'power2.out' });
+            scrollReveal('.story-card', '.story-card', { y: 30 }, { y: 0, duration: 0.8 });
+            scrollReveal('.service-card', '#servicos', { y: 80 }, { y: 0, duration: 0.8, ease: 'power3.out' }, 0.12);
+            scrollReveal('.fleet-card', '.fleet-grid', { y: 60 }, { y: 0, duration: 0.8 }, 0.2);
+            scrollReveal('.feature-box', '.features-grid', { y: 50 }, { y: 0, duration: 0.7, ease: 'back.out(1.3)' }, 0.15);
+            scrollReveal('#depoimentos .text-center', '#depoimentos', { y: 40 }, { y: 0, duration: 0.8 });
+            scrollReveal('.accordion-item', '.accordion', { y: 30 }, { y: 0, duration: 0.6 }, 0.1);
+            scrollReveal('.section-header', null, { y: 40 }, { y: 0, duration: 0.8, ease: 'power3.out' });
+            scrollReveal('.map-wrapper', '#localizacao', { y: 40 }, { y: 0, duration: 0.8 });
+
+        }); // End GSAP Context
 
         // === MOBILE MENU WITH BACKDROP ===
         const menuToggle = document.getElementById('menuToggle');
@@ -2307,97 +2414,14 @@
             link.addEventListener('click', closeMenu);
         });
 
-        // === HERO ENTRANCE ANIMATION ===
-        const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-        heroTL
-            .fromTo('.hero-title', { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
-            .fromTo('.hero-subtitle', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, '-=0.6')
-            .fromTo('.hero-actions', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, '-=0.5')
-            .fromTo('.hero-safe-text', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, '-=0.4')
-            .fromTo('.hero-visual', { x: 80, opacity: 0 }, { x: 0, opacity: 1, duration: 1.2, ease: 'power2.out' }, '-=1.0');
-
-        // === SAFE SCROLL REVEAL HELPER ===
-        function scrollReveal(selector, trigger, fromVars, toVars, stagger) {
-            const els = gsap.utils.toArray(selector);
-            if (!els.length) return;
-
-            ScrollTrigger.create({
-                trigger: trigger || els[0],
-                start: 'top 85%',
-                once: true,
-                onEnter: () => {
-                    gsap.fromTo(els,
-                        { ...fromVars, opacity: 0 },
-                        { ...toVars, opacity: 1, duration: toVars.duration || 0.8, stagger: stagger || 0, ease: toVars.ease || 'power2.out' }
-                    );
-                }
-            });
-        }
-
-        // === STATS COUNTER ANIMATION ===
-        function animateCounter(el) {
-            const text = el.textContent.trim();
-            let prefix = '';
-            let suffix = '';
-            let target = 0;
-
-            if (text === '20+') { target = 20; suffix = '+'; }
-            else if (text === '+5 Mil') { target = 5; prefix = '+'; suffix = ' Mil'; }
-            else if (text === '98%') { target = 98; suffix = '%'; }
-            else { return; }
-
-            const obj = { val: 0 };
-            gsap.to(obj, {
-                val: target,
-                duration: 2,
-                ease: 'power2.out',
-                onUpdate: () => {
-                    el.textContent = prefix + Math.floor(obj.val) + suffix;
-                }
-            });
-        }
-
-        ScrollTrigger.create({
-            trigger: '.trust-stripe',
-            start: 'top 85%',
-            once: true,
-            onEnter: () => {
-                gsap.fromTo('.stat-item',
-                    { y: 50, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'back.out(1.4)' }
-                );
-                document.querySelectorAll('.stat-item h3').forEach(animateCounter);
-            }
-        });
-
-        // === ABOUT SECTION ===
-        scrollReveal('.image-wrapper', '#sobre', { x: -80 }, { x: 0, duration: 1 });
-        scrollReveal('#sobre .content', '#sobre', { x: 80 }, { x: 0, duration: 1, ease: 'power2.out' });
-        scrollReveal('.story-card', '.story-card', { y: 30 }, { y: 0, duration: 0.8 });
-
-        // === SERVICE CARDS STAGGER ===
-        scrollReveal('.service-card', '#servicos', { y: 80 }, { y: 0, duration: 0.8, ease: 'power3.out' }, 0.12);
-
-        // === FLEET CARDS ===
-        scrollReveal('.fleet-card', '.fleet-grid', { y: 60 }, { y: 0, duration: 0.8 }, 0.2);
-
-        // === FEATURES GRID ===
-        scrollReveal('.feature-box', '.features-grid', { y: 50 }, { y: 0, duration: 0.7, ease: 'back.out(1.3)' }, 0.15);
-
-        // === REVIEWS SECTION ===
-        scrollReveal('#depoimentos .text-center', '#depoimentos', { y: 40 }, { y: 0, duration: 0.8 });
-
         // === FAQ ACCORDION ===
         const accordionHeaders = document.querySelectorAll('.accordion-header');
-
         accordionHeaders.forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
                 const icon = header.querySelector('i');
                 const isActive = item.classList.contains('active');
 
-                // Close all others
                 accordionHeaders.forEach(otherHeader => {
                     if (otherHeader !== header) {
                         const otherItem = otherHeader.parentElement;
@@ -2408,7 +2432,6 @@
                     }
                 });
 
-                // Toggle current
                 if (isActive) {
                     item.classList.remove('active');
                     icon.classList.add('ri-add-line');
@@ -2421,20 +2444,11 @@
             });
         });
 
-        // FAQ section reveal
-        scrollReveal('.accordion-item', '.accordion', { y: 30 }, { y: 0, duration: 0.6 }, 0.1);
-
-        // === SECTION HEADERS ===
-        scrollReveal('.section-header', null, { y: 40 }, { y: 0, duration: 0.8, ease: 'power3.out' });
-
-        // === LOCATION ===
-        scrollReveal('.map-wrapper', '#localizacao', { y: 40 }, { y: 0, duration: 0.8 });
-
         // === SMOOTH SCROLL ===
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#') {
+                if (href !== '#' && href.startsWith('#')) {
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
@@ -2448,9 +2462,9 @@
         const siteHeader = document.querySelector('.site-header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                siteHeader.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                siteHeader.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05)';
             } else {
-                siteHeader.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+                siteHeader.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.02)';
             }
         });
     </script>

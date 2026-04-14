@@ -364,6 +364,58 @@
             color: var(--text-muted)
         }
 
+        .docs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 30px
+        }
+
+        .doc-card {
+            background: #fff;
+            border: 2px solid var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all .3s
+        }
+
+        .doc-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm)
+        }
+
+        .doc-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .doc-icon i {
+            color: #fff;
+            font-size: 22px
+        }
+
+        .doc-card h4 {
+            font-size: 15px;
+            color: var(--primary);
+            margin-bottom: 2px
+        }
+
+        .doc-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0
+        }
+
         .info-alert {
             background: linear-gradient(135deg, #fef3c7, #fef9e7);
             border: 2px solid var(--secondary);
@@ -566,6 +618,9 @@
                 grid-template-columns: 1fr 1fr
             }
 
+            .docs-grid {
+                grid-template-columns: 1fr 1fr
+            }
             .type-cards {
                 grid-template-columns: 1fr 1fr 1fr
             }
@@ -727,6 +782,47 @@
                         plataforma e-Condutor. Na Auto Escola Mineiro, <strong>orientamos nossos alunos
                             gratuitamente</strong> sobre como acessar, completar e concluir o curso pela plataforma
                         digital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCUMENTOS -->
+    <section class="section-padding">
+        <div class="container">
+            <h4 class="text-secondary" style="letter-spacing:2px; font-size:12px; font-weight:700; margin-bottom:8px;">
+                DOCUMENTAÇÃO</h4>
+            <h2 class="section-title">Documentos Necessários</h2>
+            <p class="section-subtitle">Para iniciar o processo de reciclagem ou reabilitação, tenha em mãos:</p>
+
+            <div class="docs-grid">
+                <div class="doc-card">
+                    <div class="doc-icon"><i class="ri-account-box-fill"></i></div>
+                    <div>
+                        <h4>RG (Carteira de Identidade)</h4>
+                        <p>Original e cópia em bom estado de conservação.</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon"><i class="ri-file-text-fill"></i></div>
+                    <div>
+                        <h4>CPF (Cadastro de Pessoa Física)</h4>
+                        <p>Pode estar no próprio RG ou documento separado.</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon"><i class="ri-steering-2-fill"></i></div>
+                    <div>
+                        <h4>CNH Atual (mesmo suspensa/cassada)</h4>
+                        <p>Sua habilitação vigente ou documento de penalidade do Detran.</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon"><i class="ri-home-4-fill"></i></div>
+                    <div>
+                        <h4>Comprovante de Residência</h4>
+                        <p>Conta de luz, água ou telefone dos últimos 3 meses.</p>
+                    </div>
                 </div>
             </div>
         </div>
