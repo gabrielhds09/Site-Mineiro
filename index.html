@@ -596,36 +596,55 @@
             margin-bottom: 0;
         }
 
-        /* STATS SECTION - 2x2 MOBILE */
+        /* =============================================
+           STATS SECTION - PREMIUM OVERLAP
+           ============================================= */
         .trust-stripe {
-            background: white;
-            padding: calc(var(--spacing-unit) * 5) 0;
+            background: transparent;
+            position: relative;
+            z-index: 10;
+            margin-top: -60px;
+            padding: 0 0 calc(var(--spacing-unit) * 8) 0;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: calc(var(--spacing-unit) * 2);
+            gap: calc(var(--spacing-unit) * 3);
         }
 
         .stat-item {
-            background: var(--bg-light);
-            padding: calc(var(--spacing-unit) * 3);
-            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 2);
+            border-radius: var(--radius-lg);
             text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 1);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(30, 53, 161, 0.12);
         }
 
         .stat-item h3 {
-            font-size: 32px;
+            font-size: 36px;
             color: var(--secondary);
             margin-bottom: calc(var(--spacing-unit) * 1);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary) 0%, #e0ac3a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .stat-item p {
             font-size: 12px;
-            color: var(--text-muted);
+            color: var(--text-main);
             text-transform: uppercase;
-            font-weight: 800;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             margin-bottom: 0;
         }
 
@@ -642,16 +661,39 @@
 
         /* STORY CARD */
         .story-card {
-            background: var(--bg-light);
-            padding: calc(var(--spacing-unit) * 3);
+            position: relative;
+            background: linear-gradient(135deg, white, var(--bg-light));
+            padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 3);
             border-radius: var(--radius-md);
             border-left: 4px solid var(--secondary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+            margin: 24px 0;
+        }
+
+        .story-card::before {
+            content: '\201C';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--secondary);
+            opacity: 0.3;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .story-card p {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 0;
         }
 
         .story-card em {
-            color: var(--primary);
+            color: var(--primary-dark);
             font-style: italic;
-            font-size: 14px;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 1.6;
         }
 
         /* SERVICES, FEATURES — see v23 section below */
@@ -688,15 +730,35 @@
         .image-wrapper {
             position: relative;
             border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            padding: 12px;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
+            transform: rotate(-1.5deg);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .image-wrapper:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, var(--secondary-light) 0%, transparent 70%);
+            opacity: 0.4;
+            z-index: -1;
+            border-radius: 50%;
         }
 
         .img-founder {
             width: 100%;
             display: block;
-            border-radius: var(--radius-lg);
+            border-radius: calc(var(--radius-lg) - 4px);
             transition: transform 0.5s ease;
         }
 
@@ -1461,7 +1523,7 @@
             }
 
             .hero-section {
-                padding: calc(var(--spacing-unit) * 12) 0 calc(var(--spacing-unit) * 10) 0;
+                padding: calc(var(--spacing-unit) * 12) 0 calc(var(--spacing-unit) * 14) 0; /* Extra bottom padding for stat overlap */
                 min-height: 80vh;
                 display: flex;
                 align-items: center;
@@ -1520,7 +1582,7 @@
             .grid-2 {
                 grid-template-columns: 1fr 1fr;
                 align-items: center;
-                gap: 48px;
+                gap: 72px;
             }
 
             .fleet-grid {
@@ -1783,29 +1845,39 @@
     <section id="sobre" class="section-padding section-purpose">
         <div class="container">
             <div class="grid-2">
-                <div class="image-wrapper">
-                    <img src="img/mineiro-val.webp" alt="Mineiro e Valquires - Fundadores" class="img-founder"
-                        loading="lazy" width="450" height="450" decoding="async">
+                <div style="display:flex; flex-direction:column; align-items:center;">
+                    <div class="image-wrapper" style="margin-bottom: 20px;">
+                        <img src="img/mineiro-val.webp" alt="Mineiro e Valquires - Fundadores" class="img-founder"
+                            loading="lazy" width="450" height="450" decoding="async">
 
-                    <div class="badge-floating">
-                        <span class="badge-number">20+</span>
-                        <span class="badge-text">Anos de História</span>
+                        <div class="badge-floating">
+                            <span class="badge-number">20+</span>
+                            <span class="badge-text">Anos de História</span>
+                        </div>
                     </div>
-
                     <p class="text-center"
-                        style="margin-top:10px; font-size:13px; color:var(--text-muted); font-style:italic;">
+                        style="font-size:14px; color:var(--text-muted); font-style:italic; max-width:90%;">
                         Mineiro e Valquires: O rosto e o coração da autoescola.
                     </p>
                 </div>
-                <div class="content" style="padding-left: 8px;">
-                    <h3 class="text-primary" style="letter-spacing:2px; font-size:12px; font-weight:800;">QUEM SOMOS
-                    </h3>
-                    <h2>Mais que uma Autoescola.<br>Amigos da sua jornada.</h2>
-                    <p>
+                <div class="content" style="padding-left: 0;">
+                    <div style="display:inline-block; background:rgba(30, 53, 161, 0.08); padding:8px 20px; border-radius:50px; margin-bottom:20px;">
+                        <h3 class="text-primary" style="letter-spacing:1.5px; font-size:12px; font-weight:800; margin:0; display:flex; align-items:center; gap:8px;">
+                            <i class="ri-team-fill"></i> QUEM SOMOS
+                        </h3>
+                    </div>
+                    <h2 style="font-size:clamp(28px, 4vw, 40px); margin-bottom:28px; line-height:1.2; color:var(--primary-dark);">Mais que uma Autoescola.<br>
+                        <span style="color:var(--secondary); position:relative; display:inline-block;">Amigos
+                            <svg style="position:absolute; bottom:2px; left:0; width:100%; height:8px;" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                <path d="M0,5 Q50,10 100,5" stroke="var(--secondary)" stroke-width="4" fill="transparent"/>
+                            </svg>
+                        </span> da sua jornada.
+                    </h2>
+                    <p style="font-size:17px; color:var(--text-main); margin-bottom:20px; line-height:1.6;">
                         Sabe aquele processo frio, robótico e cheio de taxas surpresa que você ouve falar por aí?
-                        <strong>A gente abomina.</strong>
+                        <strong style="color:var(--primary); background:rgba(30,53,161,0.06); padding:4px 10px; border-radius:6px;">Aqui é diferente.</strong>
                     </p>
-                    <p>
+                    <p style="font-size:16px; color:var(--text-muted); line-height:1.8;">
                         Fundada por <strong>Mineiro e Valquires</strong>, um casal com mais de 20 anos de experiência, a
                         Auto Escola Mineiro nasceu de um sonho: criar um Centro de Formação de Condutores onde o aluno
                         não é um número.
@@ -1814,10 +1886,25 @@
                         <p><em>"Queremos mais que clientes, queremos AMIGOS. Todos os nossos alunos se tornam parte da
                                 nossa família."</em></p>
                     </div>
-                    <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; margin-top:20px;">
-                        <li><i class="ri-check-line text-secondary"></i> Acolhimento real e empatia com seu medo.</li>
-                        <li><i class="ri-check-line text-secondary"></i> Flexibilidade que cabe na sua rotina.</li>
-                        <li><i class="ri-check-line text-secondary"></i> Transparência total: sem letras miúdas.</li>
+                    <ul style="list-style:none; display:flex; flex-direction:column; gap:14px; margin-top:24px;">
+                        <li style="display:flex; align-items:flex-start; gap:12px; font-weight:500;">
+                            <div style="background:var(--secondary-light); color:var(--primary-dark); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                <i class="ri-check-line"></i>
+                            </div> 
+                            Acolhimento real e empatia com seu medo.
+                        </li>
+                        <li style="display:flex; align-items:flex-start; gap:12px; font-weight:500;">
+                            <div style="background:var(--secondary-light); color:var(--primary-dark); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                <i class="ri-check-line"></i>
+                            </div> 
+                            Flexibilidade que cabe na sua rotina.
+                        </li>
+                        <li style="display:flex; align-items:flex-start; gap:12px; font-weight:500;">
+                            <div style="background:var(--secondary-light); color:var(--primary-dark); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                <i class="ri-check-line"></i>
+                            </div> 
+                            Transparência total: sem letras miúdas.
+                        </li>
                     </ul>
                 </div>
             </div>
