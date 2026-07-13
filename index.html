@@ -33,12 +33,18 @@
     <!-- SEO -->
     <meta name="description"
         content="Auto Escola Mineiro em Embu das Artes. 20+ anos de experiência. Sem burocracia, com paciência e método focado em quem tem medo de dirigir. Tire sua CNH agora!">
+    <meta name="keywords" content="autoescola em embu das artes, tirar cnh, cnh embu, auto escola mineiro, cnh primeira habilitacao, aulas para habilitados embu">
+    <link rel="canonical" href="https://www.autoescolamineiro.com.br/">
+    
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Auto Escola Mineiro">
     <meta property="og:title" content="Auto Escola Mineiro | Campeã em Aprovação em Embu das Artes">
     <meta property="og:description"
         content="20+ anos formando condutores. Instrutores pacientes, veículos novos e 98% de aprovação na 1ª vez. Tire sua CNH agora!">
-    <meta property="og:image" content="img/hero-real.webp">
+    <meta property="og:image" content="https://www.autoescolamineiro.com.br/img/hero-real.webp">
+    <meta property="og:url" content="https://www.autoescolamineiro.com.br/">
     <meta property="og:locale" content="pt_BR">
+    
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Structured Data -->
@@ -47,15 +53,24 @@
       "@context": "https://schema.org",
       "@type": "DrivingSchool",
       "name": "Auto Escola Mineiro",
+      "image": "https://www.autoescolamineiro.com.br/img/hero-real.webp",
+      "logo": "https://www.autoescolamineiro.com.br/img/logo-mineiro.webp",
       "description": "Centro de Formação de Condutores com 20+ anos de experiência em Embu das Artes.",
+      "url": "https://www.autoescolamineiro.com.br/",
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.instagram.com/autoescolamineiro",
+        "https://www.facebook.com/autoescolamineiro"
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Av. Hélio Ossamu Daikuara, 2445",
         "addressLocality": "Embu das Artes",
         "addressRegion": "SP",
+        "postalCode": "06807-000",
         "addressCountry": "BR"
       },
-      "telephone": "+5511940345096",
+      "telephone": "+5511981336254",
       "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-13:00",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -395,8 +410,8 @@
             left: -100%;
             width: 80%;
             height: 100vh;
-            background: white;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            background: var(--primary);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
             transition: left 0.3s ease;
             z-index: 200;
             padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 3);
@@ -417,16 +432,21 @@
         }
 
         .mobile-menu-overlay a {
-            color: var(--primary);
+            color: white;
             font-size: 16px;
             font-weight: 800;
             display: block;
             padding: 12px 0;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-overlay a:hover {
+            color: var(--secondary);
         }
 
         .menu-close {
             font-size: 32px;
-            color: var(--primary);
+            color: white;
             cursor: pointer;
             margin-bottom: calc(var(--spacing-unit) * 4);
         }
@@ -1056,11 +1076,22 @@
             margin-bottom: 0;
         }
 
-        /* FOOTER */
+        /* FOOTER PREMIUM */
         .site-footer {
-            background: var(--bg-dark);
+            background: linear-gradient(135deg, #0B1340 0%, var(--primary) 100%);
             color: white;
-            padding: calc(var(--spacing-unit) * 6) 0 calc(var(--spacing-unit) * 3) 0;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--secondary);
+            padding: calc(var(--spacing-unit) * 8) 0 calc(var(--spacing-unit) * 3) 0;
+        }
+
+        .footer-cta-banner {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: calc(var(--spacing-unit) * 4) 0;
+            margin-bottom: calc(var(--spacing-unit) * 6);
         }
 
         .footer-grid {
@@ -1076,14 +1107,17 @@
             margin-bottom: calc(var(--spacing-unit) * 2);
         }
 
-        .footer-col h4 {
+        .footer-col h3 {
             color: white;
-            font-size: 16px;
-            margin-bottom: calc(var(--spacing-unit) * 2);
+            font-size: 18px;
+            margin-bottom: calc(var(--spacing-unit) * 2.5);
+            font-weight: 700;
         }
 
         .footer-col ul {
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         .footer-col li {
@@ -1092,7 +1126,29 @@
 
         .footer-col a {
             color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
+            font-size: 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a.hover-underline {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-col a.hover-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-col a.hover-underline:hover::after {
+            width: 100%;
         }
 
         .footer-col a:hover {
@@ -1101,17 +1157,57 @@
 
         .footer-col p {
             color: rgba(255, 255, 255, 0.7);
-            font-size: 13px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white !important;
+            font-size: 20px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        }
+
+        .social-icon:hover {
+            background: var(--secondary);
+            color: var(--primary-dark) !important;
+            transform: translateY(-5px);
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+        }
+
+        .contact-list .icon-circle {
+            background: rgba(255, 255, 255, 0.1);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            flex-shrink: 0;
         }
 
         .footer-meta {
             text-align: center;
-            padding-top: calc(var(--spacing-unit) * 3);
+            padding: calc(var(--spacing-unit) * 3) 0;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-meta p {
-            font-size: 12px;
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.5);
             margin-bottom: 0;
         }
@@ -1329,7 +1425,12 @@
                 object-fit: cover;
             }
 
-            /* Stats — equal cell height */
+            /* Stats — equal cell height and fix overlap */
+            .trust-stripe {
+                margin-top: 16px;
+                padding-top: 16px;
+            }
+
             .stat-item {
                 padding: calc(var(--spacing-unit) * 2.5);
             }
@@ -1717,6 +1818,26 @@
             padding: 10px;
             margin-right: -10px;
         }
+
+        /* ABOUT SECTION IMAGE PLACEMENT */
+        .about-image-desktop { display: none !important; }
+        .about-image-mobile { display: flex !important; flex-direction: column; align-items: center; margin-bottom: 24px; }
+        
+        @media (min-width: 768px) {
+            .about-image-desktop { display: flex !important; }
+            .about-image-mobile { display: none !important; }
+        }
+
+        /* MOBILE CENTERING UTILITY */
+        @media (max-width: 767px) {
+            .text-center-mobile { text-align: center !important; }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            }
+        }
     </style>
 </head>
 
@@ -1734,12 +1855,6 @@
                     <li><a href="#inicio" class="nav-link">Início</a></li>
                     <li><a href="#sobre" class="nav-link">Nossa História</a></li>
                     <li><a href="#servicos" class="nav-link">Habilitação</a></li>
-                    <li>
-                        <a href="https://www.e-condutor.com.br/simulado" target="_blank"
-                            class="nav-link nav-btn-highlight">
-                            Área do Aluno
-                        </a>
-                    </li>
                     <li><a href="#contato" class="btn btn-primary btn-shine" style="margin-left:10px;">Falar no
                             WhatsApp</a></li>
                 </ul>
@@ -1772,10 +1887,9 @@
             <li><a href="#inicio">Início</a></li>
             <li><a href="#sobre">Nossa História</a></li>
             <li><a href="#servicos">Habilitação</a></li>
-            <li><a href="https://www.e-condutor.com.br/simulado" target="_blank">Área do Aluno</a></li>
             <li><a href="#contato">Contato</a></li>
             <li style="margin-top:10px;">
-                <a href="https://wa.me/5511940345096"
+                <a href="https://wa.me/5511981336254"
                     style="background:var(--secondary);color:var(--primary-dark);padding:14px 28px;border-radius:50px;font-weight:800;display:inline-flex;align-items:center;gap:8px;">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
                         fill="currentColor" style="margin-right:8px;">
@@ -1808,7 +1922,7 @@
                         </p>
 
                         <div class="hero-actions">
-                            <a href="https://wa.me/5511940345096" class="hero-cta-primary btn-shine">
+                            <a href="https://wa.me/5511981336254" class="hero-cta-primary btn-shine">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"
                                     fill="currentColor" style="margin-right:10px;">
                                     <path
@@ -1887,7 +2001,7 @@
         <section id="sobre" class="section-padding section-purpose">
             <div class="container">
                 <div class="grid-2">
-                    <div style="display:flex; flex-direction:column; align-items:center;">
+                    <div class="about-image-desktop" style="flex-direction:column; align-items:center;">
                         <div class="image-wrapper" style="margin-bottom: 20px;">
                             <img src="img/mineiro-val.webp" alt="Mineiro e Valquires - Fundadores" class="img-founder"
                                 loading="lazy" width="450" height="450" decoding="async">
@@ -1902,7 +2016,7 @@
                             Mineiro e Valquires: O rosto e o coração da autoescola.
                         </p>
                     </div>
-                    <div class="content" style="padding-left: 0;">
+                    <div class="content about-text text-center-mobile" style="padding-left: 0;">
                         <div
                             style="display:inline-block; background:rgba(30, 53, 161, 0.08); padding:8px 20px; border-radius:50px; margin-bottom:20px;">
                             <h3 class="text-primary"
@@ -1921,6 +2035,21 @@
                                 </svg>
                             </span> da sua jornada.
                         </h2>
+                        <div class="about-image-mobile">
+                            <div class="image-wrapper" style="margin-bottom: 20px;">
+                                <img src="img/mineiro-val.webp" alt="Mineiro e Valquires - Fundadores" class="img-founder"
+                                    loading="lazy" width="450" height="450" decoding="async">
+
+                                <div class="badge-floating">
+                                    <span class="badge-number">20+</span>
+                                    <span class="badge-text">Anos de História</span>
+                                </div>
+                            </div>
+                            <p class="text-center"
+                                style="font-size:14px; color:var(--text-muted); font-style:italic; max-width:90%;">
+                                Mineiro e Valquires: O rosto e o coração da autoescola.
+                            </p>
+                        </div>
                         <p style="font-size:17px; color:var(--text-main); margin-bottom:20px; line-height:1.6;">
                             Sabe aquele processo frio, robótico e cheio de taxas surpresa que você ouve falar por aí?
                             <strong
@@ -2347,7 +2476,7 @@
 
                 <!-- CTA -->
                 <div style="margin-top:36px; text-align:center; max-width:500px; margin-left:auto; margin-right:auto;">
-                    <a href="https://wa.me/5511940345096?text=Quero%20saber%20os%20valores%20e%20formas%20de%20pagamento"
+                    <a href="https://wa.me/5511981336254?text=Quero%20saber%20os%20valores%20e%20formas%20de%20pagamento"
                         style="display:flex; align-items:center; justify-content:center; gap:10px; background:var(--secondary); color:var(--primary-dark); font-weight:800; font-size:15px; padding:18px 32px; border-radius:60px; text-decoration:none; box-shadow: 0 6px 24px rgba(203,154,43,0.35), 0 2px 8px rgba(203,154,43,0.1); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; letter-spacing:0.3px; margin-top:36px;"
                         onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 32px rgba(203,154,43,0.5)'"
                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 24px rgba(203,154,43,0.35)'">
@@ -2407,53 +2536,61 @@
             </div>
         </section>
 
-        <!-- 11. FOOTER -->
+        <!-- 11. FOOTER PREMIUM -->
         <footer id="contato" class="site-footer">
             <div class="container">
                 <div class="footer-grid">
-                    <div class="footer-col">
+                    <div class="footer-col" style="padding-right: 20px;">
                         <img src="img/logo-footer.webp" alt="Auto Escola Mineiro" class="footer-logo" loading="lazy">
-                        <p>Referência em formação de condutores em Embu das Artes. 20+ anos de tradição, agora com uma
-                            nova
-                            cara.</p>
+                        <p>Referência em formação de condutores em Embu das Artes. 20+ anos de tradição, agora com uma nova cara.</p>
+                        
+                        <div class="social-links" style="display:flex; gap:15px; margin-top:20px;">
+                            <a href="#" class="social-icon" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                            <a href="#" class="social-icon" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
+                            <a href="#" class="social-icon" aria-label="TikTok"><i class="ri-tiktok-fill"></i></a>
+                        </div>
                     </div>
 
                     <div class="footer-col">
                         <h3>Links Rápidos</h3>
                         <ul>
-                            <li><a href="#inicio">Início</a></li>
-                            <li><a href="#sobre">Quem Somos</a></li>
-                            <li><a href="#servicos">Categorias</a></li>
+                            <li><a href="#inicio" class="hover-underline">Início</a></li>
+                            <li><a href="#sobre" class="hover-underline">Quem Somos</a></li>
+                            <li><a href="#servicos" class="hover-underline">Categorias</a></li>
                         </ul>
                     </div>
 
                     <div class="footer-col">
                         <h3>Serviços</h3>
                         <ul>
-                            <li><a href="servicos/primeira-habilitacao.html">1ª Habilitação (A/B)</a></li>
-                            <li><a href="servicos/adicao-categoria.html">Adição de Categoria</a></li>
-                            <li><a href="servicos/mudanca-categoria.html">Profissional (C/D/E)</a></li>
-                            <li><a href="servicos/aulas-habilitados.html">Aulas p/ Habilitados</a></li>
-                            <li><a href="servicos/reciclagem.html">Reciclagem</a></li>
-                            <li><a href="servicos/cursos-especiais.html">Cursos (MOPP)</a></li>
+                            <li><a href="servicos/primeira-habilitacao.html" class="hover-underline">1ª Habilitação (A/B)</a></li>
+                            <li><a href="servicos/adicao-categoria.html" class="hover-underline">Adição de Categoria</a></li>
+                            <li><a href="servicos/mudanca-categoria.html" class="hover-underline">Profissional (C/D/E)</a></li>
+                            <li><a href="servicos/aulas-habilitados.html" class="hover-underline">Aulas p/ Habilitados</a></li>
                         </ul>
                     </div>
 
                     <div class="footer-col">
                         <h3>Contato</h3>
-                        <ul>
-                            <li><i class="ri-map-pin-line" style="color:var(--secondary);"></i> Av. Hélio Ossamu
-                                Daikuara,
-                                2445 - Jd. Vista Alegre</li>
-                            <li><i class="ri-whatsapp-line" style="color:var(--secondary);"></i> (11) 94034-5096</li>
-                            <li><i class="ri-phone-line" style="color:var(--secondary);"></i> (11) 94719-7252</li>
+                        <ul class="contact-list">
+                            <li>
+                                <div class="icon-circle"><i class="ri-map-pin-line"></i></div>
+                                <span>Av. Hélio Ossamu Daikuara, 2445<br>Jd. Vista Alegre, Embu</span>
+                            </li>
+                            <li>
+                                <div class="icon-circle"><i class="ri-whatsapp-line"></i></div>
+                                <span>(11) 98133-6254</span>
+                            </li>
+                            <li>
+                                <div class="icon-circle"><i class="ri-shield-check-fill"></i></div>
+                                <span>Site 100% Seguro</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="footer-meta">
-                    <p>&copy; 2026 Auto Escola Mineiro. Todos os direitos reservados. Feito com <i
-                            class="ri-heart-fill text-secondary"></i> em Embu.</p>
+                    <p>&copy; 2026 Auto Escola Mineiro. Todos os direitos reservados.</p>
                 </div>
             </div>
         </footer>
@@ -2461,7 +2598,7 @@
     </main>
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/5511940345096" class="btn-whatsapp" aria-label="Falar conosco no WhatsApp">
+    <a href="https://wa.me/5511981336254" class="btn-whatsapp" aria-label="Falar conosco no WhatsApp">
         <i class="ri-whatsapp-line" aria-hidden="true"></i>
     </a>
 
